@@ -11,3 +11,9 @@ polygon = PackedVector2Array(-196, -190, -310, -15, -157, 255, 199, 213, 285, -1
 
 [node name="ligntGun" parent="." instance=ExtResource("1_rf6cg")]
 position = Vector2(167, 102)
+
+[node name="heatGening" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="heatGening" to="." method="on_heating" binds= [0.5]]

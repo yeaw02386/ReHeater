@@ -1,6 +1,7 @@
 extends Node2D
 @export var bullet:PackedScene
-@export var bulletSpeed:int
+@export var bulletSpeed:int = 10
+@export var heatGen:float = 1
 
 func _ready():
 	pass 
@@ -17,8 +18,6 @@ func shoot() :
 	var pos = $Polygon2D.position + get_parent().position + position
 	ins.init(bulletSpeed,pos)
 	get_parent().get_parent().add_child(ins)
-
-func getMouse() :
-	return get_viewport().get_mouse_position()
 	
+	get_tree().call_group("heat","on_heating",heatGen)
 	
