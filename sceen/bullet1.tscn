@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://t6d2bmhou7xn"]
+
+[ext_resource type="Script" path="res://scripts/bullet1.gd" id="1_gtkhk"]
+
+[node name="bullet1" type="Node2D"]
+script = ExtResource("1_gtkhk")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-13, 2)
+color = Color(0.94902, 0.25098, 0.447059, 1)
+polygon = PackedVector2Array(-7, -11, 12.3604, -7.94312, 50, -2, 30.2968, 1.80237, 11.8251, 5.3671, -7, 9)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

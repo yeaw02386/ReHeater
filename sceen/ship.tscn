@@ -1,3 +1,13 @@
-[gd_scene format=3 uid="uid://butvwy5amfv8b"]
+[gd_scene load_steps=3 format=3 uid="uid://butvwy5amfv8b"]
+
+[ext_resource type="Script" path="res://scripts/ship.gd" id="1_cmr4t"]
+[ext_resource type="PackedScene" uid="uid://b0ve0eqogkr02" path="res://sceen/ligntGun.tscn" id="1_rf6cg"]
 
 [node name="ship" type="Node2D"]
+script = ExtResource("1_cmr4t")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-196, -190, -310, -15, -157, 255, 199, 213, 285, -101, 60, -254)
+
+[node name="ligntGun" parent="." instance=ExtResource("1_rf6cg")]
+position = Vector2(167, 102)

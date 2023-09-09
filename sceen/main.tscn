@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://ecifd3cetgg4"]
+[gd_scene load_steps=3 format=3 uid="uid://ecifd3cetgg4"]
 
-[node name="main" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://butvwy5amfv8b" path="res://sceen/ship.tscn" id="1_kc7h8"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_lv2ov"]
+
+[node name="main" type="Node2D" groups=["bullet", "heat"]]
+script = ExtResource("1_lv2ov")
+
+[node name="ship" parent="." groups=["heat"] instance=ExtResource("1_kc7h8")]
+position = Vector2(618, 329)

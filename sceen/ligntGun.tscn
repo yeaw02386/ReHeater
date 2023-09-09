@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0ve0eqogkr02"]
+
+[ext_resource type="Script" path="res://scripts/ligntGun.gd" id="1_bupmw"]
+[ext_resource type="PackedScene" uid="uid://t6d2bmhou7xn" path="res://sceen/bullet1.tscn" id="2_yr4ww"]
+
+[node name="ligntGun" type="Node2D"]
+script = ExtResource("1_bupmw")
+bullet = ExtResource("2_yr4ww")
+bulletSpeed = 20
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.243137, 0.682353, 0.705882, 1)
+polygon = PackedVector2Array(-2, -21, 25, -15, 26, -5, 20, 10, -2, 11, -18, 8, -22, -13)
