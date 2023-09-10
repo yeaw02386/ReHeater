@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://omiu6u0hw5r3"]
+
+[ext_resource type="Script" path="res://scripts/bulletPiercing.gd" id="1_p2pix"]
+
+[node name="bulletPiercing" type="Node2D"]
+script = ExtResource("1_p2pix")
+speed = 30.0
+heatGening = 3.0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.635294, 0.611765, 0.964706, 1)
+polygon = PackedVector2Array(-6, -7, 18, -5, 21, -1, 65, 1, 19, 5, 11, 8, -8, 5)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

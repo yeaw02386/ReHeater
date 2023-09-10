@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://vw8fopbauf5q"]
+
+[ext_resource type="Script" path="res://scripts/bulletAOE.gd" id="1_52ygf"]
+
+[node name="bulletAOE" type="Node2D"]
+script = ExtResource("1_52ygf")
+speed = 6.0
+heatGening = 5.0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-6.08219, 1.03922)
+scale = Vector2(0.835616, 0.921569)
+color = Color(0.309804, 0.670588, 0.788235, 1)
+polygon = PackedVector2Array(-21, -23, -37, 1, -25, 26, 8, 19, 26, 20, 35, 2, 36, -24, 21, -24, 10, -25)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

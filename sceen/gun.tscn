@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0ve0eqogkr02"]
+
+[ext_resource type="Script" path="res://scripts/gun.gd" id="1_nknlo"]
+[ext_resource type="PackedScene" uid="uid://t6d2bmhou7xn" path="res://sceen/bullet1.tscn" id="2_fnlxf"]
+[ext_resource type="PackedScene" uid="uid://vw8fopbauf5q" path="res://sceen/bulletAOE.tscn" id="3_so4hs"]
+[ext_resource type="PackedScene" uid="uid://omiu6u0hw5r3" path="res://sceen/bulletPiercing.tscn" id="4_45711"]
+
+[node name="ligntGun" type="Node2D"]
+script = ExtResource("1_nknlo")
+bulletLight = ExtResource("2_fnlxf")
+bulletAOE = ExtResource("3_so4hs")
+bulletPiercing = ExtResource("4_45711")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0.243137, 0.682353, 0.705882, 1)
+polygon = PackedVector2Array(-2, -21, 25, -15, 26, -5, 20, 10, -2, 11, -18, 8, -22, -13)
+
+[node name="shootDelay" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="timeout" from="shootDelay" to="." method="_on_shoot_delay_timeout"]
