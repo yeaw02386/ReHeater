@@ -2,6 +2,7 @@ extends Node2D
 
 @export var speed:float = 10
 @export var heatGening:float = 1
+@export var dmg:int = 50
 
 var newPos
 
@@ -16,4 +17,9 @@ func _process(delta):
 	position += newPos
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	queue_free()
+
+
+func _on_hit_box_area_entered(area):
+	area.get_parent().on_getAttacked(dmg)
 	queue_free()

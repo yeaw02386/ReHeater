@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://ecifd3cetgg4"]
+[gd_scene load_steps=4 format=3 uid="uid://ecifd3cetgg4"]
 
 [ext_resource type="PackedScene" uid="uid://butvwy5amfv8b" path="res://sceen/ship.tscn" id="1_kc7h8"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_lv2ov"]
+[ext_resource type="PackedScene" uid="uid://seaohxkux1m3" path="res://sceen/alien01.tscn" id="3_w3m33"]
 
-[node name="main" type="Node2D" groups=["bullet", "heat"]]
+[node name="main" type="Node2D" groups=["bullet", "enemyAttack", "heat"]]
 script = ExtResource("1_lv2ov")
 
 [node name="ship" parent="." groups=["heat"] instance=ExtResource("1_kc7h8")]
-position = Vector2(618, 329)
+position = Vector2(903, 480)
+
+[node name="alien01" parent="." instance=ExtResource("3_w3m33")]
+position = Vector2(359, 539)

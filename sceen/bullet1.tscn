@@ -12,4 +12,12 @@ polygon = PackedVector2Array(-7, -11, 12.3604, -7.94312, 50, -2, 30.2968, 1.8023
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[node name="hitBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="bullet" type="CollisionPolygon2D" parent="hitBox"]
+polygon = PackedVector2Array(-18, -8, 36, -1, -18, 10)
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]

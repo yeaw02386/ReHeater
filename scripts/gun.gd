@@ -23,7 +23,6 @@ func shoot() :
 	ins.init(pos)
 	get_parent().get_parent().add_child(ins)
 	get_tree().call_group("heat","on_heating",ins.heatGening)
-	print(ins)
 
 func _on_shoot_delay_timeout():
 	if Input.is_action_pressed("attack"):

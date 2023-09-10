@@ -1,12 +1,13 @@
 extends Node2D
 
 var MAX_HEAT = 1000
-var heat = 30
+var heat = 400
 var coolerDMG = 1
 var heatLimit = []
 
 func _ready():
-	pass
+	add_to_group("heat")
+	add_to_group("enemyAttack")
 
 func _process(delta):
 	pass
@@ -18,11 +19,12 @@ func on_heating(temp) :
 
 func on_cooling(temp) :
 	heat -= temp
-
-func _input(event):
-	if event.is_action_pressed("aoeGun") :
-		pass
 		
 func on_setHeatLimit(temp) :
 	heatLimit.append(temp)
+	
+func on_coolerDamage(dmg) :
+	coolerDMG += dmg
 
+func _on_hitbox_area_entered(area):
+	area.get_parent().canAttack = true
