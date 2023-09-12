@@ -1,10 +1,103 @@
-[gd_scene load_steps=4 format=3 uid="uid://seaohxkux1m3"]
+[gd_scene load_steps=21 format=3 uid="uid://seaohxkux1m3"]
 
 [ext_resource type="Script" path="res://scripts/alien01.gd" id="1_h0w5d"]
 [ext_resource type="PackedScene" uid="uid://ddnhjiirpyjtr" path="res://sceen/liquid.tscn" id="2_dsk0b"]
+[ext_resource type="Texture2D" uid="uid://vvxek3qub0uj" path="res://assets/Alien/Attacking/frame0035.png" id="3_ws5uq"]
+[ext_resource type="Texture2D" uid="uid://dm2upri8te0pt" path="res://assets/Alien/Attacking/frame0036.png" id="4_ac1xl"]
+[ext_resource type="Texture2D" uid="uid://cfhidulw6fne1" path="res://assets/Alien/Attacking/frame0037.png" id="5_7aybx"]
+[ext_resource type="Texture2D" uid="uid://bfomdv77yak2m" path="res://assets/Alien/Attacking/frame0038.png" id="6_qq32r"]
+[ext_resource type="Texture2D" uid="uid://cx2d3cdjlb08" path="res://assets/Alien/Attacking/frame0039.png" id="7_2nv8d"]
+[ext_resource type="Texture2D" uid="uid://dgqhvme5o1r02" path="res://assets/Alien/Attacking/frame0040.png" id="8_rvl3u"]
+[ext_resource type="Texture2D" uid="uid://csm2ppwatglgc" path="res://assets/Alien/Dying/frame0041.png" id="9_drlam"]
+[ext_resource type="Texture2D" uid="uid://b1pj5n1jlsrc3" path="res://assets/Alien/Dying/frame0042.png" id="10_q5mhk"]
+[ext_resource type="Texture2D" uid="uid://uic0m5n6ejfy" path="res://assets/Alien/Dying/frame0043.png" id="11_w3oum"]
+[ext_resource type="Texture2D" uid="uid://dbl4iol4iivqs" path="res://assets/Alien/Dying/frame0044.png" id="12_wan16"]
+[ext_resource type="Texture2D" uid="uid://bhrmkm73wvsiy" path="res://assets/Alien/Dying/frame0045.png" id="13_mejof"]
+[ext_resource type="Texture2D" uid="uid://j000j5fbdn57" path="res://assets/Alien/Dying/frame0046.png" id="14_trp4v"]
+[ext_resource type="Texture2D" uid="uid://dauy2l5sepj8e" path="res://assets/Alien/Running/frame0047.png" id="15_40pwb"]
+[ext_resource type="Texture2D" uid="uid://c25l4w3wceadb" path="res://assets/Alien/Running/frame0048.png" id="16_oie7f"]
+[ext_resource type="Texture2D" uid="uid://bt0fifdfvedl0" path="res://assets/Alien/Running/frame0049.png" id="17_npejo"]
+[ext_resource type="Texture2D" uid="uid://dktky7gqm1xj" path="res://assets/Alien/Running/frame0050.png" id="18_gssvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwek7"]
-size = Vector2(62, 113)
+size = Vector2(62, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivg84"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_ws5uq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ac1xl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7aybx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qq32r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2nv8d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rvl3u")
+}],
+"loop": true,
+"name": &"Attacking",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_q5mhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ws5uq")
+}],
+"loop": false,
+"name": &"Damaged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_drlam")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_q5mhk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_w3oum")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wan16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_mejof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_trp4v")
+}],
+"loop": false,
+"name": &"Dying",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_40pwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_oie7f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_npejo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_gssvm")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 5.0
+}]
 
 [node name="alien01" type="CharacterBody2D"]
 collision_layer = 12
@@ -15,10 +108,10 @@ script = ExtResource("1_h0w5d")
 liquid = ExtResource("2_dsk0b")
 
 [node name="body" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_pwek7")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(4, 11)
 scale = Vector2(0.716031, 0.844994)
 color = Color(0.823529, 0.47451, 0.227451, 1)
@@ -32,6 +125,10 @@ autostart = true
 path_desired_distance = 159.17
 target_desired_distance = 167.52
 avoidance_enabled = true
+
+[node name="Ani" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ivg84")
+animation = &"Running"
 
 [connection signal="timeout" from="attackDelay" to="." method="_on_attack_delay_timeout"]
 [connection signal="velocity_computed" from="pathFinding" to="." method="_on_path_finding_velocity_computed"]

@@ -18,6 +18,7 @@ func init(shipIns,pos,speed):
 	walkSpeed = speed
 
 func _ready():
+	$Ani.play("Running")
 	add_to_group("enemyAttack")
 	add_to_group("dayNight")
 	
@@ -32,10 +33,18 @@ func _physics_process(delta):
 
 func on_getAttacked(dmg):
 	hp -= dmg
+	$Ani.play("Damaged")
 	if hp <= 0: 
 		on_dead()
+	else:
+		await get_tree().create_timer(0.15).timeout
+		$Ani.play("Running")
 
 func on_dead():
+	$Ani.play("Dying")
+	await get_tree().create_timer(0.3).timeout
+	
+	
 	var ins = liquid.instantiate()
 	ins.init(liquidAilen,global_position)
 	get_parent().add_child(ins)
@@ -45,6 +54,7 @@ func _on_attack_delay_timeout():
 	if not canAttack : 
 		return
 	get_tree().call_group("enemyAttack","on_coolerDamage",dmg)
+	$Ani.play("Attacking")
 
 func on_dayStarted():
 	on_dead()
