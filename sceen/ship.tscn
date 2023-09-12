@@ -9,6 +9,7 @@ script = ExtResource("1_cmr4t")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(0.999985, -2.00001)
 scale = Vector2(0.509244, 0.575639)
+color = Color(0.384314, 0.784314, 0.784314, 1)
 polygon = PackedVector2Array(-196, -190, -310, -15, -157, 255, 199, 213, 285, -101, 60, -254)
 
 [node name="gun" parent="." instance=ExtResource("1_rf6cg")]
@@ -24,5 +25,5 @@ polygon = PackedVector2Array(-132, -132, -176, -7, -93, 174, 124, 156, 158, -75,
 [node name="autoHeatGening" type="Timer" parent="."]
 autostart = true
 
-[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="autoHeatGening" to="." method="on_heating" binds= [0.2]]

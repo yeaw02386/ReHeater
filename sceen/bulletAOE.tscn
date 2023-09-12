@@ -4,8 +4,9 @@
 
 [node name="bulletAOE" type="Node2D"]
 script = ExtResource("1_52ygf")
-speed = 6.0
+speed = 3.0
 heatGening = 5.0
+dmg = 100
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-6.08219, 1.03922)
@@ -22,5 +23,28 @@ collision_mask = 8
 [node name="body" type="CollisionPolygon2D" parent="hitBox"]
 polygon = PackedVector2Array(-26, -20, 23, -19, 23, 3, 11, 21, -31, 23, -41, -4)
 
+[node name="bloom" type="Timer" parent="."]
+wait_time = 1.316
+one_shot = true
+autostart = true
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+color = Color(0.878431, 0.686275, 0.898039, 1)
+polygon = PackedVector2Array(-71, -43, -75, 3, -79, 42, -46, 68, -12, 76, 22, 77, 52, 54, 70, 29, 69, -6, 75, -34, 44, -64, 12, -79, -42, -71)
+
+[node name="bloomBox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="bloom" type="CollisionPolygon2D" parent="bloomBox"]
+polygon = PackedVector2Array(-48, -69, -77, -24, -74, 40, -18, 78, 27, 69, 65, 30, 73, -38, 7, -78)
+
+[node name="bloomOut" type="Timer" parent="."]
+wait_time = 0.578
+one_shot = true
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
-[connection signal="area_entered" from="hitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="bloom" to="." method="_on_bloom_timeout"]
+[connection signal="body_entered" from="bloomBox" to="." method="_on_bloom_box_body_entered"]
+[connection signal="timeout" from="bloomOut" to="." method="_on_bloom_out_timeout"]

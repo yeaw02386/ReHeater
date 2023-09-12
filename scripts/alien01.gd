@@ -1,26 +1,34 @@
-extends Node2D
+extends CharacterBody2D
+var NODE_NAME = "enemy"
+
+@export var liquid:PackedScene
 @export var hp:float = 100
 @export var dmg:float = 0.1
+@export var liquidAilen:float = 30
 
 var ship
-var targetPos
 var walkSpeed
 var canAttack = false
 
-func init(shipIns,speed):
+@onready var nav = $pathFinding
+
+func init(shipIns,pos,speed):
+	position = pos
 	ship = shipIns
-	targetPos = ship.position
 	walkSpeed = speed
 
 func _ready():
 	add_to_group("enemyAttack")
-	ship = get_parent().get_node("ship")
-	init(ship,1)
+	add_to_group("dayNight")
+	
+	nav.target_position = ship.global_position
 
-
-func _process(delta):
+func _physics_process(delta):
 	if not canAttack :
-		position = position.move_toward(targetPos,walkSpeed)
+		var path = to_local(nav.get_next_path_position()).normalized()*walkSpeed
+		velocity = path
+	else :velocity = Vector2(0,0)
+	move_and_slide()
 
 func on_getAttacked(dmg):
 	hp -= dmg
@@ -28,9 +36,16 @@ func on_getAttacked(dmg):
 		on_dead()
 
 func on_dead():
+	var ins = liquid.instantiate()
+	ins.init(liquidAilen,global_position)
+	get_parent().add_child(ins)
 	queue_free()
 
 func _on_attack_delay_timeout():
 	if not canAttack : 
 		return
 	get_tree().call_group("enemyAttack","on_coolerDamage",dmg)
+
+func on_dayStarted():
+	on_dead()
+

@@ -1,40 +1,37 @@
 [gd_scene load_steps=4 format=3 uid="uid://seaohxkux1m3"]
 
 [ext_resource type="Script" path="res://scripts/alien01.gd" id="1_h0w5d"]
+[ext_resource type="PackedScene" uid="uid://ddnhjiirpyjtr" path="res://sceen/liquid.tscn" id="2_dsk0b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwek7"]
-size = Vector2(46, 117)
+size = Vector2(62, 113)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhtlm"]
-size = Vector2(29, 71)
-
-[node name="alien01" type="Node2D"]
+[node name="alien01" type="CharacterBody2D"]
+collision_layer = 12
+collision_mask = 12
+motion_mode = 1
+wall_min_slide_angle = 1.75755
 script = ExtResource("1_h0w5d")
+liquid = ExtResource("2_dsk0b")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(1, 0)
-scale = Vector2(0.716031, 0.844994)
-color = Color(0.823529, 0.47451, 0.227451, 1)
-polygon = PackedVector2Array(-18, 14, -11, 57, -3, 17, 13, 44, 14, -34, 67, -34, 17, -53, -13, -79, -37, -66, -46, -34, -3, -44, -21.618, -32.8292, -43, -20)
-
-[node name="hitBox" type="Area2D" parent="."]
-collision_layer = 8
-collision_mask = 8
-
-[node name="body" type="CollisionShape2D" parent="hitBox"]
-position = Vector2(-8, -13.5)
+[node name="body" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_pwek7")
 
-[node name="attackBox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
-
-[node name="attack" type="CollisionShape2D" parent="attackBox"]
-position = Vector2(29, -19)
-shape = SubResource("RectangleShape2D_vhtlm")
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(4, 11)
+scale = Vector2(0.716031, 0.844994)
+color = Color(0.823529, 0.47451, 0.227451, 1)
+polygon = PackedVector2Array(-18, 14, -11, 57, -3, 17, 13, 44, 12.5693, -28.4026, 67, -34, 17, -53, -13, -79, -37, -66, -46, -34, -3, -44, -21.618, -32.8292, -43, -20, -25.1386, -11.8344)
 
 [node name="attackDelay" type="Timer" parent="."]
 wait_time = 1.004
 autostart = true
 
+[node name="pathFinding" type="NavigationAgent2D" parent="."]
+path_desired_distance = 159.17
+target_desired_distance = 167.52
+avoidance_enabled = true
+
 [connection signal="timeout" from="attackDelay" to="." method="_on_attack_delay_timeout"]
+[connection signal="velocity_computed" from="pathFinding" to="." method="_on_path_finding_velocity_computed"]

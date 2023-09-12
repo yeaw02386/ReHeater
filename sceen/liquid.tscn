@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddnhjiirpyjtr"]
+
+[ext_resource type="Script" path="res://scripts/liquid.gd" id="1_mixsb"]
+
+[node name="liquid" type="Node2D"]
+script = ExtResource("1_mixsb")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-1.90735e-06, 1)
+scale = Vector2(6.125, 4.5)
+color = Color(0, 0.717647, 0.764706, 1)
+polygon = PackedVector2Array(-1, 3, -3, 1, -4, -1, -3, -4, -2, -4, -1, -6, 0, -8, 0, -9, 1, -6, 2, -4, 4, -2, 4, -1, 4, 2, 3, 3, 1, 3)
