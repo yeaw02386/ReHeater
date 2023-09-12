@@ -10,13 +10,14 @@ var delayMetaData = {0:0.2,
 					 2:0.7}
 var nowBulletType = -1
 var canShoot = true
+var playerInShip = false
 
 func _ready():
 	allBullet = [bulletLight,bulletAOE,bulletPiercing]
 	swapBullet() 
 
 func _process(delta):
-	if Input.is_action_pressed("attack") and canShoot: 
+	if Input.is_action_pressed("attack") and canShoot and playerInShip: 
 		shoot()
 		canShoot = false
 

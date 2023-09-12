@@ -131,4 +131,3 @@ sprite_frames = SubResource("SpriteFrames_ivg84")
 animation = &"Running"
 
 [connection signal="timeout" from="attackDelay" to="." method="_on_attack_delay_timeout"]
-[connection signal="velocity_computed" from="pathFinding" to="." method="_on_path_finding_velocity_computed"]

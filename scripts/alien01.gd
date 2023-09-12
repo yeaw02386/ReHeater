@@ -1,5 +1,6 @@
 extends CharacterBody2D
 var NODE_NAME = "enemy"
+var NODE_TYPE = "enemy"
 
 @export var liquid:PackedScene
 @export var hp:float = 100
