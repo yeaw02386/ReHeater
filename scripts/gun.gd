@@ -5,6 +5,8 @@ extends Node2D
 var allBullet
 var bullet 
 
+signal fired
+
 var delayMetaData = {0:0.2,
 					 1:1.0,
 					 2:0.7}
@@ -22,6 +24,7 @@ func _process(delta):
 		canShoot = false
 
 func shoot() :
+	#emit_signal("fired")
 	var ins = bullet.instantiate()
 	var pos = $Polygon2D.position + get_parent().position + position
 	ins.init(pos)

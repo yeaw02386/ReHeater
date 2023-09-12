@@ -128,6 +128,6 @@ avoidance_enabled = true
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ivg84")
-animation = &"Running"
+animation = &"Dying"
 
 [connection signal="timeout" from="attackDelay" to="." method="_on_attack_delay_timeout"]

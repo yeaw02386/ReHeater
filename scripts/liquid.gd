@@ -7,7 +7,7 @@ func init(liq,pos):
 	position = pos
 
 func _ready():
-	pass 
+	$Ani.play("floating")
 
 func _process(delta):
 	pass

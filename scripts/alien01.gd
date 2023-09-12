@@ -45,7 +45,6 @@ func on_dead():
 	$Ani.play("Dying")
 	await get_tree().create_timer(0.3).timeout
 	
-	
 	var ins = liquid.instantiate()
 	ins.init(liquidAilen,global_position)
 	get_parent().add_child(ins)
@@ -58,5 +57,8 @@ func _on_attack_delay_timeout():
 	$Ani.play("Attacking")
 
 func on_dayStarted():
+	$Ani.play("Dying")
+	await get_tree().create_timer(0.3).timeout
+	
 	on_dead()
 

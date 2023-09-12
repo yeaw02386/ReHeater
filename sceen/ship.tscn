@@ -1,8 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://butvwy5amfv8b"]
+[gd_scene load_steps=9 format=3 uid="uid://butvwy5amfv8b"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_cmr4t"]
 [ext_resource type="PackedScene" uid="uid://b0ve0eqogkr02" path="res://sceen/gun.tscn" id="1_rf6cg"]
 [ext_resource type="PackedScene" uid="uid://dkq3jthkeyvc2" path="res://sceen/player.tscn" id="2_vv6n4"]
+[ext_resource type="Texture2D" uid="uid://chpgl75qcbtoc" path="res://assets/Spaceship/3.png" id="3_cxoxv"]
+[ext_resource type="Texture2D" uid="uid://t2wyr070d70h" path="res://assets/Spaceship/1.png" id="3_gwcnm"]
+[ext_resource type="Texture2D" uid="uid://bkb2opjfy3a5m" path="res://assets/Spaceship/2.png" id="4_dstrt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tg07w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cxoxv")
+}],
+"loop": true,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_dstrt")
+}],
+"loop": true,
+"name": &"Empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_gwcnm")
+}],
+"loop": true,
+"name": &"OnShip",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q76tw"]
 radius = 294.94
@@ -11,21 +41,29 @@ radius = 294.94
 script = ExtResource("1_cmr4t")
 player = ExtResource("2_vv6n4")
 
+[node name="Ani" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1.49999, 1.00003)
+scale = Vector2(1.13, 1.22)
+sprite_frames = SubResource("SpriteFrames_tg07w")
+animation = &"Empty"
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(0.999985, -2.00001)
 scale = Vector2(0.509244, 0.575639)
 color = Color(0.384314, 0.784314, 0.784314, 1)
 polygon = PackedVector2Array(-196, -190, -310, -15, -157, 255, 199, 213, 285, -101, 60, -254)
 
 [node name="gun" parent="." instance=ExtResource("1_rf6cg")]
-position = Vector2(-1, 67)
+visible = false
+position = Vector2(-1, 19.18)
 
 [node name="hitbox" type="Area2D" parent="."]
 collision_layer = 20
 collision_mask = 20
 
 [node name="shipBody" type="CollisionPolygon2D" parent="hitbox"]
-polygon = PackedVector2Array(-132, -132, -176, -7, -93, 174, 124, 156, 158, -75, 27, -162)
+polygon = PackedVector2Array(-96, -97, -137, -7, -158, 42, -164, 98, 1, 116, 157, 105, 153, 35, 127, -61, 71, -119, 36, -142, -5, -152, -57, -130)
 
 [node name="autoHeatGening" type="Timer" parent="."]
 autostart = true

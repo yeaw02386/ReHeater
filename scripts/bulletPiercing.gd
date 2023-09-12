@@ -11,6 +11,7 @@ func init(pos) :
 	position = pos
 	
 func _ready():
+	$Ani.play("default")
 	look_at(get_viewport().get_mouse_position())
 	newPos = Vector2(cos(rotation),sin(rotation))*speed
 

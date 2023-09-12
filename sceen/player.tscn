@@ -71,3 +71,5 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_jnjhs")
 animation = &"running"
 frame_progress = 0.208225
+
+[node name="Camera2D" type="Camera2D" parent="."]

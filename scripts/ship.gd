@@ -18,6 +18,7 @@ func playerGetOut():
 	get_parent().add_child(playerIns)
 
 func _ready():
+	$Ani.play("Empty")
 	playerIns = player.instantiate()
 	add_to_group("heat")
 	add_to_group("enemyAttack")
@@ -67,6 +68,7 @@ func _on_interact_body_exited(body):
 	body.canInteract = ""
 	
 func on_getInShip():
+	$Ani.play("OnShip")
 	get_parent().remove_child(playerIns)
 	$gun.playerInShip = true
 	$getInShipDelay.start()
@@ -77,7 +79,13 @@ func on_getInShip():
 	
 func _input(event):
 	if event.is_action_pressed("getInOutShip") and playerInShip: 
+		$Ani.play("Empty")
 		playerGetOut()
+	if event.is_action_pressed("attack") and playerInShip:
+		$Ani.play("Attack")
+		await get_tree().create_timer(0.15).timeout
+		$Ani.play("OnShip")
+		
 
 func _on_get_in_ship_delay_timeout():
 	playerInShip = true

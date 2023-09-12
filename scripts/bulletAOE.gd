@@ -14,6 +14,7 @@ func init(pos) :
 func _ready():
 	look_at(get_viewport().get_mouse_position())
 	newPos = Vector2(cos(rotation),sin(rotation))*speed
+	$Ani.play("default")
 	$bloomBox.monitoring = false
 	$Polygon2D2.visible = false
 

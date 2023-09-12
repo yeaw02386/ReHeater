@@ -1,23 +1,117 @@
-[gd_scene load_steps=2 format=3 uid="uid://t6d2bmhou7xn"]
+[gd_scene load_steps=20 format=3 uid="uid://t6d2bmhou7xn"]
 
 [ext_resource type="Script" path="res://scripts/bullet1.gd" id="1_gtkhk"]
+[ext_resource type="Texture2D" uid="uid://d3k2tgwv1t0kw" path="res://assets/Bullet/Normal/frame0008.png" id="2_ogxij"]
+[ext_resource type="Texture2D" uid="uid://dv6vqgms5nwy8" path="res://assets/Bullet/Normal/frame0009.png" id="3_jc30h"]
+[ext_resource type="Texture2D" uid="uid://be7sdqblvuf6q" path="res://assets/Bullet/Normal/frame0010.png" id="4_23yho"]
+[ext_resource type="Texture2D" uid="uid://bdrqfremjximq" path="res://assets/Bullet/Normal/frame0011.png" id="5_oueci"]
+[ext_resource type="Texture2D" uid="uid://f8530ndwbbf6" path="res://assets/Bullet/Normal/frame0012.png" id="6_qnkrg"]
+[ext_resource type="Texture2D" uid="uid://u2efcgr4cy2o" path="res://assets/Bullet/Normal/frame0013.png" id="7_jn34f"]
+[ext_resource type="Texture2D" uid="uid://cgxf4fjy2ft0b" path="res://assets/Bullet/Normal/frame0014.png" id="8_s7jjv"]
+[ext_resource type="Texture2D" uid="uid://dnhk7132u464i" path="res://assets/Bullet/Normal/frame0015.png" id="9_jaeax"]
+[ext_resource type="Texture2D" uid="uid://doc62dha7wq6x" path="res://assets/Bullet/Normal/frame0016.png" id="10_ydvsn"]
+[ext_resource type="Texture2D" uid="uid://dfu3dtyvb4w6v" path="res://assets/Bullet/Normal/frame0000.png" id="11_xtdk7"]
+[ext_resource type="Texture2D" uid="uid://c2f2cj0bvgbh0" path="res://assets/Bullet/Normal/frame0001.png" id="12_4wp1b"]
+[ext_resource type="Texture2D" uid="uid://40eouiclnhfa" path="res://assets/Bullet/Normal/frame0002.png" id="13_7k86g"]
+[ext_resource type="Texture2D" uid="uid://ckbgsmac1loq1" path="res://assets/Bullet/Normal/frame0003.png" id="14_jtd1m"]
+[ext_resource type="Texture2D" uid="uid://hs4mprw623ve" path="res://assets/Bullet/Normal/frame0004.png" id="15_c4nvc"]
+[ext_resource type="Texture2D" uid="uid://j5f4txjedqt7" path="res://assets/Bullet/Normal/frame0005.png" id="16_yqaab"]
+[ext_resource type="Texture2D" uid="uid://e2ylbos4itmt" path="res://assets/Bullet/Normal/frame0006.png" id="17_flyq6"]
+[ext_resource type="Texture2D" uid="uid://koc2eskvsxsk" path="res://assets/Bullet/Normal/frame0007.png" id="18_invfb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qk04p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ogxij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jc30h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_23yho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_oueci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qnkrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jn34f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s7jjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jaeax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ydvsn")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 14.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_xtdk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_4wp1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_7k86g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_jtd1m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_c4nvc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_yqaab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_flyq6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_invfb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 13.0
+}]
 
 [node name="bullet1" type="Node2D"]
 script = ExtResource("1_gtkhk")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(-13, 2)
 color = Color(0.94902, 0.25098, 0.447059, 1)
 polygon = PackedVector2Array(-7, -11, 12.3604, -7.94312, 50, -2, 30.2968, 1.80237, 11.8251, 5.3671, -7, 9)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
 
 [node name="hitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 8
 
 [node name="bullet" type="CollisionPolygon2D" parent="hitBox"]
+visible = false
 polygon = PackedVector2Array(-18, -8, 36, -1, -18, 10)
+
+[node name="Ani" type="AnimatedSprite2D" parent="."]
+position = Vector2(9, 3)
+scale = Vector2(0.735, 0.735)
+sprite_frames = SubResource("SpriteFrames_qk04p")
+animation = &"Hit"
+frame = 8
+frame_progress = 1.0
+speed_scale = 2.0
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
