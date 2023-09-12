@@ -3,7 +3,8 @@ extends Node2D
 @export var enemy:PackedScene
 
 func _ready():
-	pass
+	var playerIns = get_node("ship").playerIns
+	add_child(playerIns)
 
 func _process(delta):
 	pass
@@ -22,6 +23,9 @@ func on_nightStarted():
 
 func on_dayStarted():
 	$enemySpawnTime.stop()
+	
+func on_liquidInPlayer(liq):
+	$GUI/liquid.text = "Liquid in player  : "+str(liq)
 
 func _on_enemy_spawn_time_timeout():
 	spawnEnemy()

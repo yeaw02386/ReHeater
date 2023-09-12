@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://butvwy5amfv8b" path="res://sceen/ship.tscn" id="1_kc7h8"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_lv2ov"]
+[ext_resource type="PackedScene" uid="uid://lvxn1452iyp0" path="res://sceen/map_tutorial.tscn" id="3_4w2ra"]
 [ext_resource type="PackedScene" uid="uid://seaohxkux1m3" path="res://sceen/alien01.tscn" id="3_w3m33"]
 [ext_resource type="StyleBox" uid="uid://d4boivsl5f33d" path="res://assets/heatbar.tres" id="5_dswfs"]
 [ext_resource type="Script" path="res://scripts/dayNight.gd" id="5_nk8kq"]
-[ext_resource type="PackedScene" uid="uid://bkehfj7kqwuh2" path="res://sceen/map.tscn" id="7_jucdo"]
 
 [sub_resource type="Gradient" id="Gradient_p4w8d"]
-offsets = PackedFloat32Array(0.375479, 0.651341)
+offsets = PackedFloat32Array(0.380117, 0.660819)
 colors = PackedColorArray(0.366595, 0.366595, 0.366595, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_by2ru"]
@@ -25,15 +25,14 @@ point_count = 11
 script = ExtResource("1_lv2ov")
 enemy = ExtResource("3_w3m33")
 
+[node name="map_tutorial" parent="." instance=ExtResource("3_4w2ra")]
+
 [node name="dayNight" type="CanvasModulate" parent="." groups=["dayNight"]]
 position = Vector2(-16, 8)
 script = ExtResource("5_nk8kq")
 gradientDayNight = SubResource("GradientTexture1D_by2ru")
 timeSpeed = 10.0
 timeInit = 17
-
-[node name="map" parent="." instance=ExtResource("7_jucdo")]
-position = Vector2(-8, 16)
 
 [node name="ship" parent="." groups=["heat"] instance=ExtResource("1_kc7h8")]
 position = Vector2(892, 469)
@@ -44,7 +43,7 @@ position = Vector2(892, 469)
 offset_left = 580.0
 offset_top = 30.0
 offset_right = 1369.0
-offset_bottom = 75.0
+offset_bottom = 55.0
 theme_override_styles/fill = ExtResource("5_dswfs")
 max_value = 1000.0
 value = 500.0
@@ -64,6 +63,21 @@ offset_bottom = 98.04
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "coolerDmg :"
+metadata/_edit_use_anchors_ = true
+
+[node name="liquid" type="Label" parent="GUI"]
+anchors_preset = -1
+anchor_left = -0.015
+anchor_top = -0.003
+anchor_right = 0.018
+anchor_bottom = 0.012
+offset_left = 92.53
+offset_top = 142.24
+offset_right = 143.53
+offset_bottom = 168.24
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Liquid in player  : "
 metadata/_edit_use_anchors_ = true
 
 [node name="time" type="Label" parent="GUI"]
