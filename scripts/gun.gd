@@ -15,6 +15,7 @@ var canShoot = true
 var playerInShip = false
 
 func _ready():
+	add_to_group("gun")
 	allBullet = [bulletLight,bulletAOE,bulletPiercing]
 	swapBullet() 
 
@@ -25,6 +26,7 @@ func _process(delta):
 
 func shoot() :
 	#emit_signal("fired")
+	get_tree().call_group("gun","on_playShoot")
 	var ins = bullet.instantiate()
 	var pos = $Polygon2D.position + get_parent().position + position
 	ins.init(pos)

@@ -16,7 +16,7 @@ func _ready():
 	look_at(get_viewport().get_mouse_position())
 	newPos = Vector2(cos(rotation),sin(rotation))*speed
 
-func _process(delta):
+func _physics_process(delta):
 	if hit == 1:
 		pass
 	else:position += newPos

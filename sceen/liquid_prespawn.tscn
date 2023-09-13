@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddnhjiirpyjtr"]
+[gd_scene load_steps=8 format=3 uid="uid://clmtl5w4vn0xm"]
 
-[ext_resource type="Script" path="res://scripts/liquid_prespawn.gd" id="1_cd5t2"]
-[ext_resource type="Texture2D" uid="uid://bsummgyv5rjr8" path="res://assets/Item/Coolant.png" id="2_xa65p"]
+[ext_resource type="Script" path="res://scripts/liquid_prespawn.gd" id="1_duo40"]
+[ext_resource type="Texture2D" uid="uid://bsummgyv5rjr8" path="res://assets/Item/Coolant.png" id="2_tbg5e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lhel"]
 size = Vector2(48, 56)
@@ -91,7 +91,7 @@ _data = {
 }
 
 [node name="liquid" type="Node2D"]
-script = ExtResource("1_cd5t2")
+script = ExtResource("1_duo40")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
@@ -114,6 +114,6 @@ libraries = {
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.999998, -10)
 scale = Vector2(0.63, 0.63)
-texture = ExtResource("2_xa65p")
+texture = ExtResource("2_tbg5e")
 
 [connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

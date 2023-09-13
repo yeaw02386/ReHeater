@@ -38,14 +38,16 @@ animations = [{
 radius = 294.94
 
 [node name="ship" type="Node2D"]
+z_index = 2
 script = ExtResource("1_cmr4t")
 player = ExtResource("2_vv6n4")
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
 position = Vector2(-1.49999, 1.00003)
-scale = Vector2(1.13, 1.22)
+scale = Vector2(0.78, 0.842)
 sprite_frames = SubResource("SpriteFrames_tg07w")
-animation = &"Empty"
+animation = &"OnShip"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
@@ -63,7 +65,7 @@ collision_layer = 20
 collision_mask = 20
 
 [node name="shipBody" type="CollisionPolygon2D" parent="hitbox"]
-polygon = PackedVector2Array(-96, -97, -137, -7, -158, 42, -164, 98, 1, 116, 157, 105, 153, 35, 127, -61, 71, -119, 36, -142, -5, -152, -57, -130)
+polygon = PackedVector2Array(-69, -64, -93, -1, -113, 48, -107, 96, 80, 100, 107, 91, 109, 45, 86, -34, 65, -67, 28, -100, -28, -97)
 
 [node name="autoHeatGening" type="Timer" parent="."]
 autostart = true
@@ -73,11 +75,12 @@ collision_layer = 16
 collision_mask = 16
 
 [node name="interactArea" type="CollisionShape2D" parent="interact"]
+position = Vector2(4, -4)
 shape = SubResource("CircleShape2D_q76tw")
 debug_color = Color(0, 0.572549, 0.831373, 0.0509804)
 
 [node name="playerPoint" type="Marker2D" parent="."]
-position = Vector2(249, -9)
+position = Vector2(169, 68)
 
 [node name="getInShipDelay" type="Timer" parent="."]
 wait_time = 0.3

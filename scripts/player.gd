@@ -16,7 +16,9 @@ func _physics_process(delta):
 	var h = Input.get_axis("ui_up","ui_down")
 	var dir = Vector2(v,h)
 	
-	if dir.x : $animate.flip_h = !(dir.x+1)
+	if dir.x : 
+		$animate.flip_h = !(dir.x+1)
+	
 	if dir.y == 1 : $animate.play("running")
 	else : $animate.play("idle")
 	

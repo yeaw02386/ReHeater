@@ -23,6 +23,7 @@ func _ready():
 	add_to_group("heat")
 	add_to_group("enemyAttack")
 	add_to_group("interact")
+	add_to_group("gun")
 	
 	on_heating(0)
 	on_coolerDamage(0)
@@ -81,11 +82,12 @@ func _input(event):
 	if event.is_action_pressed("getInOutShip") and playerInShip: 
 		$Ani.play("Empty")
 		playerGetOut()
-	if event.is_action_pressed("attack") and playerInShip:
-		$Ani.play("Attack")
-		await get_tree().create_timer(0.15).timeout
-		$Ani.play("OnShip")
-		
+	
 
 func _on_get_in_ship_delay_timeout():
 	playerInShip = true
+	
+func on_playShoot():
+	$Ani.play("Attack")
+	await get_tree().create_timer(0.15).timeout
+	$Ani.play("OnShip")

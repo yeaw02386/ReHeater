@@ -23,8 +23,9 @@ animations = [{
 }]
 
 [node name="bulletAOE" type="Node2D"]
+z_index = 2
 script = ExtResource("1_52ygf")
-speed = 3.0
+speed = 6.0
 heatGening = 5.0
 dmg = 100
 

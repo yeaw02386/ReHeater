@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ecifd3cetgg4"]
+[gd_scene load_steps=11 format=3 uid="uid://ecifd3cetgg4"]
 
 [ext_resource type="PackedScene" uid="uid://butvwy5amfv8b" path="res://sceen/ship.tscn" id="1_kc7h8"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_lv2ov"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://seaohxkux1m3" path="res://sceen/alien01.tscn" id="3_w3m33"]
 [ext_resource type="StyleBox" uid="uid://d4boivsl5f33d" path="res://assets/heatbar.tres" id="5_dswfs"]
 [ext_resource type="Script" path="res://scripts/dayNight.gd" id="5_nk8kq"]
+[ext_resource type="PackedScene" uid="uid://clmtl5w4vn0xm" path="res://sceen/liquid_prespawn.tscn" id="7_m43vy"]
 
 [sub_resource type="Gradient" id="Gradient_p4w8d"]
 offsets = PackedFloat32Array(0.380117, 0.660819)
@@ -32,7 +33,7 @@ position = Vector2(-16, 8)
 script = ExtResource("5_nk8kq")
 gradientDayNight = SubResource("GradientTexture1D_by2ru")
 timeSpeed = 10.0
-timeInit = 17
+timeInit = 6
 
 [node name="ship" parent="." groups=["heat"] instance=ExtResource("1_kc7h8")]
 position = Vector2(892, 469)
@@ -103,5 +104,51 @@ position = Vector2(264, 216)
 rotation = -0.483949
 
 [node name="enemySpawnTime" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="liquid" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(2091, 769)
+
+[node name="liquid2" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(2247, 271)
+
+[node name="liquid3" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(3291, 828)
+
+[node name="liquid4" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(2833, 1275)
+
+[node name="liquid5" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(3651, 100)
+
+[node name="liquid6" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(4660, 609)
+
+[node name="liquid7" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(3934, 938)
+
+[node name="liquid8" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(3342, -670)
+
+[node name="liquid9" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(4367, -1476)
+
+[node name="liquid10" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(2550, -1662)
+
+[node name="liquid11" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(2955, -2216)
+
+[node name="liquid12" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(3383, -2946)
+
+[node name="liquid13" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(4767, -2685)
+
+[node name="liquid14" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(5342, -2081)
+
+[node name="liquid15" parent="." instance=ExtResource("7_m43vy")]
+position = Vector2(5497, -1450)
 
 [connection signal="timeout" from="enemySpawnTime" to="." method="_on_enemy_spawn_time_timeout"]

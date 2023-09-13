@@ -31,9 +31,11 @@ animations = [{
 }]
 
 [node name="bulletPiercing" type="Node2D"]
+z_index = 2
 script = ExtResource("1_p2pix")
 speed = 30.0
 heatGening = 3.0
+dmg = 100
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

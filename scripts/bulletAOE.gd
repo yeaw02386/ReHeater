@@ -18,7 +18,7 @@ func _ready():
 	$bloomBox.monitoring = false
 	$Polygon2D2.visible = false
 
-func _process(delta):
+func _physics_process(delta):
 	if not hit:
 		position += newPos
 	
