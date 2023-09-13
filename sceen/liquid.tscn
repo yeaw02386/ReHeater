@@ -1,7 +1,28 @@
 [gd_scene load_steps=8 format=3 uid="uid://ddnhjiirpyjtr"]
 
-[ext_resource type="Script" path="res://scripts/liquid_prespawn.gd" id="1_cd5t2"]
 [ext_resource type="Texture2D" uid="uid://bsummgyv5rjr8" path="res://assets/Item/Coolant.png" id="2_xa65p"]
+
+[sub_resource type="GDScript" id="GDScript_sgsvm"]
+script/source = "extends Node2D
+
+var liquid
+
+func init(liq,pos):
+	liquid = liq
+	position = pos
+
+func _ready():
+	$Ani.play(\"floating\")
+
+func _process(delta):
+	pass
+
+
+func _on_hit_box_body_entered(body):
+	print(\"pick\")
+	body.on_liquidPickup(liquid)
+	queue_free()
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2lhel"]
 size = Vector2(48, 56)
@@ -91,7 +112,7 @@ _data = {
 }
 
 [node name="liquid" type="Node2D"]
-script = ExtResource("1_cd5t2")
+script = SubResource("GDScript_sgsvm")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
