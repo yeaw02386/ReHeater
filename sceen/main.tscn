@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ecifd3cetgg4"]
+[gd_scene load_steps=9 format=3 uid="uid://ecifd3cetgg4"]
 
-[ext_resource type="PackedScene" uid="uid://butvwy5amfv8b" path="res://sceen/ship.tscn" id="1_kc7h8"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_lv2ov"]
-[ext_resource type="PackedScene" uid="uid://lvxn1452iyp0" path="res://sceen/map_tutorial.tscn" id="3_4w2ra"]
+[ext_resource type="PackedScene" uid="uid://butvwy5amfv8b" path="res://sceen/ship.tscn" id="3_71hmc"]
 [ext_resource type="PackedScene" uid="uid://seaohxkux1m3" path="res://sceen/alien01.tscn" id="3_w3m33"]
 [ext_resource type="StyleBox" uid="uid://d4boivsl5f33d" path="res://assets/heatbar.tres" id="5_dswfs"]
 [ext_resource type="Script" path="res://scripts/dayNight.gd" id="5_nk8kq"]
@@ -21,11 +20,10 @@ _data = {
 }
 point_count = 11
 
-[node name="main" type="Node2D" groups=["bullet", "dayNight", "enemyAttack", "heat"]]
+[node name="main" type="Node2D" groups=["bullet", "dayNight", "enemyAttack", "heat", "system"]]
 script = ExtResource("1_lv2ov")
 enemy = ExtResource("3_w3m33")
-
-[node name="map_tutorial" parent="." instance=ExtResource("3_4w2ra")]
+ship = ExtResource("3_71hmc")
 
 [node name="dayNight" type="CanvasModulate" parent="." groups=["dayNight"]]
 position = Vector2(-16, 8)
@@ -33,9 +31,6 @@ script = ExtResource("5_nk8kq")
 gradientDayNight = SubResource("GradientTexture1D_by2ru")
 timeSpeed = 10.0
 timeInit = 17
-
-[node name="ship" parent="." groups=["heat"] instance=ExtResource("1_kc7h8")]
-position = Vector2(892, 469)
 
 [node name="GUI" type="CanvasLayer" parent="."]
 

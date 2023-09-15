@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://seaohxkux1m3"]
+[gd_scene load_steps=22 format=3 uid="uid://seaohxkux1m3"]
 
 [ext_resource type="Script" path="res://scripts/alien01.gd" id="1_h0w5d"]
 [ext_resource type="PackedScene" uid="uid://ddnhjiirpyjtr" path="res://sceen/liquid.tscn" id="2_dsk0b"]
@@ -99,6 +99,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8gptv"]
+polygon = PackedVector2Array(-14, -41, -19, -20, -11, -11, -30, 5, -33, 20, -26, 23, -29, 34, -23, 40, -5, 40, 7, 41, 27, 39, 26, 22, 38, 17, 31, -1, 14, -12, 13, -18, 22, -20, 22, -33, 12, -33, 10, -41)
+
 [node name="alien01" type="CharacterBody2D"]
 collision_layer = 12
 collision_mask = 12
@@ -129,5 +132,8 @@ avoidance_enabled = true
 [node name="Ani" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ivg84")
 animation = &"Dying"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_8gptv")
 
 [connection signal="timeout" from="attackDelay" to="." method="_on_attack_delay_timeout"]

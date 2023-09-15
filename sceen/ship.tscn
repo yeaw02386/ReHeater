@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://butvwy5amfv8b"]
+[gd_scene load_steps=10 format=3 uid="uid://butvwy5amfv8b"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_cmr4t"]
 [ext_resource type="PackedScene" uid="uid://b0ve0eqogkr02" path="res://sceen/gun.tscn" id="1_rf6cg"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://chpgl75qcbtoc" path="res://assets/Spaceship/3.png" id="3_cxoxv"]
 [ext_resource type="Texture2D" uid="uid://t2wyr070d70h" path="res://assets/Spaceship/1.png" id="3_gwcnm"]
 [ext_resource type="Texture2D" uid="uid://bkb2opjfy3a5m" path="res://assets/Spaceship/2.png" id="4_dstrt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hrxal"]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tg07w"]
 animations = [{
@@ -44,6 +47,7 @@ player = ExtResource("2_vv6n4")
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_hrxal")
 position = Vector2(-1.49999, 1.00003)
 scale = Vector2(0.78, 0.842)
 sprite_frames = SubResource("SpriteFrames_tg07w")
@@ -61,6 +65,7 @@ visible = false
 position = Vector2(-1, 19.18)
 
 [node name="hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 20
 collision_mask = 20
 
@@ -85,57 +90,6 @@ position = Vector2(169, 68)
 [node name="getInShipDelay" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
-
-[node name="refill" type="Label" parent="."]
-visible = false
-offset_left = -260.0
-offset_top = -12.0
-offset_right = -29.0
-offset_bottom = 26.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "R to fill the liquid to cooldown"
-
-[node name="getOut" type="Label" parent="."]
-visible = false
-offset_left = 159.0
-offset_top = 72.0
-offset_right = 292.0
-offset_bottom = 110.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "E to getout ship"
-
-[node name="rightClick" type="Label" parent="."]
-visible = false
-offset_left = 36.0
-offset_top = 103.0
-offset_right = 228.0
-offset_bottom = 141.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "Right cilck to swap bullet
-"
-
-[node name="leftClick" type="Label" parent="."]
-visible = false
-offset_left = -166.0
-offset_top = 98.0
-offset_right = -29.0
-offset_bottom = 136.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "Left cilck to shoot"
-
-[node name="getIn" type="Label" parent="."]
-visible = false
-offset_left = 160.0
-offset_top = 46.0
-offset_right = 293.0
-offset_bottom = 84.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "E to getin ship"
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="autoHeatGening" to="." method="on_heating" binds= [0.2]]

@@ -13,7 +13,8 @@ const INGAME_TO_REAL = (2*PI)/MIN_PRE_DAY
 var time = 0.0
 
 func _ready():
-	time = timeInit * MIN_PRE_HOR * INGAME_TO_REAL 
+	add_to_group("dayNight")
+	on_resetTime()
 
 func _physics_process(delta):
 	time += delta * INGAME_TO_REAL * timeSpeed
@@ -36,3 +37,6 @@ func calTime():
 		get_tree().call_group("dayNight","on_dayStarted")
 	elif hour == nightStart:
 		get_tree().call_group("dayNight","on_nightStarted")
+		
+func on_resetTime():
+	time = timeInit * MIN_PRE_HOR * INGAME_TO_REAL
