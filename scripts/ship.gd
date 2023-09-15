@@ -69,6 +69,7 @@ func _on_interact_body_exited(body):
 	body.canInteract = ""
 	
 func on_getInShip():
+	$Stat/StatAni.play("StatInit")
 	$Ani.play("OnShip")
 	get_parent().remove_child(playerIns)
 	$gun.playerInShip = true
@@ -77,6 +78,9 @@ func on_getInShip():
 	$getOut.visible = true
 	$leftClick.visible = true
 	$rightClick.visible = true
+	await get_tree().create_timer(0.3).timeout
+	$Stat/StatAni.play("StatHover")
+	
 	
 func _input(event):
 	if event.is_action_pressed("getInOutShip") and playerInShip: 
