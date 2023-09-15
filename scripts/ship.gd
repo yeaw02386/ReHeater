@@ -10,6 +10,9 @@ var playerInShip = false
 @onready var camera = get_node("camera")
 
 func playerGetOut():
+	$Ani.play("OutShip")
+	$Stat/StatAni.play("StatOutit")
+	await get_tree().create_timer(0.3).timeout
 	$gun.playerInShip = false
 	playerInShip = false
 	playerIns.global_position = $playerPoint.global_position
@@ -30,7 +33,9 @@ func _ready():
 	on_heating(0)
 	on_coolerDamage(0)
 	
-	playerGetOut()
+	playerIns.global_position = $playerPoint.global_position
+	get_parent().add_child(playerIns)
+	#playerGetOut()
 
 func _process(delta):
 	if playerInShip :
@@ -57,6 +62,27 @@ func on_cooling(temp) :
 func on_coolerDamage(dmg) :
 	coolerDMG += dmg
 	get_tree().call_group("heat","on_coolerDMGUpdate",coolerDMG)
+	if coolerDMG >= 1000:
+		return
+	$damageLayer.frame = int(abs(coolerDMG-1)/2)
+	#print(abs(coolerDMG-1)/2)
+	
+func on_heatUpdate(h):
+	$smokeParticle/particleLight.emitting = true
+	if heat < 500:
+		$smokeParticle/particleNormal.emitting = false
+		$smokeParticle/particleHeavy.emitting = false
+		return
+	$smokeParticle/particleNormal.emitting = true
+	if heat < 900:
+		$smokeParticle/particleHeavy.emitting = false
+		return
+	$smokeParticle/particleHeavy.emitting = true
+	
+	
+	
+	
+	
 
 func _on_hitbox_body_entered(body):
 	if body.NODE_TYPE == "enemy":
@@ -69,12 +95,19 @@ func _on_interact_body_exited(body):
 	body.canInteract = ""
 	
 func on_getInShip():
+	$Stat/StatAni.play("StatInit")
 	$Ani.play("OnShip")
 	playerIns.remove_child(camera)
 	add_child(camera)
 	get_parent().remove_child(playerIns)
 	$gun.playerInShip = true
 	$getInShipDelay.start()
+	
+	$getOut.visible = true
+	$leftClick.visible = true
+	$rightClick.visible = true
+	await get_tree().create_timer(0.3).timeout
+	$Stat/StatAni.play("StatHover")
 	
 func _input(event):
 	if event.is_action_pressed("getInOutShip") and playerInShip: 
