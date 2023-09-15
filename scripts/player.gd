@@ -40,3 +40,6 @@ func _input(event):
 func on_overLiquid(liq):
 	liquid = liq
 	get_tree().call_group("heat","on_liquidInPlayer",liquid)
+	
+func on_destroy():
+	queue_free()

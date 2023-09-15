@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=17 format=3 uid="uid://butvwy5amfv8b"]
+=======
+[gd_scene load_steps=10 format=3 uid="uid://butvwy5amfv8b"]
+>>>>>>> 2fee09c334ce59029f860937f8e2d0e969b387f1
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_cmr4t"]
 [ext_resource type="PackedScene" uid="uid://b0ve0eqogkr02" path="res://sceen/gun.tscn" id="1_rf6cg"]
@@ -10,6 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://cg0nh5vwpia47" path="res://assets/Spaceship reworked/GetOn/frame0003.png" id="7_bksm2"]
 [ext_resource type="Texture2D" uid="uid://cg7oollx6nxk1" path="res://assets/Spaceship reworked/GetOn/frame0004.png" id="8_7deii"]
 [ext_resource type="Texture2D" uid="uid://bee7epkmlvx1k" path="res://assets/Spaceship reworked/Stat.png" id="10_45k14"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hrxal"]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tg07w"]
 animations = [{
@@ -180,8 +187,14 @@ player = ExtResource("2_vv6n4")
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+<<<<<<< HEAD
 position = Vector2(1.90735e-06, 0.999999)
 scale = Vector2(0.5345, 0.576986)
+=======
+material = SubResource("CanvasItemMaterial_hrxal")
+position = Vector2(-1.49999, 1.00003)
+scale = Vector2(0.78, 0.842)
+>>>>>>> 2fee09c334ce59029f860937f8e2d0e969b387f1
 sprite_frames = SubResource("SpriteFrames_tg07w")
 animation = &"OnShip"
 speed_scale = 3.0
@@ -198,6 +211,7 @@ visible = false
 position = Vector2(-1, 19.18)
 
 [node name="hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 20
 collision_mask = 20
 
@@ -224,6 +238,7 @@ position = Vector2(169, 68)
 wait_time = 0.3
 one_shot = true
 
+<<<<<<< HEAD
 [node name="refill" type="Label" parent="."]
 visible = false
 offset_left = -260.0
@@ -285,6 +300,8 @@ libraries = {
 "": SubResource("AnimationLibrary_vxv05")
 }
 
+=======
+>>>>>>> 2fee09c334ce59029f860937f8e2d0e969b387f1
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="autoHeatGening" to="." method="on_heating" binds= [0.2]]
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]

@@ -2,7 +2,7 @@ extends Node2D
 var NODE_NAME = "bullet"
 
 @export var speed:float = 10
-@export var heatGening:float = 1
+@export var heatGening:float = 50
 @export var dmg:int = 50
 
 var newPos
