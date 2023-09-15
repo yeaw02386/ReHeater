@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://butvwy5amfv8b"]
+[gd_scene load_steps=11 format=3 uid="uid://butvwy5amfv8b"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_cmr4t"]
 [ext_resource type="PackedScene" uid="uid://b0ve0eqogkr02" path="res://sceen/gun.tscn" id="1_rf6cg"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://chpgl75qcbtoc" path="res://assets/Spaceship/3.png" id="3_cxoxv"]
 [ext_resource type="Texture2D" uid="uid://t2wyr070d70h" path="res://assets/Spaceship/1.png" id="3_gwcnm"]
 [ext_resource type="Texture2D" uid="uid://bkb2opjfy3a5m" path="res://assets/Spaceship/2.png" id="4_dstrt"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="7_w8253"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hrxal"]
 light_mode = 1
@@ -90,6 +91,11 @@ position = Vector2(169, 68)
 [node name="getInShipDelay" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="camera" type="Camera2D" parent="."]
+ignore_rotation = false
+position_smoothing_speed = 2.0
+script = ExtResource("7_w8253")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="autoHeatGening" to="." method="on_heating" binds= [0.2]]
