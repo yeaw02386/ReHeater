@@ -98,6 +98,6 @@ position = Vector2(264, 216)
 rotation = -0.483949
 
 [node name="enemySpawnTime" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.4
 
 [connection signal="timeout" from="enemySpawnTime" to="." method="_on_enemy_spawn_time_timeout"]

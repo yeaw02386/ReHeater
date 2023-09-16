@@ -34,8 +34,7 @@ func _ready():
 	on_coolerDamage(0)
 	
 	playerIns.global_position = $playerPoint.global_position
-	get_parent().add_child(playerIns)
-	#playerGetOut()
+	playerGetOut()
 
 func _process(delta):
 	if playerInShip :
@@ -109,7 +108,7 @@ func _on_get_in_ship_delay_timeout():
 	playerInShip = true
 	
 func on_playShoot():
-	$Ani.play("Attack")
+	#$Ani.play("Attack")
 	await get_tree().create_timer(0.15).timeout
 	$Ani.play("OnShip")
 	

@@ -383,7 +383,9 @@ lifetime = 3.0
 explosiveness = 0.35
 fixed_fps = 60
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="camera" type="Camera2D" parent="."]
+ignore_rotation = false
+position_smoothing_speed = 1.0
 script = ExtResource("19_oaayh")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

@@ -10,6 +10,7 @@ var maxRotaion = 0.05
 
 var pos = Vector2(0,0)
 var camSpeed = 5
+var zoomCam = Vector2(1,1)
 
 func _ready():
 	randomize()
@@ -26,6 +27,11 @@ func _physics_process(delta):
 		position = position.move_toward(pos,camSpeed)
 	else :
 		position = position.move_toward(pos,camSpeed/3)
+		
+	if zoomCam :
+		zoom = zoom.move_toward(zoomCam,0.008)
+	else :
+		zoom = zoom.move_toward(zoomCam,0.008)
 
 func shakeing():
 	noiseY += 1
@@ -41,11 +47,15 @@ func on_coolerDMGUpdate(dmg):
 func on_mouseMove(mouse):
 	var size = get_viewport().size/2
 	mouse = mouse/Vector2(size)
-	var the = 0.7
-	if mouse.x <= the and mouse.x >= -the:mouse.x = 0
-	if mouse.y <= the and mouse.y >= -the:mouse.y = 0
-	pos = mouse*100
 	
+	var z = threshold(mouse,0.5)
+	if z :zoomCam = Vector2(0.9,0.9)
+	else: zoomCam = Vector2(1,1)
 	
+	pos = threshold(mouse,0.8)*100
 	
-	
+func threshold(mouse,the):
+	var m = mouse
+	if mouse.x <= the and mouse.x >= -the:m.x = 0
+	if mouse.y <= the and mouse.y >= -the:m.y = 0
+	return m
