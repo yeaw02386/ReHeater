@@ -12,8 +12,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func _on_hit_box_body_entered(body):
-	print("pick")
 	body.on_liquidPickup(liquid)
 	queue_free()

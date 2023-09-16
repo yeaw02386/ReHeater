@@ -8,7 +8,7 @@ var bullet
 signal fired
 
 var delayMetaData = {0:0.2,
-					 1:1.0,
+					 1:1.3,
 					 2:0.7}
 var nowBulletType = -1
 var canShoot = true
@@ -25,10 +25,9 @@ func _process(delta):
 		canShoot = false
 
 func shoot() :
-	#emit_signal("fired")
 	get_tree().call_group("gun","on_playShoot")
 	var ins = bullet.instantiate()
-	var pos = $Polygon2D.position + get_parent().position + position
+	var pos = global_position
 	ins.init(pos)
 	get_parent().get_parent().add_child(ins)
 	get_tree().call_group("heat","on_heating",ins.heatGening)
