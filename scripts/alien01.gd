@@ -22,6 +22,7 @@ func _ready():
 	$Ani.play("Running")
 	add_to_group("enemyAttack")
 	add_to_group("dayNight")
+	add_to_group("heat")
 	
 	nav.target_position = ship.global_position
 
@@ -60,5 +61,8 @@ func on_dayStarted():
 	$Ani.play("Dying")
 	await get_tree().create_timer(0.3).timeout
 	
+	on_dead()
+	
+func on_destroy():
 	on_dead()
 

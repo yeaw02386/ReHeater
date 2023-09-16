@@ -3,7 +3,7 @@ var NODE_NAME = "bullet"
 
 @export var speed:float = 10
 @export var heatGening:float = 1
-@export var dmg:int = 50
+@export var dmg:int = 40
 
 var newPos
 var hit = 0

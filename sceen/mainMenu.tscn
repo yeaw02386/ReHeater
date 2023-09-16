@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck24xt1r8jwa5"]
+
+[ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_6g5q4"]
+[ext_resource type="Texture2D" uid="uid://bqbfrlhuftin" path="res://assets/CGArt/aposter_line_art_no_sketch.png" id="1_h2dne"]
+
+[node name="mainMenu" type="Node2D"]
+script = ExtResource("1_6g5q4")
+
+[node name="AposterLineArtNoSketch" type="Sprite2D" parent="."]
+position = Vector2(950.5, 540)
+scale = Vector2(0.990104, 1)
+texture = ExtResource("1_h2dne")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="start" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.716
+anchor_top = 0.43
+anchor_right = 0.875
+anchor_bottom = 0.51
+offset_left = 2.16797
+offset_top = 7.60001
+offset_right = 2.74988
+offset_bottom = 8.19995
+text = "Start"
+
+[node name="exit" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.717
+anchor_top = 0.549
+anchor_right = 0.876
+anchor_bottom = 0.634
+offset_left = 0.265991
+offset_top = 0.0799561
+offset_right = 0.8479
+offset_bottom = 0.279968
+text = "Exit"
+
+[connection signal="pressed" from="CanvasLayer/start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="CanvasLayer/exit" to="." method="_on_exit_pressed"]

@@ -10,6 +10,7 @@ func _ready():
 	$animate.play("idle")
 	add_to_group("heat")
 	add_to_group("interact")
+	add_to_group("camera")
 
 func _physics_process(delta):
 	var v = Input.get_axis("ui_left","ui_right")
@@ -40,3 +41,6 @@ func _input(event):
 func on_overLiquid(liq):
 	liquid = liq
 	get_tree().call_group("heat","on_liquidInPlayer",liquid)
+	
+func on_destroy():
+	queue_free()

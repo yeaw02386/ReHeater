@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhhpcxp2xayv5"]
+
+[ext_resource type="Script" path="res://scripts/gameOver.gd" id="1_vp8la"]
+
+[sub_resource type="Gradient" id="Gradient_sihpe"]
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.45098)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_vueuv"]
+gradient = SubResource("Gradient_sihpe")
+
+[node name="gameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vp8la")
+bgColor = SubResource("GradientTexture1D_vueuv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="bg" type="Polygon2D" parent="CanvasLayer"]
+color = Color(0, 0, 0, 0.196078)
+polygon = PackedVector2Array(-20, -10, -20, 1119, 1942, 1103, 1930, -46, -24, -45)
+
+[node name="restart" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.448
+anchor_top = 0.528
+anchor_right = 0.578
+anchor_bottom = 0.621
+offset_left = 2.90399
+offset_top = -0.23999
+offset_right = 0.643921
+offset_bottom = 0.319885
+text = "Restart"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.411
+anchor_top = 0.297
+anchor_right = 0.614
+anchor_bottom = 0.432
+offset_left = 115.278
+offset_top = 45.2401
+offset_right = -127.828
+offset_bottom = -74.5599
+text = "Reactor Over Heat"
+
+[node name="mainMenu" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.446
+anchor_top = 0.655
+anchor_right = 0.603
+anchor_bottom = 0.719
+offset_left = -7.29199
+offset_top = -5.40002
+offset_right = -33.9061
+offset_bottom = -4.52002
+text = "Main Menu"
+
+[connection signal="pressed" from="CanvasLayer/restart" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/mainMenu" to="." method="_on_main_menu_pressed"]
