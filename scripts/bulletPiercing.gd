@@ -11,10 +11,11 @@ func init(pos) :
 	position = pos
 	
 func _ready():
+	$Ani.play("default")
 	look_at(get_viewport().get_mouse_position())
 	newPos = Vector2(cos(rotation),sin(rotation))*speed
 
-func _process(delta):
+func _physics_process(delta):
 	position += newPos
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://clmtl5w4vn0xm"]
+
+[ext_resource type="Script" path="res://scripts/liquid_prespawn.gd" id="1_duo40"]
+[ext_resource type="Texture2D" uid="uid://bsummgyv5rjr8" path="res://assets/Item/Coolant.png" id="2_tbg5e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2lhel"]
+size = Vector2(48, 56)
+
+[sub_resource type="Animation" id="Animation_f783q"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.999998, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_lflsx"]
+resource_name = "Spawn"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-17.805, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_t2ctp"]
+resource_name = "floating"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.999998, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-10, -0.25, 0, 0.25, 0, -16.495, -0.25, 0, 0.25, 0, -10, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b80qe"]
+_data = {
+"RESET": SubResource("Animation_f783q"),
+"Spawn": SubResource("Animation_lflsx"),
+"floating": SubResource("Animation_t2ctp")
+}
+
+[node name="liquid" type="Node2D"]
+script = ExtResource("1_duo40")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(-1.90735e-06, 1)
+scale = Vector2(6.125, 4.5)
+color = Color(0, 0.717647, 0.764706, 1)
+polygon = PackedVector2Array(-1, 3, -3, 1, -4, -1, -3, -4, -2, -4, -1, -6, 0, -8, 0, -9, 1, -6, 2, -4, 4, -2, 4, -1, 4, 2, 3, 3, 1, 3)
+
+[node name="hitBox" type="Area2D" parent="."]
+
+[node name="body" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(1, -9)
+shape = SubResource("RectangleShape2D_2lhel")
+
+[node name="Ani" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_b80qe")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.999998, -10)
+scale = Vector2(0.63, 0.63)
+texture = ExtResource("2_tbg5e")
+
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

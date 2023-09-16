@@ -5,22 +5,28 @@ extends Node2D
 var allBullet
 var bullet 
 
+signal fired
+
 var delayMetaData = {0:0.2,
 					 1:1.0,
 					 2:0.7}
 var nowBulletType = -1
 var canShoot = true
+var playerInShip = false
 
 func _ready():
+	add_to_group("gun")
 	allBullet = [bulletLight,bulletAOE,bulletPiercing]
 	swapBullet() 
 
 func _process(delta):
-	if Input.is_action_pressed("attack") and canShoot: 
+	if Input.is_action_pressed("attack") and canShoot and playerInShip: 
 		shoot()
 		canShoot = false
 
 func shoot() :
+	#emit_signal("fired")
+	get_tree().call_group("gun","on_playShoot")
 	var ins = bullet.instantiate()
 	var pos = $Polygon2D.position + get_parent().position + position
 	ins.init(pos)

@@ -1,14 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://vw8fopbauf5q"]
+[gd_scene load_steps=6 format=3 uid="uid://vw8fopbauf5q"]
 
 [ext_resource type="Script" path="res://scripts/bulletAOE.gd" id="1_52ygf"]
+[ext_resource type="Texture2D" uid="uid://dgu42g0pup3l4" path="res://assets/Bullet/Atom/frame0000.png" id="2_n6lhf"]
+[ext_resource type="Texture2D" uid="uid://bmh71glvmpxic" path="res://assets/Bullet/Atom/frame0001.png" id="3_j4oro"]
+[ext_resource type="Texture2D" uid="uid://byrinimmfhe7k" path="res://assets/Bullet/Atom/frame0002.png" id="4_dvh6m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_th78m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n6lhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_j4oro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dvh6m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
 
 [node name="bulletAOE" type="Node2D"]
+z_index = 2
 script = ExtResource("1_52ygf")
-speed = 3.0
+speed = 6.0
 heatGening = 5.0
 dmg = 100
 
+[node name="Ani" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_th78m")
+frame = 2
+frame_progress = 0.611073
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(-6.08219, 1.03922)
 scale = Vector2(0.835616, 0.921569)
 color = Color(0.309804, 0.670588, 0.788235, 1)

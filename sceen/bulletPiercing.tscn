@@ -1,24 +1,65 @@
-[gd_scene load_steps=2 format=3 uid="uid://omiu6u0hw5r3"]
+[gd_scene load_steps=8 format=3 uid="uid://omiu6u0hw5r3"]
 
 [ext_resource type="Script" path="res://scripts/bulletPiercing.gd" id="1_p2pix"]
+[ext_resource type="Texture2D" uid="uid://c21711rn4mvkq" path="res://assets/Bullet/Lightning/frame0000.png" id="2_f31ds"]
+[ext_resource type="Texture2D" uid="uid://c1aigvjik8csi" path="res://assets/Bullet/Lightning/frame0001.png" id="3_6g2g4"]
+[ext_resource type="Texture2D" uid="uid://c1gvsti5pru7q" path="res://assets/Bullet/Lightning/frame0002.png" id="4_ifyql"]
+[ext_resource type="Texture2D" uid="uid://c0idy1q2eak1h" path="res://assets/Bullet/Lightning/frame0003.png" id="5_pk8ln"]
+[ext_resource type="Texture2D" uid="uid://cvgetok8n68eo" path="res://assets/Bullet/Lightning/frame0004.png" id="6_vnjui"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f7kgj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f31ds")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_6g2g4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ifyql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pk8ln")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vnjui")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
 
 [node name="bulletPiercing" type="Node2D"]
+z_index = 2
 script = ExtResource("1_p2pix")
 speed = 30.0
 heatGening = 3.0
+dmg = 100
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 color = Color(0.635294, 0.611765, 0.964706, 1)
 polygon = PackedVector2Array(-6, -7, 18, -5, 21, -1, 65, 1, 19, 5, 11, 8, -8, 5)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
 
 [node name="hitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 8
 
 [node name="Body" type="CollisionPolygon2D" parent="hitBox"]
 polygon = PackedVector2Array(-6, -7, 65, 0, -5, 7)
+
+[node name="Ani" type="AnimatedSprite2D" parent="."]
+position = Vector2(20, 7)
+rotation = 0.0846324
+sprite_frames = SubResource("SpriteFrames_f7kgj")
+frame = 1
+frame_progress = 0.997912
+speed_scale = 1.5
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]
