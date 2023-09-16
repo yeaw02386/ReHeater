@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://lvxn1452iyp0"]
+[gd_scene load_steps=7 format=3 uid="uid://c1u1wsptkf58p"]
 
-[ext_resource type="Texture2D" uid="uid://dtjgc47o7lrqh" path="res://assets/376373145_1243998903663743_967522413945510071_n.png" id="1_7ghkf"]
+[ext_resource type="Texture2D" uid="uid://dtjgc47o7lrqh" path="res://sceen/376373145_1243998903663743_967522413945510071_n.png" id="1_7ghkf"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_80ps0"]
 vertices = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
