@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://biplgp2rgx7bb"]
+
+[ext_resource type="Script" path="res://scripts/interact.gd" id="1_b0nti"]
+[ext_resource type="PackedScene" uid="uid://cxe4jpxnc0utv" path="res://sceen/textInteract.tscn" id="1_hh48w"]
+
+[node name="interact" type="CanvasLayer"]
+script = ExtResource("1_b0nti")
+label = ExtResource("1_hh48w")
+
+[node name="interactBox" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.791
+anchor_top = 0.524
+anchor_right = 1.0
+anchor_bottom = 0.709
+offset_left = 23.5179
+offset_top = 20.08
+offset_right = -15.0
+offset_bottom = -20.72

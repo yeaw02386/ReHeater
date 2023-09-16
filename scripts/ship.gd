@@ -82,6 +82,8 @@ func _on_hitbox_body_entered(body):
 		body.canAttack = true
 
 func _on_interact_body_entered(body):
+	get_tree().call_group("interact","on_showInteract","E to getin ship")
+	get_tree().call_group("interact","on_showInteract","R to cooldown")
 	body.canInteract = "ship"
 
 func _on_interact_body_exited(body):
@@ -98,6 +100,10 @@ func on_getInShip():
 	
 	await get_tree().create_timer(0.3).timeout
 	$Stat/StatAni.play("StatHover")
+	
+	get_tree().call_group("interact","on_showInteract","E to getout ship")
+	get_tree().call_group("interact","on_showInteract","Left Click to shoot")
+	get_tree().call_group("interact","on_showInteract","Right Click to swap bullet")
 	
 func _input(event):
 	if event.is_action_pressed("getInOutShip") and playerInShip: 

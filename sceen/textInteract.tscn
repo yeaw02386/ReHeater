@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxe4jpxnc0utv"]
+
+[ext_resource type="Script" path="res://scripts/textInteract.gd" id="1_0cuc7"]
+
+[node name="textInteract" type="Label"]
+anchors_preset = -1
+anchor_left = -0.025
+anchor_top = -0.02
+anchor_right = 0.029
+anchor_bottom = 0.021
+offset_left = -54.45
+offset_top = 5.6
+offset_right = 56.842
+offset_bottom = -7.68
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 20
+text = "252852"
+horizontal_alignment = 2
+script = ExtResource("1_0cuc7")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="timefade" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="timefade" to="." method="_on_timefade_timeout"]

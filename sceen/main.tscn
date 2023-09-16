@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://ecifd3cetgg4"]
+[gd_scene load_steps=10 format=3 uid="uid://ecifd3cetgg4"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_lv2ov"]
 [ext_resource type="PackedScene" uid="uid://butvwy5amfv8b" path="res://sceen/ship.tscn" id="3_71hmc"]
 [ext_resource type="PackedScene" uid="uid://seaohxkux1m3" path="res://sceen/alien01.tscn" id="3_w3m33"]
+[ext_resource type="PackedScene" uid="uid://biplgp2rgx7bb" path="res://sceen/interact.tscn" id="4_m7u3r"]
 [ext_resource type="StyleBox" uid="uid://d4boivsl5f33d" path="res://assets/heatbar.tres" id="5_dswfs"]
 [ext_resource type="Script" path="res://scripts/dayNight.gd" id="5_nk8kq"]
 
@@ -24,6 +25,8 @@ point_count = 11
 script = ExtResource("1_lv2ov")
 enemy = ExtResource("3_w3m33")
 ship = ExtResource("3_71hmc")
+
+[node name="interact" parent="." instance=ExtResource("4_m7u3r")]
 
 [node name="dayNight" type="CanvasModulate" parent="." groups=["dayNight"]]
 position = Vector2(-16, 8)
