@@ -65,7 +65,6 @@ func on_coolerDamage(dmg) :
 	if coolerDMG >= 1000:
 		return
 	$damageLayer.frame = int(abs(coolerDMG-1)/2)
-	#print(abs(coolerDMG-1)/2)
 	
 func on_heatUpdate(h):
 	$smokeParticle/particleLight.emitting = true
@@ -78,11 +77,6 @@ func on_heatUpdate(h):
 		$smokeParticle/particleHeavy.emitting = false
 		return
 	$smokeParticle/particleHeavy.emitting = true
-	
-	
-	
-	
-	
 
 func _on_hitbox_body_entered(body):
 	if body.NODE_TYPE == "enemy":
@@ -103,9 +97,6 @@ func on_getInShip():
 	$gun.playerInShip = true
 	$getInShipDelay.start()
 	
-	$getOut.visible = true
-	$leftClick.visible = true
-	$rightClick.visible = true
 	await get_tree().create_timer(0.3).timeout
 	$Stat/StatAni.play("StatHover")
 	

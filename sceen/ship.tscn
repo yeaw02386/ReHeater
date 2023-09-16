@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://butvwy5amfv8b"]
+[gd_scene load_steps=33 format=3 uid="uid://butvwy5amfv8b"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_cmr4t"]
 [ext_resource type="PackedScene" uid="uid://b0ve0eqogkr02" path="res://sceen/gun.tscn" id="1_rf6cg"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d1onds8fuplag" path="res://assets/Smoke/Smoke1/frame0000.png" id="16_n6mr2"]
 [ext_resource type="Texture2D" uid="uid://bko50r1scw5f0" path="res://assets/Smoke/Smoke1/frame0001.png" id="17_vvuuc"]
 [ext_resource type="Texture2D" uid="uid://c8rc6cc4l2686" path="res://assets/Smoke/Smoke1/frame0002.png" id="18_ydkg1"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="19_oaayh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tg07w"]
 animations = [{
@@ -98,32 +99,6 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_q76tw"]
 radius = 294.94
-
-[sub_resource type="Animation" id="Animation_qwaqk"]
-resource_name = "StatInit"
-length = 0.5
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.525, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.3)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.535, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.3)
-}
 
 [sub_resource type="Animation" id="Animation_osa65"]
 length = 0.001
@@ -220,6 +195,32 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.5, 1)
 }
 
+[sub_resource type="Animation" id="Animation_qwaqk"]
+resource_name = "StatInit"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.525, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.535, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
 [sub_resource type="Animation" id="Animation_ws0cp"]
 resource_name = "StatOutit"
 tracks/0/type = "bezier"
@@ -305,13 +306,6 @@ scale = Vector2(0.54, 0.542)
 sprite_frames = SubResource("SpriteFrames_fmvs8")
 animation = &"damageLayer"
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-visible = false
-position = Vector2(0.999985, -2.00001)
-scale = Vector2(0.509244, 0.575639)
-color = Color(0.384314, 0.784314, 0.784314, 1)
-polygon = PackedVector2Array(-196, -190, -310, -15, -157, 255, 199, 213, 285, -101, 60, -254)
-
 [node name="gun" parent="." instance=ExtResource("1_rf6cg")]
 visible = false
 position = Vector2(-2.165, 53.785)
@@ -342,57 +336,6 @@ position = Vector2(169, 68)
 [node name="getInShipDelay" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
-
-[node name="refill" type="Label" parent="."]
-visible = false
-offset_left = -260.0
-offset_top = -12.0
-offset_right = -29.0
-offset_bottom = 26.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "R to fill the liquid to cooldown"
-
-[node name="getOut" type="Label" parent="."]
-visible = false
-offset_left = 159.0
-offset_top = 72.0
-offset_right = 292.0
-offset_bottom = 110.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "E to getout ship"
-
-[node name="rightClick" type="Label" parent="."]
-visible = false
-offset_left = 36.0
-offset_top = 103.0
-offset_right = 228.0
-offset_bottom = 141.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "Right cilck to swap bullet
-"
-
-[node name="leftClick" type="Label" parent="."]
-visible = false
-offset_left = -166.0
-offset_top = 98.0
-offset_right = -29.0
-offset_bottom = 136.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "Left cilck to shoot"
-
-[node name="getIn" type="Label" parent="."]
-visible = false
-offset_left = 160.0
-offset_top = 46.0
-offset_right = 293.0
-offset_bottom = 84.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-text = "E to getin ship"
 
 [node name="Stat" type="Sprite2D" parent="."]
 position = Vector2(1.365, -0.965)
@@ -439,6 +382,9 @@ texture = SubResource("AnimatedTexture_rsbt7")
 lifetime = 3.0
 explosiveness = 0.35
 fixed_fps = 60
+
+[node name="Camera" type="Camera2D" parent="."]
+script = ExtResource("19_oaayh")
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="autoHeatGening" to="." method="on_heating" binds= [0.2]]
