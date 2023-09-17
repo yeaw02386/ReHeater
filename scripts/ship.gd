@@ -7,6 +7,7 @@ var heat = 400
 var coolerDMG = 1
 var playerIns
 var playerInShip = false
+var isFocus = true
 @onready var camera = get_node("camera")
 
 func playerGetOut():
@@ -16,10 +17,12 @@ func playerGetOut():
 	$gun.playerInShip = false
 	playerInShip = false
 	playerIns.global_position = $playerPoint.global_position
+	
 	remove_child(camera)
 	playerIns.add_child(camera)
 	
 	get_parent().add_child(playerIns)
+	get_tree().call_group("system","on_isPlayerGetout",true)
 
 func _ready():
 	$Ani.play("Empty")
@@ -28,6 +31,7 @@ func _ready():
 	add_to_group("enemyAttack")
 	add_to_group("interact")
 	add_to_group("gun")
+	add_to_group("system")
 	add_to_group("camera")
 	
 	on_heating(0)
@@ -100,6 +104,7 @@ func on_getInShip():
 	
 	await get_tree().create_timer(0.3).timeout
 	$Stat/StatAni.play("StatHover")
+	get_tree().call_group("system","on_isPlayerGetout",false)
 	
 	get_tree().call_group("interact","on_showInteract","E to getout ship")
 	get_tree().call_group("interact","on_showInteract","Left Click to shoot")
@@ -118,3 +123,5 @@ func on_playShoot():
 	await get_tree().create_timer(0.15).timeout
 	$Ani.play("OnShip")
 	
+func on_focus(focus):
+	set_process_input(focus)

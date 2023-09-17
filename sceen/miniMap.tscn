@@ -1,0 +1,169 @@
+[gd_scene load_steps=3 format=3 uid="uid://d5a0xw5f6p3r"]
+
+[ext_resource type="Script" path="res://scripts/miniMap.gd" id="1_wskbp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcdc8"]
+bg_color = Color(0.941176, 0.94902, 0.956863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="miniMap" type="CanvasLayer"]
+script = ExtResource("1_wskbp")
+
+[node name="bg" type="Polygon2D" parent="."]
+position = Vector2(10, -12)
+color = Color(0, 0, 0, 0.32549)
+polygon = PackedVector2Array(57, 92, 67, 1035, 1833, 1040, 1848, 97)
+
+[node name="dis" type="Line2D" parent="."]
+scale = Vector2(1, 1e-05)
+points = PackedVector2Array(1363, 1.205e+08, 71, 1.143e+08)
+width = 50.0
+default_color = Color(0.541176, 0.796078, 0.427451, 1)
+texture_mode = 1
+joint_mode = 2
+
+[node name="map_ram" type="Polygon2D" parent="."]
+position = Vector2(1194, 648)
+polygon = PackedVector2Array(-134, 41, -94, 177, 52, 177, 146, 105, 176, 11, 144, -109, -102, -111)
+
+[node name="hit" type="Area2D" parent="map_ram"]
+position = Vector2(-7, 22)
+collision_layer = 128
+collision_mask = 128
+
+[node name="body" type="CollisionPolygon2D" parent="map_ram/hit"]
+position = Vector2(-270, -188)
+polygon = PackedVector2Array(195, 65, 150, 117, 125, 233, 207, 349, 315, 343, 417, 285, 441, 165, 409, 43)
+
+[node name="map_tutorial" type="Polygon2D" parent="."]
+position = Vector2(270, 200)
+polygon = PackedVector2Array(-136, 38, -57, 94, 28, 142, 126, 114, 189, 18, 96, -60, -65, -77)
+
+[node name="hit" type="Area2D" parent="map_tutorial"]
+position = Vector2(27, 26)
+collision_layer = 128
+collision_mask = 128
+
+[node name="body" type="CollisionPolygon2D" parent="map_tutorial/hit"]
+position = Vector2(-288, -195)
+polygon = PackedVector2Array(206, 83, 172, 121, 126, 221, 300, 309, 396, 277, 454, 189, 370, 111)
+
+[node name="to" type="ProgressBar" parent="."]
+offset_left = 1537.0
+offset_top = 290.0
+offset_right = 1803.0
+offset_bottom = 300.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_kcdc8")
+max_value = 1000.0
+value = 600.0
+show_percentage = false
+
+[node name="from" type="ProgressBar" parent="."]
+offset_left = 1537.0
+offset_top = 290.0
+offset_right = 1803.0
+offset_bottom = 300.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_kcdc8")
+max_value = 1000.0
+value = 500.0
+show_percentage = false
+
+[node name="data" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.793
+anchor_top = 0.167
+anchor_right = 0.952
+anchor_bottom = 0.326
+offset_left = 28.7139
+offset_top = 19.64
+offset_right = -7.7041
+offset_bottom = -0.0800171
+
+[node name="hour" type="Label" parent="data"]
+layout_mode = 2
+text = "Time use"
+
+[node name="time" type="Label" parent="data"]
+layout_mode = 2
+text = "Arrive in"
+
+[node name="heat" type="Label" parent="data"]
+layout_mode = 2
+text = "Heat using"
+
+[node name="ship" type="Polygon2D" parent="."]
+position = Vector2(345, 356)
+color = Color(0, 0.776471, 0.8, 1)
+polygon = PackedVector2Array(-1, -37, -43, 57, 53, 59)
+
+[node name="confirm" type="Panel" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.403
+anchor_top = 0.369
+anchor_right = 0.597
+anchor_bottom = 0.575
+offset_left = 39.494
+offset_top = 39.48
+offset_right = -11.494
+offset_bottom = -18.0001
+
+[node name="sure" type="Label" parent="confirm"]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 43.0
+offset_right = 244.0
+offset_bottom = 69.0
+text = "Are you sure to travel?"
+
+[node name="ok" type="Button" parent="confirm"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.191
+anchor_top = 0.789
+anchor_right = 0.469
+anchor_bottom = 1.0
+offset_left = 17.262
+offset_top = -40.415
+offset_right = 4.858
+offset_bottom = -59.0
+text = "OK"
+
+[node name="cancel" type="Button" parent="confirm"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.809
+anchor_right = 0.718
+anchor_bottom = 0.969
+offset_left = 25.0
+offset_top = -45.115
+offset_right = 15.676
+offset_bottom = -51.715
+text = "Cancel"
+
+[node name="cant" type="Label" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.768
+anchor_top = 0.292
+anchor_right = 0.945
+anchor_bottom = 0.369
+offset_left = 0.264038
+offset_top = 14.64
+offset_right = -12.3901
+offset_bottom = -23.52
+theme_override_colors/font_color = Color(1, 0.501961, 0.435294, 1)
+theme_override_colors/font_outline_color = Color(0.658824, 0.658824, 0.658824, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 30
+text = "!! Traveling not Allow !!"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="map_ram/hit" to="." method="_on_hit_mouse_entered" binds= ["map_ram"]]
+[connection signal="mouse_exited" from="map_ram/hit" to="." method="_on_hit_mouse_exited"]
+[connection signal="mouse_entered" from="map_tutorial/hit" to="." method="_on_hit_mouse_entered" binds= ["map_tutorial"]]
+[connection signal="mouse_exited" from="map_tutorial/hit" to="." method="_on_hit_mouse_exited"]

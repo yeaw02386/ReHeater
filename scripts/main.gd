@@ -3,17 +3,21 @@ extends Node2D
 @export var enemy:PackedScene
 @export var ship:PackedScene
 
-var map = preload("res://sceen/map_tutorial.tscn")
+var map
 var mapIns
 
 var gameover = preload("res://sceen/gameOver.tscn")
 var isGameOver = false
+var shipPos = null
+var shipIns = null
 
 func _ready():
 	add_to_group("bullet")
 	add_to_group("dayNight")
 	add_to_group("enemyAttack")
 	add_to_group("system")
+	add_to_group("gun")
+	get_tree().call_group("system","changeMap","map_tutorial")
 	on_newGame()
 
 func _process(delta):
@@ -58,6 +62,7 @@ func on_destroy():
 		return
 		
 	add_child(gameover.instantiate())
+	shipIns = null
 	$enemySpawnTime.stop()
 	isGameOver = true
 	
@@ -65,13 +70,42 @@ func on_newGame():
 	isGameOver = false
 	get_tree().call_group("dayNight","on_resetTime")
 	
-	var shipIns = ship.instantiate()
-	mapIns = map.instantiate()
-	
-	add_child(mapIns)
-	var pos = mapIns.get_node("shipPoint").global_position
-	shipIns.position = pos
+	shipIns = ship.instantiate()
+	shipIns.position = shipPos
 	add_child(shipIns)
 	
 func on_toMainMenu():
 	get_tree().change_scene_to_file("res://sceen/mainMenu.tscn")
+
+func on_mapChange(m):
+	map = m
+	var newMap = map.instantiate()
+	add_child(newMap)
+	if mapIns : remove_child(mapIns)
+	mapIns = newMap
+	if !shipIns :
+		shipPos = mapIns.get_node("shipPoint").global_position
+		return
+	
+	shipPos = mapIns.get_node("shipPoint").global_position
+	shipIns.position = shipPos
+
+func _on_minimap_toggled(button_pressed):
+	$miniMap.visible = button_pressed
+	get_tree().call_group("system","on_focus",!button_pressed)
+
+func on_isPlayerGetout(out):
+	$GUI/minimap.visible = !out
+	
+func _input(event):
+	if event.is_action_pressed("lightGun"):
+		get_tree().call_group("dayNight","on_addTime",5)
+
+
+
+
+
+
+
+
+

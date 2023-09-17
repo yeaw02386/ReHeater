@@ -13,14 +13,19 @@ var delayMetaData = {0:0.2,
 var nowBulletType = -1
 var canShoot = true
 var playerInShip = false
+var isFocus = true
 
 func _ready():
 	add_to_group("gun")
+	add_to_group("system")
 	allBullet = [bulletLight,bulletAOE,bulletPiercing]
 	swapBullet() 
 
 func _process(delta):
-	if Input.is_action_pressed("attack") and canShoot and playerInShip: 
+	if (Input.is_action_pressed("attack") and 
+								canShoot and 
+								playerInShip and 
+								isFocus): 
 		shoot()
 		canShoot = false
 
@@ -47,3 +52,6 @@ func swapBullet():
 	bullet = allBullet[nowBulletType]
 	$shootDelay.wait_time = delayMetaData.get(nowBulletType)
 	
+func on_focus(focus):
+	set_process_input(focus)
+	isFocus = focus
