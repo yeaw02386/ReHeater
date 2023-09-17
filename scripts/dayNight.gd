@@ -40,3 +40,10 @@ func calTime():
 		
 func on_resetTime():
 	time = timeInit * MIN_PRE_HOR * INGAME_TO_REAL
+
+func on_addTime(hour):
+	var t = MIN_PRE_HOR * INGAME_TO_REAL * hour
+	time += t
+
+
+

@@ -375,7 +375,6 @@ fixed_fps = 60
 [node name="particleHeavy" type="GPUParticles2D" parent="smokeParticle"]
 z_index = -1
 material = SubResource("CanvasItemMaterial_al62v")
-emitting = false
 amount = 40
 process_material = SubResource("ParticleProcessMaterial_pckqx")
 texture = SubResource("AnimatedTexture_rsbt7")

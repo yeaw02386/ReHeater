@@ -311,7 +311,11 @@ sources/0 = SubResource("TileSetAtlasSource_re41d")
 
 [node name="map_ram" type="Node2D"]
 
+[node name="shipPoint" type="Marker2D" parent="."]
+position = Vector2(789, 486)
+
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2(127, 1854)
 tile_set = SubResource("TileSet_ijpda")
 format = 2
 layer_0/name = "ground"
