@@ -25,10 +25,11 @@ func _physics_process(delta):
 func bloom():
 	if hit :return
 	hit = true
+	$Ani.play("blowup")
 	$bloomOut.start()
-	$Polygon2D.visible = false
+	#$Polygon2D.visible = false
 	$bloomBox.monitoring = true
-	$Polygon2D2.visible = true
+	#$Polygon2D2.visible = true
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

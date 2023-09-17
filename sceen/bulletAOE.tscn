@@ -1,12 +1,84 @@
-[gd_scene load_steps=6 format=3 uid="uid://vw8fopbauf5q"]
+[gd_scene load_steps=23 format=3 uid="uid://vw8fopbauf5q"]
 
 [ext_resource type="Script" path="res://scripts/bulletAOE.gd" id="1_52ygf"]
 [ext_resource type="Texture2D" uid="uid://dgu42g0pup3l4" path="res://assets/Bullet/Atom/frame0000.png" id="2_n6lhf"]
+[ext_resource type="Texture2D" uid="uid://ddm73sgakhovo" path="res://assets/Bullet/Atom/Atom Blowup/frame0002.png" id="2_ue7u8"]
 [ext_resource type="Texture2D" uid="uid://bmh71glvmpxic" path="res://assets/Bullet/Atom/frame0001.png" id="3_j4oro"]
+[ext_resource type="Texture2D" uid="uid://crfr0na0lir2n" path="res://assets/Bullet/Atom/Atom Blowup/frame0003.png" id="3_uf2y4"]
+[ext_resource type="Texture2D" uid="uid://cm4qw1k53wlwl" path="res://assets/Bullet/Atom/Atom Blowup/frame0004.png" id="4_c1kh4"]
 [ext_resource type="Texture2D" uid="uid://byrinimmfhe7k" path="res://assets/Bullet/Atom/frame0002.png" id="4_dvh6m"]
+[ext_resource type="Texture2D" uid="uid://00pf45nf5iq7" path="res://assets/Bullet/Atom/Atom Blowup/frame0005.png" id="5_2wo6h"]
+[ext_resource type="Texture2D" uid="uid://bklg4jbpxkl2q" path="res://assets/Bullet/Atom/Atom Blowup/frame0006.png" id="6_s068u"]
+[ext_resource type="Texture2D" uid="uid://hr844s5k6rh3" path="res://assets/Bullet/Atom/Atom Blowup/frame0007.png" id="7_cq6ub"]
+[ext_resource type="Texture2D" uid="uid://cqp11plo3jtr3" path="res://assets/Bullet/Atom/Atom Blowup/frame0008.png" id="8_w3x61"]
+[ext_resource type="Texture2D" uid="uid://bw2yfm1m1ycaj" path="res://assets/Bullet/Atom/Atom Blowup/frame0009.png" id="9_wwhxa"]
+[ext_resource type="Texture2D" uid="uid://cmq0gnovyb7pk" path="res://assets/Bullet/Atom/Atom Blowup/frame0010.png" id="10_ghmgo"]
+[ext_resource type="Texture2D" uid="uid://dprc668cpe1tl" path="res://assets/Bullet/Atom/Atom Blowup/frame0011.png" id="11_qj21m"]
+[ext_resource type="Texture2D" uid="uid://665hmugbe2fp" path="res://assets/Bullet/Atom/Atom Blowup/frame0012.png" id="12_hm0r3"]
+[ext_resource type="Texture2D" uid="uid://d15bo0yg7hqho" path="res://assets/Bullet/Atom/Atom Blowup/frame0013.png" id="13_0fdjr"]
+[ext_resource type="Texture2D" uid="uid://t1yybnr876uc" path="res://assets/Bullet/Atom/Atom Blowup/frame0014.png" id="14_ag04o"]
+[ext_resource type="Texture2D" uid="uid://bwpxm6kmsv1it" path="res://assets/Bullet/Atom/Atom Blowup/frame0015.png" id="15_77iha"]
+[ext_resource type="Texture2D" uid="uid://dmctlosh5rfig" path="res://assets/Bullet/Atom/Atom Blowup/frame0016.png" id="16_mlfhv"]
+[ext_resource type="Texture2D" uid="uid://cd0c2evxr3fil" path="res://assets/Bullet/Atom/Atom Blowup/frame0017.png" id="17_msosq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ettyu"]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_th78m"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ue7u8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uf2y4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c1kh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2wo6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_s068u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cq6ub")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w3x61")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wwhxa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ghmgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qj21m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hm0r3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0fdjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ag04o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_77iha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_mlfhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_msosq")
+}],
+"loop": false,
+"name": &"blowup",
+"speed": 30.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_n6lhf")
@@ -30,9 +102,9 @@ heatGening = 5.0
 dmg = 100
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_ettyu")
 sprite_frames = SubResource("SpriteFrames_th78m")
-frame = 2
-frame_progress = 0.611073
+animation = &"blowup"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
@@ -42,12 +114,15 @@ color = Color(0.309804, 0.670588, 0.788235, 1)
 polygon = PackedVector2Array(-21, -23, -37, 1, -25, 26, 8, 19, 26, 20, 35, 2, 36, -24, 21, -24, 10, -25)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
 
 [node name="hitBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 8
 
 [node name="body" type="CollisionPolygon2D" parent="hitBox"]
+visible = false
 polygon = PackedVector2Array(-26, -20, 23, -19, 23, 3, 11, 21, -31, 23, -41, -4)
 
 [node name="bloom" type="Timer" parent="."]
@@ -56,10 +131,12 @@ one_shot = true
 autostart = true
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
+visible = false
 color = Color(0.878431, 0.686275, 0.898039, 1)
 polygon = PackedVector2Array(-71, -43, -75, 3, -79, 42, -46, 68, -12, 76, 22, 77, 52, 54, 70, 29, 69, -6, 75, -34, 44, -64, 12, -79, -42, -71)
 
 [node name="bloomBox" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 8
 
