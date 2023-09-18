@@ -873,9 +873,7 @@ z_index = 1
 position = Vector2(0, 9.58608)
 scale = Vector2(0.5345, 0.576986)
 sprite_frames = SubResource("SpriteFrames_g8rku")
-animation = &"open"
-frame = 7
-frame_progress = 1.0
+animation = &"close"
 offset = Vector2(-1.825, 103.86)
 
 [node name="gun" parent="." instance=ExtResource("1_rf6cg")]
