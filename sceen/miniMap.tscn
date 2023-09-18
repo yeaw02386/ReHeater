@@ -25,29 +25,29 @@ default_color = Color(0.541176, 0.796078, 0.427451, 1)
 texture_mode = 1
 joint_mode = 2
 
-[node name="map_ram" type="Polygon2D" parent="."]
+[node name="map2" type="Polygon2D" parent="."]
 position = Vector2(1194, 648)
 polygon = PackedVector2Array(-134, 41, -94, 177, 52, 177, 146, 105, 176, 11, 144, -109, -102, -111)
 
-[node name="hit" type="Area2D" parent="map_ram"]
+[node name="hit" type="Area2D" parent="map2"]
 position = Vector2(-7, 22)
 collision_layer = 128
 collision_mask = 128
 
-[node name="body" type="CollisionPolygon2D" parent="map_ram/hit"]
+[node name="body" type="CollisionPolygon2D" parent="map2/hit"]
 position = Vector2(-270, -188)
 polygon = PackedVector2Array(195, 65, 150, 117, 125, 233, 207, 349, 315, 343, 417, 285, 441, 165, 409, 43)
 
-[node name="map_tutorial" type="Polygon2D" parent="."]
+[node name="map1" type="Polygon2D" parent="."]
 position = Vector2(270, 200)
 polygon = PackedVector2Array(-136, 38, -57, 94, 28, 142, 126, 114, 189, 18, 96, -60, -65, -77)
 
-[node name="hit" type="Area2D" parent="map_tutorial"]
+[node name="hit" type="Area2D" parent="map1"]
 position = Vector2(27, 26)
 collision_layer = 128
 collision_mask = 128
 
-[node name="body" type="CollisionPolygon2D" parent="map_tutorial/hit"]
+[node name="body" type="CollisionPolygon2D" parent="map1/hit"]
 position = Vector2(-288, -195)
 polygon = PackedVector2Array(206, 83, 172, 121, 126, 221, 300, 309, 396, 277, 454, 189, 370, 111)
 
@@ -102,21 +102,23 @@ polygon = PackedVector2Array(-1, -37, -43, 57, 53, 59)
 [node name="confirm" type="Panel" parent="."]
 visible = false
 anchors_preset = -1
-anchor_left = 0.403
-anchor_top = 0.369
-anchor_right = 0.597
-anchor_bottom = 0.575
-offset_left = 39.494
-offset_top = 39.48
-offset_right = -11.494
-offset_bottom = -18.0001
+anchor_left = 0.402
+anchor_top = 0.414
+anchor_right = 0.584
+anchor_bottom = 0.6
+offset_left = 28.396
+offset_top = 25.88
+offset_right = -17.7681
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="sure" type="Label" parent="confirm"]
 layout_mode = 0
-offset_left = 78.0
-offset_top = 43.0
+offset_left = 70.0
+offset_top = 39.0
 offset_right = 244.0
-offset_bottom = 69.0
+offset_bottom = 65.0
 text = "Are you sure to travel?"
 
 [node name="ok" type="Button" parent="confirm"]
@@ -137,8 +139,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.809
-anchor_right = 0.718
-anchor_bottom = 0.969
+anchor_right = 0.5
+anchor_bottom = 0.809
 offset_left = 25.0
 offset_top = -45.115
 offset_right = 15.676
@@ -163,7 +165,9 @@ theme_override_font_sizes/font_size = 30
 text = "!! Traveling not Allow !!"
 horizontal_alignment = 1
 
-[connection signal="mouse_entered" from="map_ram/hit" to="." method="_on_hit_mouse_entered" binds= ["map_ram"]]
-[connection signal="mouse_exited" from="map_ram/hit" to="." method="_on_hit_mouse_exited"]
-[connection signal="mouse_entered" from="map_tutorial/hit" to="." method="_on_hit_mouse_entered" binds= ["map_tutorial"]]
-[connection signal="mouse_exited" from="map_tutorial/hit" to="." method="_on_hit_mouse_exited"]
+[connection signal="mouse_entered" from="map2/hit" to="." method="_on_hit_mouse_entered" binds= ["map2"]]
+[connection signal="mouse_exited" from="map2/hit" to="." method="_on_hit_mouse_exited"]
+[connection signal="mouse_entered" from="map1/hit" to="." method="_on_hit_mouse_entered" binds= ["map1"]]
+[connection signal="mouse_exited" from="map1/hit" to="." method="_on_hit_mouse_exited"]
+[connection signal="pressed" from="confirm/ok" to="." method="_on_ok_pressed"]
+[connection signal="pressed" from="confirm/cancel" to="." method="_on_cancel_pressed"]

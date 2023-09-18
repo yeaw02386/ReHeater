@@ -4,6 +4,7 @@ var NODE_NAME = "bullet"
 @export var speed:float = 10
 @export var heatGening:float = 1
 @export var dmg:int = 40
+@export var spread:int = 7
 
 var newPos
 var hit = 0
@@ -14,6 +15,7 @@ func init(pos) :
 func _ready():
 	$Ani.play("default")
 	look_at(get_viewport().get_mouse_position())
+	rotation_degrees += randi_range(-spread,spread)
 	newPos = Vector2(cos(rotation),sin(rotation))*speed
 
 func _physics_process(delta):

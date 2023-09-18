@@ -4,6 +4,7 @@ var NODE_TYPE = "player"
 @export var speed = 300
 var liquid = 0
 var canInteract = ""
+var keyDis = [0]
 
 func _ready():
 	get_tree().call_group("heat","on_liquidInPlayer",liquid)
@@ -11,6 +12,7 @@ func _ready():
 	add_to_group("heat")
 	add_to_group("interact")
 	add_to_group("camera")
+	add_to_group("radar")
 
 func _physics_process(delta):
 	var v = Input.get_axis("ui_left","ui_right")
@@ -58,3 +60,16 @@ func on_overLiquid(liq):
 	
 func on_destroy():
 	queue_free()
+
+func on_keyItemPos(pos):
+	keyDis.append(position.distance_to(pos))
+
+func _on_call_key_timeout():
+	if keyDis.is_empty() : keyDis.append(100000)
+	keyDis.sort()
+	get_tree().call_group("radar","on_keyItemDistance",keyDis[0])
+	keyDis.clear()
+	get_tree().call_group("radar","on_callPos")
+
+func on_keyItemDistance(dis):
+	print(dis)

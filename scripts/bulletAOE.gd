@@ -4,6 +4,7 @@ var NODE_NAME = "bullet"
 @export var speed:float = 10
 @export var heatGening:float = 1
 @export var dmg:int = 50
+@export var spread:int = 7
 
 var newPos
 var hit = false
@@ -13,10 +14,10 @@ func init(pos) :
 	
 func _ready():
 	look_at(get_viewport().get_mouse_position())
+	rotation_degrees += randi_range(-spread,spread)
 	newPos = Vector2(cos(rotation),sin(rotation))*speed
 	$Ani.play("default")
 	$bloomBox.monitoring = false
-	$Polygon2D2.visible = false
 
 func _physics_process(delta):
 	if not hit:
@@ -27,9 +28,7 @@ func bloom():
 	hit = true
 	$Ani.play("blowup")
 	$bloomOut.start()
-	#$Polygon2D.visible = false
 	$bloomBox.monitoring = true
-	#$Polygon2D2.visible = true
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()

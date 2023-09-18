@@ -1,19 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://ecifd3cetgg4"]
+[gd_scene load_steps=10 format=3 uid="uid://ecifd3cetgg4"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_lv2ov"]
 [ext_resource type="PackedScene" uid="uid://butvwy5amfv8b" path="res://sceen/ship.tscn" id="3_71hmc"]
 [ext_resource type="PackedScene" uid="uid://seaohxkux1m3" path="res://sceen/alien01.tscn" id="3_w3m33"]
 [ext_resource type="PackedScene" uid="uid://biplgp2rgx7bb" path="res://sceen/interact.tscn" id="4_m7u3r"]
-[ext_resource type="StyleBox" uid="uid://d4boivsl5f33d" path="res://assets/heatbar.tres" id="5_dswfs"]
 [ext_resource type="Script" path="res://scripts/dayNight.gd" id="5_nk8kq"]
-[ext_resource type="PackedScene" uid="uid://d5a0xw5f6p3r" path="res://sceen/miniMap.tscn" id="7_yflh1"]
 
 [sub_resource type="Gradient" id="Gradient_p4w8d"]
-offsets = PackedFloat32Array(0.380117, 0.660819)
+offsets = PackedFloat32Array(0.311688, 0.454545)
 colors = PackedColorArray(0.366595, 0.366595, 0.366595, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_by2ru"]
 gradient = SubResource("Gradient_p4w8d")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fq34q"]
+bg_color = Color(0.913725, 0.913725, 0.913725, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="Curve2D" id="Curve2D_8flc4"]
 bake_interval = 26.61
@@ -33,8 +38,10 @@ ship = ExtResource("3_71hmc")
 position = Vector2(-16, 8)
 script = ExtResource("5_nk8kq")
 gradientDayNight = SubResource("GradientTexture1D_by2ru")
-timeSpeed = 10.0
-timeInit = 17
+timeSpeed = 6.0
+timeInit = 7
+dayStart = 4
+nightStart = 20
 
 [node name="GUI" type="CanvasLayer" parent="."]
 layer = 0
@@ -44,7 +51,7 @@ offset_left = 580.0
 offset_top = 30.0
 offset_right = 1369.0
 offset_bottom = 55.0
-theme_override_styles/fill = ExtResource("5_dswfs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fq34q")
 max_value = 1000.0
 value = 500.0
 rounded = true
@@ -119,9 +126,6 @@ rotation = -0.468827
 
 [node name="enemySpawnTime" type="Timer" parent="."]
 wait_time = 1.3
-
-[node name="miniMap" parent="." instance=ExtResource("7_yflh1")]
-visible = false
 
 [connection signal="toggled" from="GUI/minimap" to="." method="_on_minimap_toggled"]
 [connection signal="timeout" from="enemySpawnTime" to="." method="_on_enemy_spawn_time_timeout"]

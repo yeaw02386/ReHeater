@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5r6yaiiby30g"]
+
+[ext_resource type="Script" path="res://scripts/KeyItem.gd" id="1_qf7j0"]
+
+[node name="KeyItem" type="Node2D"]
+script = ExtResource("1_qf7j0")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = 2
+color = Color(0.333333, 0.556863, 0.34902, 1)
+polygon = PackedVector2Array(-78, 9, 32, -45, 134, -8, 10, 66)
+
+[node name="hitBox" type="Area2D" parent="."]
+
+[node name="body" type="CollisionPolygon2D" parent="hitBox"]
+polygon = PackedVector2Array(-78, 9, 35, -46, 131, -7, 11, 65)
+disabled = true
+
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

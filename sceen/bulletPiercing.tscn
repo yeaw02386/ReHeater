@@ -36,6 +36,7 @@ script = ExtResource("1_p2pix")
 speed = 30.0
 heatGening = 3.0
 dmg = 100
+spread = 2
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

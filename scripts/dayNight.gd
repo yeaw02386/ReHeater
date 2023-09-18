@@ -15,9 +15,10 @@ var time = 0.0
 func _ready():
 	add_to_group("dayNight")
 	on_resetTime()
+	mapTime()
 
 func _physics_process(delta):
-	time += delta * INGAME_TO_REAL * timeSpeed
+	time += delta * INGAME_TO_REAL * (24/timeSpeed)
 	var value = (sin(time-PI/2)+1.0)/2
 	self.color = gradientDayNight.gradient.sample(value)
 	
@@ -45,5 +46,9 @@ func on_addTime(hour):
 	var t = MIN_PRE_HOR * INGAME_TO_REAL * hour
 	time += t
 
-
+func mapTime():
+	var night = (nightStart % 12)/11.0
+	var day = (dayStart % 12)/11.0
+	gradientDayNight.gradient.set_offset(1,night)
+	gradientDayNight.gradient.set_offset(0,day)
 

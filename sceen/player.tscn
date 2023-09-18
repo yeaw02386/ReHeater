@@ -284,3 +284,8 @@ frame_progress = 0.159299
 offset = Vector2(0, -2.635)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="callKey" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="callKey" to="." method="_on_call_key_timeout"]

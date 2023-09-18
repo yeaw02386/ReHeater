@@ -15,13 +15,16 @@ var heatUse
 var timeUse
 var timeArrive
 var canTravel = true
+var confirmState = false
+var keyReq
 
 func _ready():
 	ship = $ship
-	currentNode = get_node("map_tutorial")
+	currentNode = get_node("map1")
 	add_to_group("system")
 	add_to_group("dayNight")
 	add_to_group("heat")
+	keyReq = get_parent().keyItemRequest
 	mapLoading() 
 
 func _process(delta):
@@ -34,10 +37,12 @@ func mapLoading():
 	for i in mapdir :
 		mapName.append(i.split(".")[0])
 		
-		var map = load(mapPath+i)
+		var map = load(mapPath+i).instantiate()
 		allMap.append(map)
-
+	genKeyItem()
+	
 func _on_hit_mouse_entered(n):
+	if confirmState :return
 	currentPoint = n
 	posChecker()
 
@@ -48,8 +53,10 @@ func changeMap(name):
 	get_tree().call_group("system","on_mapChange",currentMap)
 	ship.position = currentNode.position
 	visible = false
+	drawLine([Vector2(0,0)])
 
 func _on_hit_mouse_exited():
+	if confirmState : return
 	currentPoint = null
 	$dis.visible = false
 	$cant.visible = false
@@ -100,12 +107,15 @@ func calData():
 	timeArrive = timeUse+time[1]
 
 func _input(event):
-	if event.is_action_pressed("attack") and currentPoint and canTravel:
-		changeMap(currentPoint)
-		payCost()
+	if (event.is_action_pressed("attack") and 
+							currentPoint and 
+							canTravel and 
+							visible):
+		confirmState = true
+		$confirm.visible = true
 
 func isCanTravel():
-	if timeArrive > 17 or time[1] < 7:
+	if timeArrive > 17 or time[1] < 6:
 		$cant.text = "!! Traveling not Allow !!\n Only travel in day time"
 		$cant.visible = true
 		canTravel = false
@@ -118,3 +128,26 @@ func isCanTravel():
 func payCost():
 	get_tree().call_group("dayNight","on_addTime",timeUse)
 	get_tree().call_group("heat","on_heating",heatUse)
+
+func _on_ok_pressed():
+	calData()
+	isCanTravel()
+	if !canTravel :return
+	
+	changeMap(currentPoint)
+	payCost()
+	confirmState = false
+	$confirm.visible = false
+
+func _on_cancel_pressed():
+	confirmState = false
+	$confirm.visible = false
+
+func genKeyItem():
+	for i in allMap:
+		if keyReq <= 0 :return
+		i.on_getKey()
+		keyReq -= 1
+
+func on_destroy():
+	queue_free()

@@ -1,21 +1,25 @@
 extends Node2D
 @export var player:PackedScene
 
-var isGameover = false
 var MAX_HEAT = 1000
 var NODE_TYPE = "ship"
 var heat = 400
-var coolerDMG = 100
+var coolerDMG = 1
 var playerIns
 var playerInShip = false
 var isFocus = true
+var keyItem = 0
+var keyItemRequest
+
 @onready var camera = get_node("camera")
+
+func init(pos,req):
+	position = pos
+	keyItemRequest = req
 
 func playerGetOut():
 	$Ani.play("OutShip")
 	$Stat/StatAni.play("StatOutit")
-	$gungateAni.play("close")
-	$gun/gunAni.play("hoverDown")
 	await get_tree().create_timer(0.3).timeout
 	$gun.playerInShip = false
 	playerInShip = false
@@ -28,7 +32,6 @@ func playerGetOut():
 	get_tree().call_group("system","on_isPlayerGetout",true)
 
 func _ready():
-	$blowupAni.play("default")
 	$Ani.play("Empty")
 	playerIns = player.instantiate()
 	add_to_group("heat")
@@ -37,7 +40,6 @@ func _ready():
 	add_to_group("gun")
 	add_to_group("system")
 	add_to_group("camera")
-	add_to_group("dayNight")
 	
 	on_heating(0)
 	on_coolerDamage(0)
@@ -52,41 +54,10 @@ func _process(delta):
 	
 func on_heating(temp) :
 	heat += temp*coolerDMG
-	get_tree().call_group("heat","on_heatUpdate",heat)
-	
 	if heat >= MAX_HEAT :
-		if isGameover == false:
-			isGameover = true
-			gameOver()
-		else:
-			return
-
-func gameOver():
-	playerIns.remove_child(camera)
-	add_child(camera)
-	get_parent().remove_child(playerIns)
-	$gun.playerInShip = false
-	
-	if playerInShip == true :
-		$gun/gunAni.play("hoverDown")
-		$gungateAni.play("close")
-		$Stat/StatAni.play("StatOutit")
-		
-	
-	$blowupAni.play("Shock")
-	await get_tree().create_timer(1.5).timeout
-	$blowupAni.play("Blow")
-	await get_tree().create_timer(0.25).timeout
-	$smokeParticle/particleExplosion.emitting = true
-	$damageLayer.visible = false
-	$Ani.play("Wrecked")
-	await get_tree().create_timer(4).timeout
-	$fadeAni.play("fadeOut")
-	
-	await get_tree().create_timer(2).timeout
-	queue_free()
-	get_tree().call_group("heat","on_destroy")
-	
+		get_tree().call_group("heat","on_destroy")
+		queue_free()
+	get_tree().call_group("heat","on_heatUpdate",heat)
 
 func on_cooling(temp) :
 	get_tree().call_group("heat","on_heatUpdate",heat)
@@ -104,8 +75,11 @@ func on_coolerDamage(dmg) :
 	if coolerDMG >= 1000:
 		return
 	$damageLayer.frame = int(abs(coolerDMG-1)/2)
-	$Stat/StatAni.play("StatStutter")
 	
+func on_coolerRepair(repair):
+	coolerDMG = max(1,abs(repair-coolerDMG))
+	get_tree().call_group("heat","on_coolerDMGUpdate",coolerDMG)
+
 func on_heatUpdate(h):
 	$smokeParticle/particleLight.emitting = true
 	if heat < 500:
@@ -131,13 +105,8 @@ func _on_interact_body_exited(body):
 	body.canInteract = ""
 	
 func on_getInShip():
-	if isGameover == true:
-		return
-	
 	$Stat/StatAni.play("StatInit")
-	$Ani.play("GetOnShip")
-	$gungateAni.play("open")
-	$gun/gunAni.play("hoverUp")
+	$Ani.play("OnShip")
 	playerIns.remove_child(camera)
 	add_child(camera)
 	get_parent().remove_child(playerIns)
@@ -154,9 +123,6 @@ func on_getInShip():
 	
 func _input(event):
 	if event.is_action_pressed("getInOutShip") and playerInShip: 
-		if $Ani.animation == "Wrecked":
-			return
-		
 		$Ani.play("Empty")
 		playerGetOut()
 
@@ -164,20 +130,15 @@ func _on_get_in_ship_delay_timeout():
 	playerInShip = true
 	
 func on_playShoot():
-	if isGameover == true:
-		return
-	$Ani.play("attack")
-	#$Stat/StatAni.play("StatStutter")
+	#$Ani.play("Attack")
 	await get_tree().create_timer(0.15).timeout
 	$Ani.play("OnShip")
 	
 func on_focus(focus):
 	set_process_input(focus)
-	
-func on_nightStarted():
-	$frontLight.energy = 0.85
 
-func on_dayStarted():
-	$frontLight.energy = 0
-	
-	
+func on_getKeyItem(repair):
+	keyItem += 1
+	on_coolerRepair(repair)
+	if keyItem >= keyItemRequest:
+		get_tree().call_group("system","on_readyToEsc")
