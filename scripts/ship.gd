@@ -53,7 +53,7 @@ func _process(delta):
 		get_tree().call_group("camera","on_mouseMove",mouse)
 	
 func on_heating(temp) :
-	heat += temp*coolerDMG+200
+	heat += temp*coolerDMG
 	if heat >= MAX_HEAT :
 		get_tree().call_group("heat","on_destroy")
 		queue_free()
