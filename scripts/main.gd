@@ -78,6 +78,7 @@ func on_toMainMenu():
 	get_tree().change_scene_to_file("res://sceen/mainMenu.tscn")
 
 func on_mapChange(m):
+	$GUI/minimap.button_pressed = false
 	map = m
 	var newMap = map.instantiate()
 	add_child(newMap)
@@ -97,10 +98,6 @@ func _on_minimap_toggled(button_pressed):
 func on_isPlayerGetout(out):
 	$GUI/minimap.visible = !out
 	
-func _input(event):
-	if event.is_action_pressed("lightGun"):
-		get_tree().call_group("dayNight","on_addTime",5)
-
 
 
 

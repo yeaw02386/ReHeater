@@ -102,21 +102,23 @@ polygon = PackedVector2Array(-1, -37, -43, 57, 53, 59)
 [node name="confirm" type="Panel" parent="."]
 visible = false
 anchors_preset = -1
-anchor_left = 0.403
-anchor_top = 0.369
-anchor_right = 0.597
-anchor_bottom = 0.575
-offset_left = 39.494
-offset_top = 39.48
-offset_right = -11.494
-offset_bottom = -18.0001
+anchor_left = 0.402
+anchor_top = 0.414
+anchor_right = 0.584
+anchor_bottom = 0.6
+offset_left = 28.396
+offset_top = 25.88
+offset_right = -17.7681
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="sure" type="Label" parent="confirm"]
 layout_mode = 0
-offset_left = 78.0
-offset_top = 43.0
+offset_left = 70.0
+offset_top = 39.0
 offset_right = 244.0
-offset_bottom = 69.0
+offset_bottom = 65.0
 text = "Are you sure to travel?"
 
 [node name="ok" type="Button" parent="confirm"]
@@ -137,8 +139,8 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.809
-anchor_right = 0.718
-anchor_bottom = 0.969
+anchor_right = 0.5
+anchor_bottom = 0.809
 offset_left = 25.0
 offset_top = -45.115
 offset_right = 15.676
@@ -167,3 +169,5 @@ horizontal_alignment = 1
 [connection signal="mouse_exited" from="map_ram/hit" to="." method="_on_hit_mouse_exited"]
 [connection signal="mouse_entered" from="map_tutorial/hit" to="." method="_on_hit_mouse_entered" binds= ["map_tutorial"]]
 [connection signal="mouse_exited" from="map_tutorial/hit" to="." method="_on_hit_mouse_exited"]
+[connection signal="pressed" from="confirm/ok" to="." method="_on_ok_pressed"]
+[connection signal="pressed" from="confirm/cancel" to="." method="_on_cancel_pressed"]
