@@ -15,3 +15,6 @@ func _process(delta):
 func _on_hit_box_body_entered(body):
 	body.on_liquidPickup(liquid)
 	queue_free()
+	
+func on_destroyed():
+	queue_free()

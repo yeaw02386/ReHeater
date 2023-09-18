@@ -21,6 +21,7 @@ func _physics_process(delta):
 		$animate.flip_h = !(dir.x+1)
 	
 	if dir.y == 1 : $animate.play("running")
+	elif dir.y == -1 : $animate.play("running back")
 	elif dir.x == 1 : 
 		$animate.play("running diag")
 	elif dir.x == -1 :
@@ -32,6 +33,9 @@ func _physics_process(delta):
 			$animate.play("idle")
 		elif $animate.animation == "running diag":
 			$animate.play("idle diag")
+		elif $animate.animation == ("running back"):
+			$animate.play("idle back")
+			
 	
 	velocity = dir*speed
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dkq3jthkeyvc2"]
+[gd_scene load_steps=60 format=3 uid="uid://dkq3jthkeyvc2"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_47pgq"]
 [ext_resource type="Texture2D" uid="uid://ds0sajj5knq01" path="res://assets/animation/player/idle/frame0027.png" id="2_t0e6n"]
@@ -35,14 +35,28 @@
 [ext_resource type="Texture2D" uid="uid://bddmr2qd2hwmj" path="res://assets/animation/player/diag running/frame0029.png" id="28_bq5cs"]
 [ext_resource type="Texture2D" uid="uid://c1g5smiqm7c03" path="res://assets/animation/player/diag running/frame0030.png" id="29_8ayip"]
 [ext_resource type="Texture2D" uid="uid://ci4hqphebgooi" path="res://assets/animation/player/diag running/frame0031.png" id="30_rbubb"]
+[ext_resource type="Texture2D" uid="uid://dkt287ffv43ig" path="res://assets/animation/player/back running/frame0027.png" id="31_jl7bu"]
 [ext_resource type="Texture2D" uid="uid://keio35r53t4a" path="res://assets/animation/player/diag running/frame0032.png" id="31_qc8s8"]
+[ext_resource type="Texture2D" uid="uid://bx7o3dafkchkn" path="res://assets/animation/player/back running/frame0028.png" id="32_83u2y"]
 [ext_resource type="Texture2D" uid="uid://ckwayojrbwk3x" path="res://assets/animation/player/diag running/frame0033.png" id="32_qxakh"]
 [ext_resource type="Texture2D" uid="uid://chrnltyxtk8e8" path="res://assets/animation/player/diag running/frame0034.png" id="33_duf03"]
+[ext_resource type="Texture2D" uid="uid://b0obstrt1h3ku" path="res://assets/animation/player/back running/frame0029.png" id="33_fuxbu"]
+[ext_resource type="Texture2D" uid="uid://8icvxxcnagha" path="res://assets/animation/player/back running/frame0030.png" id="34_05bpq"]
 [ext_resource type="Texture2D" uid="uid://c51m553hnea4y" path="res://assets/animation/player/diag running/frame0035.png" id="34_i0dyw"]
 [ext_resource type="Texture2D" uid="uid://c71r7st0l3oh8" path="res://assets/animation/player/diag running/frame0036.png" id="35_j8ivj"]
+[ext_resource type="Texture2D" uid="uid://bt2l07lb4122x" path="res://assets/animation/player/back running/frame0031.png" id="35_tb2nv"]
 [ext_resource type="Texture2D" uid="uid://b27ld0nsejjv" path="res://assets/animation/player/diag running/frame0037.png" id="36_7l56w"]
+[ext_resource type="Texture2D" uid="uid://g757xbgbs0fr" path="res://assets/animation/player/back running/frame0032.png" id="36_tb2d7"]
 [ext_resource type="Texture2D" uid="uid://ibi88w2yr5wy" path="res://assets/animation/player/diag running/frame0038.png" id="37_cpp1t"]
+[ext_resource type="Texture2D" uid="uid://vt02x2mnra0f" path="res://assets/animation/player/back running/frame0033.png" id="37_owov0"]
+[ext_resource type="Texture2D" uid="uid://csolc1ka15plv" path="res://assets/animation/player/back running/frame0034.png" id="38_e3pto"]
 [ext_resource type="Texture2D" uid="uid://2avhjvhfh4xq" path="res://assets/animation/player/diag running/frame0039.png" id="38_pfdop"]
+[ext_resource type="Texture2D" uid="uid://cjqkomjvicgwu" path="res://assets/animation/player/back running/frame0035.png" id="39_l8vn6"]
+[ext_resource type="Texture2D" uid="uid://be5g5qepqoxn0" path="res://assets/animation/player/back running/frame0036.png" id="40_0tdhy"]
+[ext_resource type="Texture2D" uid="uid://b2gxlecpycsnu" path="res://assets/animation/player/back running/frame0037.png" id="41_4ja13"]
+[ext_resource type="Texture2D" uid="uid://camqmcb08aegq" path="res://assets/animation/player/back running/frame0038.png" id="42_iqpsa"]
+[ext_resource type="Texture2D" uid="uid://dohbrq3gt1pqp" path="res://assets/animation/player/back running/frame0039.png" id="43_ncoau"]
+[ext_resource type="Texture2D" uid="uid://geqsa3y57nkg" path="res://assets/animation/player/back running/frame0040.png" id="44_3tl5f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh72m"]
 size = Vector2(41, 86.25)
@@ -158,6 +172,53 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("31_jl7bu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_83u2y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_fuxbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_05bpq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_tb2nv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_tb2d7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_owov0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_e3pto")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_l8vn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_0tdhy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_4ja13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_iqpsa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_ncoau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_3tl5f")
+}],
+"loop": true,
+"name": &"running back",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("26_pyw6o")
 }, {
 "duration": 1.0,
@@ -217,8 +278,9 @@ texture_filter = 1
 position = Vector2(1, -31)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_jnjhs")
-animation = &"idle back"
-frame = 4
+animation = &"running back"
+frame = 11
+frame_progress = 0.159299
 offset = Vector2(0, -2.635)
 
 [node name="Camera2D" type="Camera2D" parent="."]

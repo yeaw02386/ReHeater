@@ -16,6 +16,7 @@ var playerInShip = false
 var isFocus = true
 
 func _ready():
+	$particleAni.play("default")
 	add_to_group("gun")
 	add_to_group("system")
 	allBullet = [bulletLight,bulletAOE,bulletPiercing]
@@ -26,6 +27,7 @@ func _process(delta):
 								canShoot and 
 								playerInShip and 
 								isFocus): 
+		$particleAni.play("shoot")
 		shoot()
 		canShoot = false
 
@@ -38,6 +40,7 @@ func shoot() :
 	get_tree().call_group("heat","on_heating",ins.heatGening)
 
 func _on_shoot_delay_timeout():
+	$particleAni.play("default")
 	canShoot = true
 		
 func _input(event):

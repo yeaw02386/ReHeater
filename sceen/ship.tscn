@@ -1,24 +1,213 @@
-[gd_scene load_steps=33 format=3 uid="uid://butvwy5amfv8b"]
+[gd_scene load_steps=80 format=3 uid="uid://butvwy5amfv8b"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_cmr4t"]
 [ext_resource type="PackedScene" uid="uid://b0ve0eqogkr02" path="res://sceen/gun.tscn" id="1_rf6cg"]
 [ext_resource type="PackedScene" uid="uid://dkq3jthkeyvc2" path="res://sceen/player.tscn" id="2_vv6n4"]
 [ext_resource type="Texture2D" uid="uid://cs1eqbdi2muva" path="res://assets/Spaceship reworked/Spaceship reworked still.png" id="3_f5tqj"]
+[ext_resource type="Texture2D" uid="uid://b0sm8dyeqxu0e" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0000.png" id="3_x0fr6"]
+[ext_resource type="Texture2D" uid="uid://dotvqcwlqpm5e" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0001.png" id="4_74kne"]
 [ext_resource type="Texture2D" uid="uid://ptgwxmudm8e2" path="res://assets/Spaceship reworked/GetOn/frame0000.png" id="4_e3uxl"]
 [ext_resource type="Texture2D" uid="uid://di6s7pfhket1m" path="res://assets/Spaceship reworked/GetOn/frame0001.png" id="5_fi8ta"]
+[ext_resource type="Texture2D" uid="uid://diewxlt08obbb" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0002.png" id="5_kip2k"]
+[ext_resource type="Texture2D" uid="uid://bahlo4v8rjc4l" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0003.png" id="6_sxukt"]
 [ext_resource type="Texture2D" uid="uid://dus6v61h3ibr3" path="res://assets/Spaceship reworked/GetOn/frame0002.png" id="6_vfr4a"]
 [ext_resource type="Texture2D" uid="uid://cg0nh5vwpia47" path="res://assets/Spaceship reworked/GetOn/frame0003.png" id="7_bksm2"]
+[ext_resource type="Texture2D" uid="uid://drfrihv58eode" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0004.png" id="7_prxpi"]
 [ext_resource type="Texture2D" uid="uid://cg7oollx6nxk1" path="res://assets/Spaceship reworked/GetOn/frame0004.png" id="8_7deii"]
+[ext_resource type="Texture2D" uid="uid://co3afc4bofryd" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0005.png" id="8_ci0od"]
+[ext_resource type="Texture2D" uid="uid://d21xqsnid2oxg" path="res://assets/Spaceship reworked/attack.png" id="9_5fce1"]
 [ext_resource type="Texture2D" uid="uid://c3jqey7hfbt30" path="res://assets/Spaceship reworked/DamageLayer/frame0000.png" id="9_5r215"]
-[ext_resource type="Texture2D" uid="uid://bee7epkmlvx1k" path="res://assets/Spaceship reworked/Stat.png" id="10_45k14"]
+[ext_resource type="Texture2D" uid="uid://clpvjtahny4xe" path="res://assets/Spaceship reworked/wrecked.png" id="9_ls0sw"]
+[ext_resource type="Texture2D" uid="uid://trtt0nkphanr" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0006.png" id="9_tidbr"]
+[ext_resource type="Texture2D" uid="uid://caube3siwehdi" path="res://assets/Spaceship reworked/blink.png" id="10_aj52v"]
+[ext_resource type="Texture2D" uid="uid://m3n84adirfku" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0007.png" id="10_r84mp"]
+[ext_resource type="Texture2D" uid="uid://bafd2m75anrvu" path="res://assets/Spaceship reworked/attack2.png" id="10_rebvp"]
 [ext_resource type="Texture2D" uid="uid://1wi73cm4w7ih" path="res://assets/Spaceship reworked/DamageLayer/frame0001.png" id="10_vp8ve"]
 [ext_resource type="Texture2D" uid="uid://bv5o6cw58fj40" path="res://assets/Spaceship reworked/DamageLayer/frame0002.png" id="11_j8bs6"]
+[ext_resource type="Texture2D" uid="uid://bq606qkvlfllp" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0008.png" id="11_ymxq2"]
 [ext_resource type="Texture2D" uid="uid://cajadcekowdgl" path="res://assets/Spaceship reworked/DamageLayer/frame0003.png" id="12_1sabm"]
+[ext_resource type="Texture2D" uid="uid://bsnihistgx0gb" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0009.png" id="12_y6o7c"]
 [ext_resource type="Texture2D" uid="uid://yegw03etw7ul" path="res://assets/Spaceship reworked/DamageLayer/frame0004.png" id="13_p2hdl"]
+[ext_resource type="Texture2D" uid="uid://qb3k0uuoq213" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0010.png" id="13_tgrlh"]
+[ext_resource type="Texture2D" uid="uid://chhv656xwijp3" path="res://assets/Spaceship reworked/Shock and blowUp/Blowup/frame0011.png" id="14_p5f77"]
+[ext_resource type="Texture2D" uid="uid://b5tcwxkvnhm6o" path="res://assets/Spaceship reworked/Shock and blowUp/Shock/frame0000.png" id="15_l3bw2"]
+[ext_resource type="Texture2D" uid="uid://1b27cod5ylo8" path="res://assets/Spaceship reworked/Shock and blowUp/Shock/frame0001.png" id="16_3li4k"]
 [ext_resource type="Texture2D" uid="uid://d1onds8fuplag" path="res://assets/Smoke/Smoke1/frame0000.png" id="16_n6mr2"]
+[ext_resource type="Texture2D" uid="uid://c7twlylteol0a" path="res://assets/Spaceship reworked/Shock and blowUp/Shock/frame0002.png" id="17_2deoq"]
 [ext_resource type="Texture2D" uid="uid://bko50r1scw5f0" path="res://assets/Smoke/Smoke1/frame0001.png" id="17_vvuuc"]
+[ext_resource type="Texture2D" uid="uid://2gsfvpgaq3g7" path="res://assets/Spaceship reworked/Stat/frame0000.png" id="18_eb6vh"]
+[ext_resource type="Texture2D" uid="uid://chcaodkqiyife" path="res://assets/Spaceship reworked/GunGateOpen/frame0007.png" id="18_n7wk4"]
+[ext_resource type="Texture2D" uid="uid://bfawjcdvgetg2" path="res://assets/Spaceship reworked/Shock and blowUp/Shock/frame0003.png" id="18_unv4j"]
 [ext_resource type="Texture2D" uid="uid://c8rc6cc4l2686" path="res://assets/Smoke/Smoke1/frame0002.png" id="18_ydkg1"]
+[ext_resource type="Texture2D" uid="uid://cgb6snqeyck4p" path="res://assets/Spaceship reworked/Shock and blowUp/Shock/frame0004.png" id="19_26350"]
+[ext_resource type="Texture2D" uid="uid://bgl0w3pgh267t" path="res://assets/Spaceship reworked/Stat/frame0001.png" id="19_dg87y"]
+[ext_resource type="Texture2D" uid="uid://dtc3jmrvs4oy7" path="res://assets/Spaceship reworked/GunGateOpen/frame0006.png" id="19_lcmxh"]
 [ext_resource type="Script" path="res://scripts/camera.gd" id="19_oaayh"]
+[ext_resource type="Texture2D" uid="uid://dgfhrv142a3bt" path="res://assets/Spaceship reworked/Stat/frame0002.png" id="20_cie2s"]
+[ext_resource type="Texture2D" uid="uid://bldpdi10jnkhd" path="res://assets/Spaceship reworked/GunGateOpen/frame0005.png" id="20_g2l8i"]
+[ext_resource type="Texture2D" uid="uid://c2ennhktgs3st" path="res://assets/Spaceship reworked/Shock and blowUp/Shock/frame0005.png" id="20_mji34"]
+[ext_resource type="Texture2D" uid="uid://dtd7vevspscj2" path="res://assets/Spaceship reworked/Shock and blowUp/Shock/frame0006.png" id="21_iaaqo"]
+[ext_resource type="Texture2D" uid="uid://csr26i16kssyh" path="res://assets/Spaceship reworked/GunGateOpen/frame0004.png" id="21_r1ogj"]
+[ext_resource type="Texture2D" uid="uid://biwfanvtmymio" path="res://assets/Spaceship reworked/GunGateOpen/frame0003.png" id="22_bo20p"]
+[ext_resource type="Texture2D" uid="uid://t8rbd8gc8dm0" path="res://assets/Spaceship reworked/GunGateOpen/frame0002.png" id="23_42mbn"]
+[ext_resource type="Texture2D" uid="uid://7r14j4wtgtvp" path="res://assets/Spaceship reworked/GunGateOpen/frame0001.png" id="24_c45to"]
+[ext_resource type="Texture2D" uid="uid://cv57llpn24y2q" path="res://assets/Spaceship reworked/GunGateOpen/frame0000.png" id="25_yop1b"]
+[ext_resource type="Material" uid="uid://dbo4xmoib4ylw" path="res://particle/smoke.tres" id="49_pxmux"]
+[ext_resource type="Material" uid="uid://dh8s0nj50fda6" path="res://particle/bomb.tres" id="53_q3hpy"]
+
+[sub_resource type="Animation" id="Animation_5rfqm"]
+resource_name = "fadeOut"
+length = 2.0
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:self_modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:self_modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:self_modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:self_modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..:modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("..:modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("..:modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 2)
+}
+
+[sub_resource type="Animation" id="Animation_415cv"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("..:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d38dp"]
+_data = {
+"RESET": SubResource("Animation_415cv"),
+"fadeOut": SubResource("Animation_5rfqm")
+}
+
+[sub_resource type="Gradient" id="Gradient_ogvvg"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ujtoo"]
+gradient = SubResource("Gradient_ogvvg")
+fill = 1
+fill_from = Vector2(0.504587, 0.472477)
+fill_to = Vector2(0.834862, 0.146789)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tg07w"]
 animations = [{
@@ -47,6 +236,14 @@ animations = [{
 "texture": ExtResource("8_7deii")
 }],
 "loop": false,
+"name": &"GetOnShip",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_7deii")
+}],
+"loop": true,
 "name": &"OnShip",
 "speed": 5.0
 }, {
@@ -68,6 +265,114 @@ animations = [{
 }],
 "loop": false,
 "name": &"OutShip",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_ls0sw")
+}],
+"loop": true,
+"name": &"Wrecked",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_5fce1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rebvp")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_aj52v")
+}],
+"loop": false,
+"name": &"blink",
+"speed": 5.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yspy5"]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tft8a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_x0fr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_74kne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kip2k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sxukt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_prxpi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ci0od")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_tidbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_r84mp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ymxq2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_y6o7c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tgrlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_p5f77")
+}],
+"loop": false,
+"name": &"Blow",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_l3bw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_3li4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2deoq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_unv4j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_26350")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_mji34")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_iaaqo")
+}],
+"loop": true,
+"name": &"Shock",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -97,8 +402,242 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8rku"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_n7wk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_lcmxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_g2l8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_r1ogj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_bo20p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_42mbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_c45to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_yop1b")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"close",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_yop1b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_c45to")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_42mbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_bo20p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_r1ogj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_g2l8i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_lcmxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_n7wk4")
+}],
+"loop": false,
+"name": &"open",
+"speed": 24.0
+}]
+
+[sub_resource type="Animation" id="Animation_ixrbc"]
+resource_name = "hoverUp"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.64, -0.25, 0, 0.25, 0, 0.64, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 0.64, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0, -2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(79.275, -0.25, 0, 0.25, 0, 40.175, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="Animation" id="Animation_1k3uf"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.64, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(40.175, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_g7ywu"]
+resource_name = "hoverDown"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.64, -0.25, 0, 0.25, 0, 0.64, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.64, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-2, -0.25, 0, 0.25, 0, -2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(40.175, -0.25, 0, 0.25, 0, 85.42, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kiqhe"]
+_data = {
+"RESET": SubResource("Animation_1k3uf"),
+"hoverDown": SubResource("Animation_g7ywu"),
+"hoverUp": SubResource("Animation_ixrbc")
+}
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_q76tw"]
 radius = 294.94
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v888x"]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5dbkd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_eb6vh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_dg87y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_cie2s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_osa65"]
 length = 0.001
@@ -246,37 +785,42 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5)
 }
 
+[sub_resource type="Animation" id="Animation_m56x8"]
+resource_name = "StatStutter"
+length = 0.15
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.455, -0.25, 0, 0.25, 0, 0.535, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.455, -0.25, 0, 0.25, 0, 0.535, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.1)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vxv05"]
 _data = {
 "RESET": SubResource("Animation_osa65"),
 "StatHover": SubResource("Animation_abqoh"),
 "StatInit": SubResource("Animation_qwaqk"),
-"StatOutit": SubResource("Animation_ws0cp")
+"StatOutit": SubResource("Animation_ws0cp"),
+"StatStutter": SubResource("Animation_m56x8")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_al62v"]
-
-[sub_resource type="Gradient" id="Gradient_y4nlw"]
-offsets = PackedFloat32Array(0.822222, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_t0x21"]
-gradient = SubResource("Gradient_y4nlw")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pckqx"]
-particle_flag_disable_z = true
-direction = Vector3(0, 0, 0)
-spread = 148.01
-gravity = Vector3(0, -54.435, 0)
-initial_velocity_max = 70.0
-angular_velocity_max = 127.42
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-radial_accel_max = 18.95
-angle_max = 237.0
-scale_min = 0.0
-scale_max = 0.6
-color_ramp = SubResource("GradientTexture1D_t0x21")
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_rsbt7"]
 frames = 3
@@ -292,6 +836,18 @@ z_index = 2
 script = ExtResource("1_cmr4t")
 player = ExtResource("2_vv6n4")
 
+[node name="fadeAni" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Ani")
+libraries = {
+"": SubResource("AnimationLibrary_d38dp")
+}
+
+[node name="frontLight" type="PointLight2D" parent="."]
+position = Vector2(-4.49999, -19.5782)
+scale = Vector2(4.23438, 3.9032)
+energy = 0.85
+texture = SubResource("GradientTexture2D_ujtoo")
+
 [node name="Ani" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1.90735e-06, 0.999999)
@@ -300,17 +856,39 @@ sprite_frames = SubResource("SpriteFrames_tg07w")
 animation = &"OnShip"
 speed_scale = 3.0
 
+[node name="blowupAni" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_yspy5")
+position = Vector2(-3, -1)
+scale = Vector2(0.649, 0.649)
+sprite_frames = SubResource("SpriteFrames_tft8a")
+
 [node name="damageLayer" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, 0.499994)
 scale = Vector2(0.54, 0.542)
 sprite_frames = SubResource("SpriteFrames_fmvs8")
 animation = &"damageLayer"
 
+[node name="gungateAni" type="AnimatedSprite2D" parent="."]
+z_index = 1
+position = Vector2(0, 9.58608)
+scale = Vector2(0.5345, 0.576986)
+sprite_frames = SubResource("SpriteFrames_g8rku")
+animation = &"open"
+frame = 7
+frame_progress = 1.0
+offset = Vector2(-1.825, 103.86)
+
 [node name="gun" parent="." instance=ExtResource("1_rf6cg")]
-visible = false
-position = Vector2(-2.165, 53.785)
+position = Vector2(-2, 40.175)
+scale = Vector2(1e-05, 0.64)
+
+[node name="gunAni" type="AnimationPlayer" parent="gun"]
+libraries = {
+"": SubResource("AnimationLibrary_kiqhe")
+}
 
 [node name="hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 20
 collision_mask = 20
 
@@ -337,10 +915,12 @@ position = Vector2(169, 68)
 wait_time = 0.3
 one_shot = true
 
-[node name="Stat" type="Sprite2D" parent="."]
+[node name="Stat" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_v888x")
 position = Vector2(1.365, -0.965)
 scale = Vector2(1e-05, 1e-05)
-texture = ExtResource("10_45k14")
+sprite_frames = SubResource("SpriteFrames_5dbkd")
+autoplay = "default"
 
 [node name="StatAni" type="AnimationPlayer" parent="Stat"]
 libraries = {
@@ -355,7 +935,7 @@ z_index = -1
 material = SubResource("CanvasItemMaterial_al62v")
 emitting = false
 amount = 1
-process_material = SubResource("ParticleProcessMaterial_pckqx")
+process_material = ExtResource("49_pxmux")
 texture = SubResource("AnimatedTexture_rsbt7")
 lifetime = 3.0
 explosiveness = 0.35
@@ -366,7 +946,7 @@ z_index = -1
 material = SubResource("CanvasItemMaterial_al62v")
 emitting = false
 amount = 10
-process_material = SubResource("ParticleProcessMaterial_pckqx")
+process_material = ExtResource("49_pxmux")
 texture = SubResource("AnimatedTexture_rsbt7")
 lifetime = 3.0
 explosiveness = 0.35
@@ -375,11 +955,26 @@ fixed_fps = 60
 [node name="particleHeavy" type="GPUParticles2D" parent="smokeParticle"]
 z_index = -1
 material = SubResource("CanvasItemMaterial_al62v")
-amount = 40
-process_material = SubResource("ParticleProcessMaterial_pckqx")
+emitting = false
+amount = 50
+process_material = ExtResource("49_pxmux")
 texture = SubResource("AnimatedTexture_rsbt7")
-lifetime = 3.0
+lifetime = 2.0
 explosiveness = 0.35
+fixed_fps = 60
+
+[node name="particleExplosion" type="GPUParticles2D" parent="smokeParticle"]
+material = SubResource("CanvasItemMaterial_al62v")
+scale = Vector2(9.355, 9.355)
+emitting = false
+amount = 500
+process_material = ExtResource("53_q3hpy")
+texture = SubResource("AnimatedTexture_rsbt7")
+lifetime = 10.0
+one_shot = true
+speed_scale = 2.94
+explosiveness = 1.0
+randomness = 1.0
 fixed_fps = 60
 
 [node name="camera" type="Camera2D" parent="."]
@@ -387,6 +982,7 @@ ignore_rotation = false
 position_smoothing_speed = 1.0
 script = ExtResource("19_oaayh")
 
+[connection signal="animation_finished" from="blowupAni" to="." method="_on_blowup_ani_animation_finished"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="autoHeatGening" to="." method="on_heating" binds= [0.2]]
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]

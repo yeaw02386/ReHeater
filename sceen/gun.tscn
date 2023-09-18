@@ -1,9 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0ve0eqogkr02"]
+[gd_scene load_steps=20 format=3 uid="uid://b0ve0eqogkr02"]
 
 [ext_resource type="Script" path="res://scripts/gun.gd" id="1_nknlo"]
 [ext_resource type="PackedScene" uid="uid://t6d2bmhou7xn" path="res://sceen/bullet1.tscn" id="2_fnlxf"]
 [ext_resource type="PackedScene" uid="uid://vw8fopbauf5q" path="res://sceen/bulletAOE.tscn" id="3_so4hs"]
 [ext_resource type="PackedScene" uid="uid://omiu6u0hw5r3" path="res://sceen/bulletPiercing.tscn" id="4_45711"]
+[ext_resource type="Texture2D" uid="uid://dwroul1fidm6" path="res://assets/Spaceship reworked/Gun.png" id="5_1yca1"]
+[ext_resource type="Texture2D" uid="uid://cqsang34tkuvg" path="res://assets/Bullet/Gun Particle/frame0000.png" id="5_t0xwp"]
+[ext_resource type="Texture2D" uid="uid://rpv8bfn07p1v" path="res://assets/Bullet/Gun Particle/frame0001.png" id="6_uf25b"]
+[ext_resource type="Texture2D" uid="uid://bv5e1m6t22e4v" path="res://assets/Bullet/Gun Particle/frame0002.png" id="7_3qukd"]
+[ext_resource type="Texture2D" uid="uid://d1uxx42ii03mg" path="res://assets/Bullet/Gun Particle/frame0003.png" id="8_lyvjv"]
+[ext_resource type="Texture2D" uid="uid://ehs4jhin51cr" path="res://assets/Bullet/Gun Particle/frame0004.png" id="9_nhul3"]
+[ext_resource type="Texture2D" uid="uid://cknd3j4nrfmux" path="res://assets/Bullet/Gun Particle/frame0005.png" id="10_hbty8"]
+[ext_resource type="Texture2D" uid="uid://bpsqun0lxmecv" path="res://assets/Bullet/Gun Particle/frame0006.png" id="11_li71b"]
+[ext_resource type="Texture2D" uid="uid://bx4pqjidd3vir" path="res://assets/Bullet/Gun Particle/frame0007.png" id="12_p3otj"]
+[ext_resource type="Texture2D" uid="uid://b5davm3odtsqe" path="res://assets/Bullet/Gun Particle/frame0008.png" id="13_no2b5"]
+
+[sub_resource type="Gradient" id="Gradient_imup0"]
+offsets = PackedFloat32Array(0, 0.709677, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.0580645, 0.0580645, 0.0580645, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qvfp0"]
+gradient = SubResource("Gradient_imup0")
+fill = 1
+fill_from = Vector2(0.5, 0.509174)
+fill_to = Vector2(0.743119, 0.0733945)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6i2q2"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_735rq"]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_huvdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_t0xwp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uf25b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3qukd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lyvjv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_3qukd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uf25b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_nhul3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hbty8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_li71b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_p3otj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_no2b5")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 15.0
+}]
 
 [node name="ligntGun" type="Node2D"]
 script = ExtResource("1_nknlo")
@@ -11,8 +83,22 @@ bulletLight = ExtResource("2_fnlxf")
 bulletAOE = ExtResource("3_so4hs")
 bulletPiercing = ExtResource("4_45711")
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, 27)
+scale = Vector2(6.0625, 2.625)
+texture = SubResource("GradientTexture2D_qvfp0")
+
 [node name="shootDelay" type="Timer" parent="."]
 wait_time = 0.2
 autostart = true
+
+[node name="Gun" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_6i2q2")
+position = Vector2(1, 24)
+texture = ExtResource("5_1yca1")
+
+[node name="particleAni" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_735rq")
+sprite_frames = SubResource("SpriteFrames_huvdw")
 
 [connection signal="timeout" from="shootDelay" to="." method="_on_shoot_delay_timeout"]
