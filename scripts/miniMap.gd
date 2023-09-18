@@ -16,13 +16,15 @@ var timeUse
 var timeArrive
 var canTravel = true
 var confirmState = false
+var keyReq
 
 func _ready():
 	ship = $ship
-	currentNode = get_node("map_tutorial")
+	currentNode = get_node("map1")
 	add_to_group("system")
 	add_to_group("dayNight")
 	add_to_group("heat")
+	keyReq = get_parent().keyItemRequest
 	mapLoading() 
 
 func _process(delta):
@@ -35,9 +37,10 @@ func mapLoading():
 	for i in mapdir :
 		mapName.append(i.split(".")[0])
 		
-		var map = load(mapPath+i)
+		var map = load(mapPath+i).instantiate()
 		allMap.append(map)
-
+	genKeyItem()
+	
 func _on_hit_mouse_entered(n):
 	if confirmState :return
 	currentPoint = n
@@ -139,3 +142,12 @@ func _on_ok_pressed():
 func _on_cancel_pressed():
 	confirmState = false
 	$confirm.visible = false
+
+func genKeyItem():
+	for i in allMap:
+		if keyReq <= 0 :return
+		i.on_getKey()
+		keyReq -= 1
+
+func on_destroy():
+	queue_free()

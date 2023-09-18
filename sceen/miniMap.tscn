@@ -25,29 +25,29 @@ default_color = Color(0.541176, 0.796078, 0.427451, 1)
 texture_mode = 1
 joint_mode = 2
 
-[node name="map_ram" type="Polygon2D" parent="."]
+[node name="map2" type="Polygon2D" parent="."]
 position = Vector2(1194, 648)
 polygon = PackedVector2Array(-134, 41, -94, 177, 52, 177, 146, 105, 176, 11, 144, -109, -102, -111)
 
-[node name="hit" type="Area2D" parent="map_ram"]
+[node name="hit" type="Area2D" parent="map2"]
 position = Vector2(-7, 22)
 collision_layer = 128
 collision_mask = 128
 
-[node name="body" type="CollisionPolygon2D" parent="map_ram/hit"]
+[node name="body" type="CollisionPolygon2D" parent="map2/hit"]
 position = Vector2(-270, -188)
 polygon = PackedVector2Array(195, 65, 150, 117, 125, 233, 207, 349, 315, 343, 417, 285, 441, 165, 409, 43)
 
-[node name="map_tutorial" type="Polygon2D" parent="."]
+[node name="map1" type="Polygon2D" parent="."]
 position = Vector2(270, 200)
 polygon = PackedVector2Array(-136, 38, -57, 94, 28, 142, 126, 114, 189, 18, 96, -60, -65, -77)
 
-[node name="hit" type="Area2D" parent="map_tutorial"]
+[node name="hit" type="Area2D" parent="map1"]
 position = Vector2(27, 26)
 collision_layer = 128
 collision_mask = 128
 
-[node name="body" type="CollisionPolygon2D" parent="map_tutorial/hit"]
+[node name="body" type="CollisionPolygon2D" parent="map1/hit"]
 position = Vector2(-288, -195)
 polygon = PackedVector2Array(206, 83, 172, 121, 126, 221, 300, 309, 396, 277, 454, 189, 370, 111)
 
@@ -165,9 +165,9 @@ theme_override_font_sizes/font_size = 30
 text = "!! Traveling not Allow !!"
 horizontal_alignment = 1
 
-[connection signal="mouse_entered" from="map_ram/hit" to="." method="_on_hit_mouse_entered" binds= ["map_ram"]]
-[connection signal="mouse_exited" from="map_ram/hit" to="." method="_on_hit_mouse_exited"]
-[connection signal="mouse_entered" from="map_tutorial/hit" to="." method="_on_hit_mouse_entered" binds= ["map_tutorial"]]
-[connection signal="mouse_exited" from="map_tutorial/hit" to="." method="_on_hit_mouse_exited"]
+[connection signal="mouse_entered" from="map2/hit" to="." method="_on_hit_mouse_entered" binds= ["map2"]]
+[connection signal="mouse_exited" from="map2/hit" to="." method="_on_hit_mouse_exited"]
+[connection signal="mouse_entered" from="map1/hit" to="." method="_on_hit_mouse_entered" binds= ["map1"]]
+[connection signal="mouse_exited" from="map1/hit" to="." method="_on_hit_mouse_exited"]
 [connection signal="pressed" from="confirm/ok" to="." method="_on_ok_pressed"]
 [connection signal="pressed" from="confirm/cancel" to="." method="_on_cancel_pressed"]

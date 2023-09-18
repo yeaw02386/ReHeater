@@ -8,7 +8,14 @@ var coolerDMG = 1
 var playerIns
 var playerInShip = false
 var isFocus = true
+var keyItem = 0
+var keyItemRequest
+
 @onready var camera = get_node("camera")
+
+func init(pos,req):
+	position = pos
+	keyItemRequest = req
 
 func playerGetOut():
 	$Ani.play("OutShip")
@@ -46,7 +53,7 @@ func _process(delta):
 		get_tree().call_group("camera","on_mouseMove",mouse)
 	
 func on_heating(temp) :
-	heat += temp*coolerDMG
+	heat += temp*coolerDMG+200
 	if heat >= MAX_HEAT :
 		get_tree().call_group("heat","on_destroy")
 		queue_free()
@@ -69,6 +76,10 @@ func on_coolerDamage(dmg) :
 		return
 	$damageLayer.frame = int(abs(coolerDMG-1)/2)
 	
+func on_coolerRepair(repair):
+	coolerDMG = max(1,abs(repair-coolerDMG))
+	get_tree().call_group("heat","on_coolerDMGUpdate",coolerDMG)
+
 func on_heatUpdate(h):
 	$smokeParticle/particleLight.emitting = true
 	if heat < 500:
@@ -125,3 +136,9 @@ func on_playShoot():
 	
 func on_focus(focus):
 	set_process_input(focus)
+
+func on_getKeyItem(repair):
+	keyItem += 1
+	on_coolerRepair(repair)
+	if keyItem >= keyItemRequest:
+		get_tree().call_group("system","on_readyToEsc")

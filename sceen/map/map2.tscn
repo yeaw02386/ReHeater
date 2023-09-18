@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://x6f4ms8tyxd0"]
+[gd_scene load_steps=6 format=3 uid="uid://x6f4ms8tyxd0"]
 
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_hto01"]
 [ext_resource type="Texture2D" uid="uid://cbc5fbjgrnuji" path="res://sceen/377246347_275178415310735_6043371529118531724_n.png" id="1_jn1q0"]
+[ext_resource type="PackedScene" uid="uid://c5r6yaiiby30g" path="res://sceen/KeyItem.tscn" id="2_ixeh5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_re41d"]
 texture = ExtResource("1_jn1q0")
@@ -310,9 +312,8 @@ tile_size = Vector2i(50, 50)
 sources/0 = SubResource("TileSetAtlasSource_re41d")
 
 [node name="map_ram" type="Node2D"]
-
-[node name="shipPoint" type="Marker2D" parent="."]
-position = Vector2(789, 486)
+script = ExtResource("1_hto01")
+keyItem = ExtResource("2_ixeh5")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(127, 1854)
@@ -334,3 +335,14 @@ layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
 layer_2/tile_data = PackedInt32Array(327722, 65536, 6, 131103, 65536, 5, 65582, 131072, 4, 589872, 131072, 4, -65522, 131072, 4, 458770, 131072, 4, -524291, 131072, 4, -524292, 131072, 4, -327676, 131072, 4, -786429, 131072, 5, -458736, 131072, 5, -851952, 131072, 4, -1179655, 0, 4, -1114119, 0, 5, -2490363, 0, 4, -2424827, 0, 5, -2293739, 0, 4, -2228203, 0, 5, -2097141, 0, 4, -2031605, 0, 5, -1572840, 0, 4, -1507304, 0, 5, -982996, 0, 4, -917460, 0, 5, -655326, 0, 4, -589790, 0, 5, -655333, 0, 4, -589797, 0, 5, -1376269, 65536, 4, 327678, 131072, 4)
+
+[node name="Marker2D" type="Marker2D" parent="TileMap"]
+position = Vector2(2439, -838)
+
+[node name="Marker2D2" type="Marker2D" parent="TileMap"]
+position = Vector2(733, 81)
+
+[node name="shipPoint" type="Marker2D" parent="."]
+position = Vector2(789, 486)
+
+[connection signal="child_entered_tree" from="TileMap" to="." method="_on_tile_map_child_entered_tree"]
