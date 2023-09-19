@@ -5,6 +5,8 @@ func _ready():
 	add_to_group("system")
 	add_to_group("dayNight")
 	add_to_group("radar")
+	on_gotKey(0,3)
+	on_liquidInPlayer(0)
 
 func _process(delta):
 	pass
