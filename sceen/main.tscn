@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://seaohxkux1m3" path="res://sceen/alien01.tscn" id="3_w3m33"]
 [ext_resource type="PackedScene" uid="uid://biplgp2rgx7bb" path="res://sceen/interact.tscn" id="4_m7u3r"]
 [ext_resource type="Script" path="res://scripts/dayNight.gd" id="5_nk8kq"]
-[ext_resource type="Texture2D" uid="uid://c33qyvdtrlhc2" path="res://assets/UI/clock/clock reworked.png" id="6_aydvm"]
+[ext_resource type="Texture2D" uid="uid://c33qyvdtrlhc2" path="res://assets/UI/User Interface/clock/clock reworked.png" id="6_aydvm"]
 [ext_resource type="Texture2D" uid="uid://bxah7hspo51hi" path="res://assets/UI/clock/hint'.png" id="6_jsupi"]
 
 [sub_resource type="Gradient" id="Gradient_p4w8d"]
