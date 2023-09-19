@@ -16,4 +16,6 @@ layer_0/tile_data = PackedInt32Array(65534, 65536, 1, 65535, 65536, 1, 131071, 6
 [node name="Marker2D" type="Marker2D" parent="TileMap"]
 position = Vector2(-461, 508)
 
+[node name="shipPoint" type="Marker2D" parent="."]
+
 [connection signal="child_entered_tree" from="TileMap" to="." method="_on_tile_map_child_entered_tree"]

@@ -1,4 +1,7 @@
 extends Node2D
+const MIN_PRE_DAY = 1440
+const MIN_PRE_HOR = 60
+
 @export var player:PackedScene
 
 var isGameover = false
@@ -11,6 +14,8 @@ var playerInShip = false
 var isFocus = true
 var keyItem = 0
 var keyItemRequest
+var prevheat = heat-1
+var delHeat = 1
 
 @onready var camera = get_node("camera")
 
@@ -197,3 +202,4 @@ func animeShooting():
 	$Ani.play("attack")
 	await get_tree().create_timer(0.15).timeout
 	$Ani.play("OnShip")
+

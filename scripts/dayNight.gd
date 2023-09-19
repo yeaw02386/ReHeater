@@ -24,6 +24,7 @@ func _physics_process(delta):
 	
 	calTime()
 
+var prevMin = 0
 func calTime():
 	var totalMin = int(time/INGAME_TO_REAL)
 	var currentMin = totalMin%MIN_PRE_DAY
@@ -32,6 +33,9 @@ func calTime():
 	var hour = int(currentMin/MIN_PRE_HOR)
 	var min = int(currentMin%MIN_PRE_HOR)
 	
+	if prevMin == min :return
+	
+	prevMin = min
 	get_tree().call_group("dayNight","on_dayNightUpdate",day,hour,min)
 	
 	if hour == dayStart:

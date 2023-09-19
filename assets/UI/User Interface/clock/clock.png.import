@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://dk4cwaq75r43c"
-=======
-uid="uid://ctoeh05klkhby"
->>>>>>> 7666c1c3f32c90ef665898e3344f610d2e8c997e
-path="res://.godot/imported/map 3.png-ad1b349f4ffc01a1bdfef6154740ea42.ctex"
+uid="uid://c755l215trvcf"
+path="res://.godot/imported/clock.png-8eac78e23345ea549ee5af325941b96c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/UI/minimap/map 3.png"
-dest_files=["res://.godot/imported/map 3.png-ad1b349f4ffc01a1bdfef6154740ea42.ctex"]
+source_file="res://assets/UI/User Interface/clock/clock.png"
+dest_files=["res://.godot/imported/clock.png-8eac78e23345ea549ee5af325941b96c.ctex"]
 
 [params]
 
