@@ -10,22 +10,32 @@ func _process(delta):
 	pass
 
 func on_coolerDMGUpdate(dmg):
-	$coolerDmg.text = "cooler damage : "+str(int((dmg-1)*100))+" %"
+	$Title/coolerDmg.text = "cooler damage : "+str(int((dmg-1)*100))+" %"
+	if int((dmg-1)*100) > 50 :
+		$quest/survive.text = "Ship's status : slightly damaged"
+	elif int((dmg-1)*100) > 250 :
+		$quest/survive.text = "Ship's status : damaged"
+	elif int((dmg-1)*100) > 500 :
+		$quest/survive.text = "Ship's status : internal damaged"
+	elif int((dmg-1)*100) > 800 :
+		$quest/survive.text = "Ship's status : critical damaged"
+		
+		
 
 func on_dayNightUpdate(day,hour,min):
-	$time.text = "Time : "+str(day)+" day " +str(hour)+" hour "+str(min)+" min"
+	$Title/time.text = "Time : "+str(day)+" day " +str(hour)+" hour "+str(min)+" min"
 
 func on_liquidInPlayer(liq):
-	$liquid.text = "Liquid in player  : "+str(liq)
+	$Title/liquid.text = "Liquid in player  : "+str(liq)
 
 func on_gotKey(now,key):
-	$quest/findPart.text = "Repair path request : "+str(now)+"/"+str(key)
+	$quest/findPart.text = "Repair part : "+str(now)+"/"+str(key)
 
 func on_dayStarted():
-	$quest/surive.visible = false
+	$quest/survive.visible = false
 	
 func on_nightStarted():
-	$quest/surive.visible = true
+	$quest/survive.visible = true
 	
 func on_readyToEsc():
 	$quest/toesc.visible = true

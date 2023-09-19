@@ -112,10 +112,9 @@ speed_scale = 2.0
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-37.3246, 1)
 scale = Vector2(-2.50796, 0.714493)
-color = Color(0.152941, 0.745098, 0.745098, 1)
 blend_mode = 2
 shadow_enabled = true
-shadow_color = Color(0.945098, 0.231373, 0.356863, 0.890196)
+shadow_color = Color(0.992157, 0.705882, 0.717647, 0.890196)
 texture = ExtResource("19_7t8lt")
 texture_scale = 0.56
 height = 30.0

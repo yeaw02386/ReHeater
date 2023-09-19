@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=3 uid="uid://ecifd3cetgg4"]
+[gd_scene load_steps=18 format=3 uid="uid://ecifd3cetgg4"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_lv2ov"]
 [ext_resource type="PackedScene" uid="uid://butvwy5amfv8b" path="res://sceen/ship.tscn" id="3_71hmc"]
 [ext_resource type="PackedScene" uid="uid://seaohxkux1m3" path="res://sceen/alien01.tscn" id="3_w3m33"]
 [ext_resource type="PackedScene" uid="uid://biplgp2rgx7bb" path="res://sceen/interact.tscn" id="4_m7u3r"]
 [ext_resource type="Script" path="res://scripts/dayNight.gd" id="5_nk8kq"]
+[ext_resource type="Texture2D" uid="uid://c33qyvdtrlhc2" path="res://assets/UI/clock/clock reworked.png" id="6_aydvm"]
+[ext_resource type="Texture2D" uid="uid://bxah7hspo51hi" path="res://assets/UI/clock/hint'.png" id="6_jsupi"]
 
 [sub_resource type="Gradient" id="Gradient_p4w8d"]
 offsets = PackedFloat32Array(0.311688, 0.454545)
@@ -20,10 +22,131 @@ corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[sub_resource type="Gradient" id="Gradient_qydbk"]
+[sub_resource type="Animation" id="Animation_cbu8k"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hint:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(94, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hint:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(119.105, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hint:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_fgnw0"]
-gradient = SubResource("Gradient_qydbk")
+[sub_resource type="Animation" id="Animation_8bltw"]
+resource_name = "default"
+
+[sub_resource type="Animation" id="Animation_i7f6y"]
+resource_name = "down"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hint:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(3.14159, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_ulvrd"]
+resource_name = "hover"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hint:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(94, -0.25, 0, 0.25, 0, 94, -0.25, 0, 0.25, 0, 94, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.01, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hint:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(156, -0.25, 0, 0.25, 0, 162.555, -0.25, 0, 0.25, 0, 156, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.01, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_puxrq"]
+resource_name = "up"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hint:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 3.14159, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hint:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(94, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hint:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(156.004, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jbxlf"]
+_data = {
+"RESET": SubResource("Animation_cbu8k"),
+"default": SubResource("Animation_8bltw"),
+"down": SubResource("Animation_i7f6y"),
+"hover": SubResource("Animation_ulvrd"),
+"up": SubResource("Animation_puxrq")
+}
 
 [sub_resource type="Curve2D" id="Curve2D_8flc4"]
 bake_interval = 26.61
@@ -75,17 +198,41 @@ offset_bottom = -7.96001
 toggle_mode = true
 text = "map"
 
+[node name="Hint" type="Sprite2D" parent="GUI"]
+position = Vector2(94, 119.105)
+texture = ExtResource("6_jsupi")
+
+[node name="hintAni" type="AnimationPlayer" parent="GUI/Hint"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jbxlf")
+}
+
 [node name="watch" type="TextureButton" parent="GUI"]
 anchors_preset = -1
-anchor_left = 0.044
+anchor_left = 0.008
+anchor_top = 0.014
 anchor_right = 0.093
-anchor_bottom = 0.092
-offset_left = 12.312
-offset_top = 13.0
-offset_right = -12.886
-offset_bottom = -22.36
+anchor_bottom = 0.121
+offset_left = 0.783999
+offset_top = -0.120001
+offset_right = 5.114
+offset_bottom = 48.32
 toggle_mode = true
-texture_normal = SubResource("GradientTexture2D_fgnw0")
+texture_normal = ExtResource("6_aydvm")
+
+[node name="time" type="Label" parent="GUI"]
+z_as_relative = false
+offset_left = 35.0
+offset_top = 31.0
+offset_right = 158.0
+offset_bottom = 93.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 40
+text = "00 : 00"
+horizontal_alignment = 1
 
 [node name="enemyPath" type="Path2D" parent="."]
 position = Vector2(155.458, 51.9357)
@@ -100,5 +247,6 @@ rotation = -0.468827
 wait_time = 1.3
 
 [connection signal="toggled" from="GUI/minimap" to="." method="_on_minimap_toggled"]
+[connection signal="mouse_entered" from="GUI/watch" to="." method="_on_watch_mouse_entered"]
 [connection signal="toggled" from="GUI/watch" to="." method="_on_watch_toggled"]
 [connection signal="timeout" from="enemySpawnTime" to="." method="_on_enemy_spawn_time_timeout"]

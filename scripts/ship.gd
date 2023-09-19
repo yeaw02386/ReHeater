@@ -5,7 +5,7 @@ var isGameover = false
 var MAX_HEAT = 1000
 var NODE_TYPE = "ship"
 var heat = 400
-var coolerDMG = 1
+var coolerDMG = 20
 var playerIns
 var playerInShip = false
 var isFocus = true
