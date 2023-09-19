@@ -165,6 +165,31 @@ theme_override_font_sizes/font_size = 30
 text = "!! Traveling not Allow !!"
 horizontal_alignment = 1
 
+<<<<<<< Updated upstream
+=======
+[node name="itemIndicator" type="Node2D" parent="."]
+visible = false
+scale = Vector2(1.445, 1.445)
+
+[node name="frame" type="Sprite2D" parent="itemIndicator"]
+texture = ExtResource("2_7j3u0")
+
+[node name="noti" type="Sprite2D" parent="itemIndicator"]
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("3_rmrks")
+
+[node name="info" type="AnimatedSprite2D" parent="itemIndicator"]
+sprite_frames = SubResource("SpriteFrames_2rgv1")
+animation = &"tier3"
+frame = 7
+frame_progress = 0.735114
+
+[node name="itemIndiPlayer" type="AnimationPlayer" parent="itemIndicator"]
+libraries = {
+"": SubResource("AnimationLibrary_fkjx8")
+}
+
+>>>>>>> Stashed changes
 [connection signal="mouse_entered" from="map2/hit" to="." method="_on_hit_mouse_entered" binds= ["map2"]]
 [connection signal="mouse_exited" from="map2/hit" to="." method="_on_hit_mouse_exited"]
 [connection signal="mouse_entered" from="map1/hit" to="." method="_on_hit_mouse_entered" binds= ["map1"]]

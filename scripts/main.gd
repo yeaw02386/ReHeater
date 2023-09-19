@@ -24,6 +24,20 @@ func _ready():
 func _process(delta):
 	pass
 
+<<<<<<< Updated upstream
+=======
+func on_heatUpdate(heat):
+	$GUI/heatBar.value = heat
+
+func on_dayNightUpdate(day,hour,min):
+	#$GUI/time.text = "Time : "+str(day)+" day " +str(hour)+" hour "+str(min)+" min"
+	$GUI/time.text = str(hour) + " : " + str(min)
+	$GUI/date.text = "Day   " + str(day)
+	
+func on_coolerDMGUpdate(dmg):
+	$GUI/coolerDmg.text = "cooler damage : "+str(int((dmg-1)*100))+" %"
+
+>>>>>>> Stashed changes
 func on_nightStarted():
 	if isGameOver : return
 	$enemySpawnTime.start()
