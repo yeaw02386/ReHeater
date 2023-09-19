@@ -20,8 +20,6 @@ func _ready():
 	add_to_group("system")
 	add_to_group("gun")
 	on_newGame()
-	
-	$GUI/Hint/hintAni.play("hover")
 
 func _process(delta):
 	pass
@@ -39,9 +37,6 @@ func on_heatUpdate(heat):
 
 func _on_enemy_spawn_time_timeout():
 	spawnEnemy()
-	
-func on_dayNightUpdate(day,hour,min):
-	$GUI/time.text = str(hour) + " : " + str(min)
 
 func spawnEnemy():
 	var spawnPoint = $enemyPath/sapwnPath
@@ -99,14 +94,5 @@ func on_isPlayerGetout(out):
 	$GUI/minimap.visible = !out
 	
 func _on_watch_toggled(button_pressed):
-	if $GUI/Hint.rotation == 0 :
-		$GUI/Hint/hintAni.play("up")
-		await get_tree().create_timer(0.5).timeout
-		$GUI/Hint/hintAni.play("hover")
-	else :
-		$GUI/Hint/hintAni.play("down")
-		await get_tree().create_timer(0.5).timeout
-		$GUI/Hint/hintAni.play("hover")
-	
 	$panel.visible = button_pressed
 	get_tree().call_group("system","on_focus",!button_pressed)
