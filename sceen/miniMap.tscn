@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://scripts/miniMap.gd" id="1_wskbp"]
 [ext_resource type="Texture2D" uid="uid://8vcjxbiyb5sp" path="res://assets/UI/minimap/bg_sea.png" id="2_4yhr1"]
-[ext_resource type="Texture2D" uid="uid://bgedax5xju8o5" path="res://assets/UI/minimap/map 2.png" id="3_1rc1n"]
+[ext_resource type="Texture2D" uid="uid://xbjqeuib142y" path="res://assets/UI/minimap/map 2.png" id="3_1rc1n"]
 [ext_resource type="Texture2D" uid="uid://gcn8qdlexbrm" path="res://assets/UI/minimap/map_4.png" id="3_kno1u"]
-[ext_resource type="Texture2D" uid="uid://d1g6hsqbsicy0" path="res://assets/UI/minimap/map 1.png" id="4_fof6x"]
-[ext_resource type="Texture2D" uid="uid://ctoeh05klkhby" path="res://assets/UI/minimap/map 3.png" id="4_gmekm"]
-[ext_resource type="Texture2D" uid="uid://ccddywfixmdgu" path="res://assets/UI/minimap/minimap.png" id="5_lkwx5"]
+[ext_resource type="Texture2D" uid="uid://dghrmm7bn7mgr" path="res://assets/UI/minimap/map 1.png" id="4_fof6x"]
+[ext_resource type="Texture2D" uid="uid://dgkphrbbbm6nh" path="res://assets/UI/minimap/map 3.png" id="4_gmekm"]
+[ext_resource type="Texture2D" uid="uid://siaksqknssjd" path="res://assets/UI/minimap/minimap.png" id="5_lkwx5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcdc8"]
 bg_color = Color(0.941176, 0.94902, 0.956863, 1)

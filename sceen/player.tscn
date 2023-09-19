@@ -59,7 +59,7 @@
 [ext_resource type="Texture2D" uid="uid://geqsa3y57nkg" path="res://assets/animation/player/back running/frame0040.png" id="44_3tl5f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wh72m"]
-size = Vector2(41, 86.25)
+size = Vector2(41, 27.25)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jnjhs"]
 animations = [{
@@ -270,13 +270,13 @@ motion_mode = 1
 script = ExtResource("1_47pgq")
 
 [node name="body" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -5.875)
+position = Vector2(3, 14)
 shape = SubResource("RectangleShape2D_wh72m")
 
 [node name="animate" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1, -31)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.39, 0.39)
 sprite_frames = SubResource("SpriteFrames_jnjhs")
 animation = &"running back"
 frame = 11
