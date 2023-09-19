@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ecifd3cetgg4"]
+[gd_scene load_steps=12 format=3 uid="uid://ecifd3cetgg4"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_lv2ov"]
 [ext_resource type="PackedScene" uid="uid://butvwy5amfv8b" path="res://sceen/ship.tscn" id="3_71hmc"]
@@ -19,6 +19,11 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="Gradient" id="Gradient_qydbk"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fgnw0"]
+gradient = SubResource("Gradient_qydbk")
 
 [sub_resource type="Curve2D" id="Curve2D_8flc4"]
 bake_interval = 26.61
@@ -57,51 +62,6 @@ value = 500.0
 rounded = true
 show_percentage = false
 
-[node name="coolerDmg" type="Label" parent="GUI"]
-anchors_preset = -1
-anchor_left = -0.015
-anchor_top = -0.003
-anchor_right = 0.018
-anchor_bottom = 0.012
-offset_left = 92.53
-offset_top = 86.24
-offset_right = 122.764
-offset_bottom = 98.04
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-text = "coolerDmg :"
-metadata/_edit_use_anchors_ = true
-
-[node name="liquid" type="Label" parent="GUI"]
-anchors_preset = -1
-anchor_left = -0.015
-anchor_top = -0.003
-anchor_right = 0.018
-anchor_bottom = 0.012
-offset_left = 92.53
-offset_top = 142.24
-offset_right = 143.53
-offset_bottom = 168.24
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-text = "Liquid in player  : "
-metadata/_edit_use_anchors_ = true
-
-[node name="time" type="Label" parent="GUI"]
-anchors_preset = -1
-anchor_left = -0.015
-anchor_top = -0.003
-anchor_right = 0.018
-anchor_bottom = 0.012
-offset_left = 92.53
-offset_top = 58.24
-offset_right = 93.764
-offset_bottom = 70.04
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-text = "Time : "
-metadata/_edit_use_anchors_ = true
-
 [node name="minimap" type="Button" parent="GUI"]
 anchors_preset = -1
 anchor_left = 0.769
@@ -114,6 +74,18 @@ offset_right = 0.00793457
 offset_bottom = -7.96001
 toggle_mode = true
 text = "map"
+
+[node name="watch" type="TextureButton" parent="GUI"]
+anchors_preset = -1
+anchor_left = 0.044
+anchor_right = 0.093
+anchor_bottom = 0.092
+offset_left = 12.312
+offset_top = 13.0
+offset_right = -12.886
+offset_bottom = -22.36
+toggle_mode = true
+texture_normal = SubResource("GradientTexture2D_fgnw0")
 
 [node name="enemyPath" type="Path2D" parent="."]
 position = Vector2(155.458, 51.9357)
@@ -128,4 +100,5 @@ rotation = -0.468827
 wait_time = 1.3
 
 [connection signal="toggled" from="GUI/minimap" to="." method="_on_minimap_toggled"]
+[connection signal="toggled" from="GUI/watch" to="." method="_on_watch_toggled"]
 [connection signal="timeout" from="enemySpawnTime" to="." method="_on_enemy_spawn_time_timeout"]

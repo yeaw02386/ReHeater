@@ -127,10 +127,6 @@ wait_time = 1.316
 one_shot = true
 autostart = true
 
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-color = Color(0.878431, 0.686275, 0.898039, 1)
-polygon = PackedVector2Array(-71, -43, -75, 3, -79, 42, -46, 68, -12, 76, 22, 77, 52, 54, 70, 29, 69, -6, 75, -34, 44, -64, 12, -79, -42, -71)
-
 [node name="bloomBox" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 8

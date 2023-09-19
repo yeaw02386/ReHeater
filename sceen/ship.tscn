@@ -977,7 +977,6 @@ ignore_rotation = false
 position_smoothing_speed = 1.0
 script = ExtResource("19_oaayh")
 
-[connection signal="animation_finished" from="blowupAni" to="." method="_on_blowup_ani_animation_finished"]
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
 [connection signal="timeout" from="autoHeatGening" to="." method="on_heating" binds= [0.2]]
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]

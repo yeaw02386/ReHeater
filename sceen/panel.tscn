@@ -1,0 +1,99 @@
+[gd_scene load_steps=2 format=3 uid="uid://ctvb30goniubv"]
+
+[ext_resource type="Script" path="res://scripts/panel.gd" id="1_anvly"]
+
+[node name="panel" type="CanvasLayer"]
+script = ExtResource("1_anvly")
+
+[node name="bg" type="Polygon2D" parent="."]
+position = Vector2(-49, -68)
+color = Color(0, 0, 0, 0.317647)
+polygon = PackedVector2Array(150, 155, 150, 955, 497, 953, 502, 155)
+
+[node name="coolerDmg" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.071
+anchor_top = 0.137
+anchor_right = 0.12
+anchor_bottom = 0.163
+offset_left = -0.0420074
+offset_top = 0.0399933
+offset_right = -0.240005
+offset_bottom = -0.0400085
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "coolerDmg :"
+metadata/_edit_use_anchors_ = true
+
+[node name="liquid" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.072
+anchor_top = 0.171
+anchor_right = 0.143
+anchor_bottom = 0.21
+offset_left = -0.944016
+offset_top = 0.319992
+offset_right = 0.0139771
+offset_bottom = 0.400009
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Liquid in player  : "
+metadata/_edit_use_anchors_ = true
+
+[node name="time" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.105
+anchor_right = 0.104
+anchor_bottom = 0.131
+offset_left = 0.860001
+offset_top = -0.400002
+offset_right = 0.192001
+offset_bottom = -0.480011
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Time : "
+metadata/_edit_use_anchors_ = true
+
+[node name="todo" type="Label" parent="."]
+offset_left = 237.0
+offset_top = 509.0
+offset_right = 326.0
+offset_bottom = 535.0
+text = "Ship stat"
+horizontal_alignment = 1
+
+[node name="quest" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.082
+anchor_top = 0.49
+anchor_right = 0.219
+anchor_bottom = 0.775
+offset_left = 10.0
+offset_top = 28.8
+offset_right = -13.538
+offset_bottom = -52.0001
+
+[node name="surive" type="Label" parent="quest"]
+visible = false
+layout_mode = 2
+text = "Ship's been damaged"
+horizontal_alignment = 1
+
+[node name="cooldown" type="Label" parent="quest"]
+visible = false
+layout_mode = 2
+text = "Reactor too mush hot"
+horizontal_alignment = 1
+
+[node name="findPart" type="Label" parent="quest"]
+layout_mode = 2
+text = "Repair path requst :"
+horizontal_alignment = 1
+
+[node name="toesc" type="Label" parent="quest"]
+visible = false
+layout_mode = 2
+text = "Ship ready to launch"
+horizontal_alignment = 1
+vertical_alignment = 1

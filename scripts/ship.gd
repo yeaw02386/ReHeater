@@ -169,6 +169,7 @@ func on_focus(focus):
 func on_getKeyItem(repair):
 	keyItem += 1
 	on_coolerRepair(repair)
+	get_tree().call_group("system","on_gotKey",keyItem,keyItemRequest)
 	if keyItem >= keyItemRequest:
 		get_tree().call_group("system","on_readyToEsc")
 

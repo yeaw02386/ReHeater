@@ -71,5 +71,3 @@ func _on_call_key_timeout():
 	keyDis.clear()
 	get_tree().call_group("radar","on_callPos")
 
-func on_keyItemDistance(dis):
-	print(dis)
