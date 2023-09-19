@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_t3yog"]
 [ext_resource type="PackedScene" uid="uid://c5r6yaiiby30g" path="res://sceen/KeyItem.tscn" id="2_iy4j2"]
-[ext_resource type="TileSet" uid="uid://dqd5sss018lmp" path="res://sceen/map/tilemap.tres" id="3_7hjh0"]
+[ext_resource type="TileSet" uid="uid://dqd5sss018lmp" path="res://sceen/tilemap.tres" id="3_7hjh0"]
 
 [node name="map_tutorial" type="Node2D"]
 script = ExtResource("1_t3yog")

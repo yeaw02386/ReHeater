@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_hto01"]
 [ext_resource type="PackedScene" uid="uid://c5r6yaiiby30g" path="res://sceen/KeyItem.tscn" id="2_ixeh5"]
-[ext_resource type="TileSet" uid="uid://dqd5sss018lmp" path="res://sceen/map/tilemap.tres" id="3_53qfu"]
+[ext_resource type="TileSet" uid="uid://dqd5sss018lmp" path="res://sceen/tilemap.tres" id="3_53qfu"]
 
 [node name="map_ram" type="Node2D"]
 script = ExtResource("1_hto01")
@@ -36,6 +36,6 @@ position = Vector2(2439, -838)
 position = Vector2(733, 81)
 
 [node name="shipPoint" type="Marker2D" parent="."]
-position = Vector2(789, 486)
+position = Vector2(1441, 939)
 
 [connection signal="child_entered_tree" from="TileMap" to="." method="_on_tile_map_child_entered_tree"]

@@ -886,7 +886,6 @@ libraries = {
 }
 
 [node name="hitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 20
 collision_mask = 20
 
@@ -897,7 +896,6 @@ polygon = PackedVector2Array(-65, -58, -89, 12, -111, 45, -118, 70, -82, 91, -49
 autostart = true
 
 [node name="interact" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 collision_mask = 16
 
@@ -910,7 +908,7 @@ debug_color = Color(0, 0.572549, 0.831373, 0.0509804)
 position = Vector2(169, 68)
 
 [node name="getInShipDelay" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.908
 one_shot = true
 
 [node name="Stat" type="AnimatedSprite2D" parent="."]

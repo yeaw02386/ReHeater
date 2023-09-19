@@ -13,7 +13,7 @@ func init(pos) :
 	
 func _ready():
 	$Ani.play("default")
-	look_at(get_viewport().get_mouse_position())
+	look_at(get_global_mouse_position())
 	rotation_degrees += randi_range(-spread,spread)
 	newPos = Vector2(cos(rotation),sin(rotation))*speed
 

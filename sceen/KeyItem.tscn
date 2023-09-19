@@ -14,6 +14,5 @@ polygon = PackedVector2Array(-78, 9, 32, -45, 134, -8, 10, 66)
 
 [node name="body" type="CollisionPolygon2D" parent="hitBox"]
 polygon = PackedVector2Array(-78, 9, 35, -46, 131, -7, 11, 65)
-disabled = true
 
 [connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

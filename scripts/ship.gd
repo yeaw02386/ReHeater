@@ -19,10 +19,7 @@ func init(pos,req):
 	keyItemRequest = req
 
 func playerGetOut():
-	$Ani.play("OutShip")
-	$Stat/StatAni.play("StatOutit")
-	$gungateAni.play("close")
-	$gun/gunAni.play("hoverDown")
+	animePlayerGetout()
 	await get_tree().create_timer(0.3).timeout
 	$gun.playerInShip = false
 	playerInShip = false
@@ -54,19 +51,16 @@ func _ready():
 
 func _process(delta):
 	if playerInShip :
-		var mouse = get_viewport().get_mouse_position()-global_position
+		var mouse = get_global_mouse_position()-global_position
 		get_tree().call_group("camera","on_mouseMove",mouse)
 	
 func on_heating(temp) :
 	heat += temp*coolerDMG
 	
 	get_tree().call_group("heat","on_heatUpdate",heat)
-	if heat >= MAX_HEAT :
-		if isGameover == false:
-			isGameover = true
-			gameOver()
-		else:
-			return
+	if heat >= MAX_HEAT and not isGameover:
+		isGameover = true
+		gameOver()
 
 func gameOver():
 	playerIns.remove_child(camera)
@@ -140,20 +134,15 @@ func _on_interact_body_exited(body):
 	body.canInteract = ""
 	
 func on_getInShip():
-	if isGameover == true:
+	if isGameover:
 		return
-	$Stat/StatAni.play("StatInit")
-	$Ani.play("GetOnShip")
-	$gungateAni.play("open")
-	$gun/gunAni.play("hoverUp")
 	playerIns.remove_child(camera)
 	add_child(camera)
 	get_parent().remove_child(playerIns)
 	$gun.playerInShip = true
 	$getInShipDelay.start()
-	
-	await get_tree().create_timer(0.3).timeout
-	$Stat/StatAni.play("StatHover")
+	animePlayerGetin()
+
 	get_tree().call_group("system","on_isPlayerGetout",false)
 	
 	get_tree().call_group("interact","on_showInteract","E to getout ship")
@@ -161,9 +150,9 @@ func on_getInShip():
 	get_tree().call_group("interact","on_showInteract","Right Click to swap bullet")
 	
 func _input(event):
-	if event.is_action_pressed("getInOutShip") and playerInShip: 
-		if $Ani.animation == "Wrecked":
-			return
+	if (event.is_action_pressed("getInOutShip") and 
+									playerInShip and 
+									$Ani.animation != "Wrecked"): 
 		$Ani.play("Empty")
 		playerGetOut()
 
@@ -171,11 +160,8 @@ func _on_get_in_ship_delay_timeout():
 	playerInShip = true
 	
 func on_playShoot():
-	if isGameover == true:
-		return
-	$Ani.play("attack")
-	await get_tree().create_timer(0.15).timeout
-	$Ani.play("OnShip")
+	if isGameover : return
+	animeShooting()
 	
 func on_focus(focus):
 	set_process_input(focus)
@@ -191,3 +177,22 @@ func on_nightStarted():
 
 func on_dayStarted():
 	$frontLight.energy = 0
+
+func animePlayerGetout():
+	$Ani.play("OutShip")
+	$Stat/StatAni.play("StatOutit")
+	$gungateAni.play("close")
+	$gun/gunAni.play("hoverDown")
+
+func animePlayerGetin():
+	$Stat/StatAni.play("StatInit")
+	$Ani.play("GetOnShip")
+	$gungateAni.play("open")
+	$gun/gunAni.play("hoverUp")
+	await get_tree().create_timer(0.3).timeout
+	$Stat/StatAni.play("StatHover")
+
+func animeShooting():
+	$Ani.play("attack")
+	await get_tree().create_timer(0.15).timeout
+	$Ani.play("OnShip")

@@ -114,15 +114,12 @@ color = Color(0.309804, 0.670588, 0.788235, 1)
 polygon = PackedVector2Array(-21, -23, -37, 1, -25, 26, 8, 19, 26, 20, 35, 2, 36, -24, 21, -24, 10, -25)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-visible = false
 
 [node name="hitBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
 collision_mask = 8
 
 [node name="body" type="CollisionPolygon2D" parent="hitBox"]
-visible = false
 polygon = PackedVector2Array(-26, -20, 23, -19, 23, 3, 11, 21, -31, 23, -41, -4)
 
 [node name="bloom" type="Timer" parent="."]
@@ -131,12 +128,10 @@ one_shot = true
 autostart = true
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
-visible = false
 color = Color(0.878431, 0.686275, 0.898039, 1)
 polygon = PackedVector2Array(-71, -43, -75, 3, -79, 42, -46, 68, -12, 76, 22, 77, 52, 54, 70, 29, 69, -6, 75, -34, 44, -64, 12, -79, -42, -71)
 
 [node name="bloomBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
 collision_mask = 8
 

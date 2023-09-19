@@ -7,29 +7,26 @@ var NODE_NAME = "bullet"
 @export var spread:int = 7
 
 var newPos
-var hit = 0
+var hit = false
 
 func init(pos) :
 	position = pos
 	
 func _ready():
 	$Ani.play("default")
-	look_at(get_viewport().get_mouse_position())
+	look_at(get_global_mouse_position())
 	rotation_degrees += randi_range(-spread,spread)
 	newPos = Vector2(cos(rotation),sin(rotation))*speed
+	print(rotation_degrees)
 
 func _physics_process(delta):
-	if hit == 1:
-		pass
-	else:position += newPos
-		
-	
+	if not hit :position += newPos
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
 	queue_free()
 
 func _on_hit_box_body_entered(body):
-	hit = 1 #to stop bullet
+	hit = true
 	body.on_getAttacked(dmg)
 	$Ani.play("Hit")
 	await get_tree().create_timer(0.3).timeout

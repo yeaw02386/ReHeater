@@ -44,10 +44,8 @@ color = Color(0.635294, 0.611765, 0.964706, 1)
 polygon = PackedVector2Array(-6, -7, 18, -5, 21, -1, 65, 1, 19, 5, 11, 8, -8, 5)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-visible = false
 
 [node name="hitBox" type="Area2D" parent="."]
-visible = false
 collision_layer = 8
 collision_mask = 8
 
