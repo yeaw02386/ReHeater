@@ -7,6 +7,7 @@ func _ready():
 	add_to_group("radar")
 	on_gotKey(0,3)
 	on_liquidInPlayer(0)
+	visible = false
 
 func _process(delta):
 	pass

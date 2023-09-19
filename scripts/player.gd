@@ -68,6 +68,7 @@ func _on_call_key_timeout():
 	if keyDis.is_empty() : keyDis.append(100000)
 	keyDis.sort()
 	get_tree().call_group("radar","on_keyItemDistance",keyDis[0])
+	print(keyDis[0])
 	keyDis.clear()
 	get_tree().call_group("radar","on_callPos")
 

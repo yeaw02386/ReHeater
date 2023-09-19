@@ -1992,3 +1992,5 @@ position = Vector2(644, 203)
 
 [node name="shipPoint" type="Marker2D" parent="."]
 position = Vector2(835, 476)
+
+[connection signal="child_entered_tree" from="TileMap" to="." method="_on_tile_map_child_entered_tree"]

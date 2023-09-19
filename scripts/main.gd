@@ -61,7 +61,6 @@ func on_destroy():
 func on_newGame():
 	add_child(miniMap.instantiate())
 	add_child(panel.instantiate())
-	get_tree().call_group("system","changeMap","map1")
 	
 	isGameOver = false
 	get_tree().call_group("dayNight","on_resetTime")
@@ -96,3 +95,6 @@ func on_isPlayerGetout(out):
 func _on_watch_toggled(button_pressed):
 	$panel.visible = button_pressed
 	get_tree().call_group("system","on_focus",!button_pressed)
+
+func on_dayNightUpdate(day,hour,min):
+	$GUI/time.text = str(hour) + " : " + str(min)

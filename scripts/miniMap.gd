@@ -17,6 +17,7 @@ var timeArrive
 var canTravel = true
 var confirmState = false
 var keyReq
+var coolerDmg = 0
 
 func _ready():
 	ship = $ship
@@ -26,6 +27,7 @@ func _ready():
 	add_to_group("heat")
 	keyReq = get_parent().keyItemRequest
 	mapLoading() 
+	changeMap("map2")
 
 func _process(delta):
 	pass
@@ -102,7 +104,7 @@ func on_dayNightUpdate(d,h,m):
 
 func calData():
 	dis = currentNode.position.distance_to(ship.position)
-	heatUse = dis * 0.25
+	heatUse = dis * 0.35 * coolerDmg
 	timeUse = int(dis * 0.005)
 	timeArrive = timeUse+time[1]
 
@@ -151,3 +153,6 @@ func genKeyItem():
 
 func on_destroy():
 	queue_free()
+
+func on_coolerDMGUpdate(cool):
+	coolerDmg = cool

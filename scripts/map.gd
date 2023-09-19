@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var keyItem : PackedScene
+var keyItem = load("res://sceen/KeyItem.tscn")
 
 var keyReq = 0
 var keyPoint = []
@@ -26,6 +26,7 @@ func genKeyItem():
 		var ins = keyItem.instantiate()
 		ins.init(point.global_position)
 		add_child(ins)
+		print(ins)
 
 func _on_tile_map_child_entered_tree(node):
 	keyPoint.append(node)
