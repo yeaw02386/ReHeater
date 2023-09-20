@@ -5,7 +5,7 @@ func _ready():
 	add_to_group("system")
 	add_to_group("dayNight")
 	add_to_group("radar")
-	on_gotKey(0,3)
+	on_gotKey(0,4)
 	on_liquidInPlayer(0)
 	visible = false
 
@@ -50,9 +50,9 @@ func on_heatUpdate(heat):
 	else : $quest/cooldown.visible = false
 
 func on_keyItemDistance(dis):
-	if dis <= 1000 :
+	if dis <= 1500 :
 		$itemInd.play("tier3")
-	elif dis <= 1500 :
+	elif dis <= 2500 :
 		$itemInd.play("tier2")
 	else:
 		$itemInd.play("tier1")

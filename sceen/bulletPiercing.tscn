@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://omiu6u0hw5r3"]
+[gd_scene load_steps=9 format=3 uid="uid://omiu6u0hw5r3"]
 
 [ext_resource type="Script" path="res://scripts/bulletPiercing.gd" id="1_p2pix"]
 [ext_resource type="Texture2D" uid="uid://c21711rn4mvkq" path="res://assets/Bullet/Lightning/frame0000.png" id="2_f31ds"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c1gvsti5pru7q" path="res://assets/Bullet/Lightning/frame0002.png" id="4_ifyql"]
 [ext_resource type="Texture2D" uid="uid://c0idy1q2eak1h" path="res://assets/Bullet/Lightning/frame0003.png" id="5_pk8ln"]
 [ext_resource type="Texture2D" uid="uid://cvgetok8n68eo" path="res://assets/Bullet/Lightning/frame0004.png" id="6_vnjui"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ycjcw"]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f7kgj"]
 animations = [{
@@ -53,6 +56,7 @@ collision_mask = 8
 polygon = PackedVector2Array(-6, -7, 65, 0, -5, 7)
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_ycjcw")
 position = Vector2(20, 7)
 rotation = 0.0846324
 sprite_frames = SubResource("SpriteFrames_f7kgj")

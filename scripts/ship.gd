@@ -149,7 +149,7 @@ func on_getInShip():
 	$gun.playerInShip = true
 	$getInShipDelay.start()
 	animePlayerGetin()
-	if keyItem == 1:
+	if keyItem == 2:
 		add_child(win.instantiate())
 
 	get_tree().call_group("system","on_isPlayerGetout",false)

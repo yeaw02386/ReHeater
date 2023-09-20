@@ -69,6 +69,7 @@ func on_newGame():
 	
 	shipIns = ship.instantiate()
 	shipIns.init(shipPos,keyItemRequest)
+	$enemyPath/sapwnPath.position = shipPos
 	add_child(shipIns)
 	
 func on_toMainMenu():

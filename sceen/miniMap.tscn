@@ -148,6 +148,15 @@ max_value = 1000.0
 value = 500.0
 show_percentage = false
 
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 0.097
+anchor_bottom = 0.186
+offset_left = 1488.0
+offset_top = 166.0
+offset_right = 1649.51
+offset_bottom = 105.12
+
 [node name="data" type="VBoxContainer" parent="."]
 anchors_preset = -1
 anchor_left = 0.793

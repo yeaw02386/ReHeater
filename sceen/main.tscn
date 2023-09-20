@@ -159,6 +159,7 @@ point_count = 15
 script = ExtResource("1_lv2ov")
 enemy = ExtResource("3_w3m33")
 ship = ExtResource("3_71hmc")
+keyItemRequest = 4
 
 [node name="interact" parent="." instance=ExtResource("4_m7u3r")]
 
@@ -167,7 +168,7 @@ position = Vector2(-16, 8)
 script = ExtResource("5_nk8kq")
 gradientDayNight = SubResource("GradientTexture1D_by2ru")
 timeSpeed = 6.0
-timeInit = 7
+timeInit = 16
 dayStart = 4
 nightStart = 20
 
@@ -235,7 +236,7 @@ text = "00 : 00"
 horizontal_alignment = 1
 
 [node name="enemyPath" type="Path2D" parent="."]
-position = Vector2(155.458, 51.9357)
+position = Vector2(155.888, 51.936)
 scale = Vector2(0.921182, 0.97264)
 curve = SubResource("Curve2D_8flc4")
 

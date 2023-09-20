@@ -13,6 +13,7 @@ config_version=5
 config/name="ReHeater"
 run/main_scene="res://sceen/mainMenu.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
+boot_splash/image="res://assets/CGArt/aposter_line_art_no_sketch.png"
 config/icon="res://icon.svg"
 
 [display]
