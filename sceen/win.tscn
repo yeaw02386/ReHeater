@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://b813vaxwnm0y2"]
+
+[ext_resource type="Script" path="res://sceen/win.gd" id="1_j1e12"]
+[ext_resource type="Texture2D" uid="uid://ci0krg7p7f8go" path="res://assets/cutscene/10.png" id="2_iepna"]
+
+[node name="win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j1e12")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="bg" type="Polygon2D" parent="CanvasLayer"]
+color = Color(0, 0, 0, 0.196078)
+polygon = PackedVector2Array(-20, -10, -20, 1119, 1942, 1103, 1930, -46, -24, -45)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.411
+anchor_top = 0.297
+anchor_right = 0.614
+anchor_bottom = 0.432
+offset_left = -79.722
+offset_top = 9.23999
+offset_right = 108.172
+offset_bottom = 3.43997
+theme_override_font_sizes/font_size = 100
+text = "YOU WON!"
+
+[node name="mainMenu" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.423
+anchor_top = 0.464
+anchor_right = 0.604
+anchor_bottom = 0.603
+offset_left = -0.546021
+offset_top = -0.120026
+offset_right = -0.808105
+offset_bottom = -0.240051
+text = "Main Menu"
+
+[node name="10" type="Sprite2D" parent="CanvasLayer"]
+z_index = 2
+position = Vector2(392.531, 817.7)
+scale = Vector2(1.72313, 1.72313)
+texture = ExtResource("2_iepna")
+
+[connection signal="pressed" from="CanvasLayer/mainMenu" to="." method="_on_main_menu_pressed"]

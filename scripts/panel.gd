@@ -50,7 +50,12 @@ func on_heatUpdate(heat):
 	else : $quest/cooldown.visible = false
 
 func on_keyItemDistance(dis):
-	pass
+	if dis <= 1000 :
+		$itemInd.play("tier3")
+	elif dis <= 1500 :
+		$itemInd.play("tier2")
+	else:
+		$itemInd.play("tier1")
 
 func on_mapChange(m):
 	visible = false

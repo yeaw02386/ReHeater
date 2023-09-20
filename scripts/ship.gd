@@ -2,6 +2,8 @@ extends Node2D
 const MIN_PRE_DAY = 1440
 const MIN_PRE_HOR = 60
 
+var win = preload("res://sceen/win.tscn")
+
 @export var player:PackedScene
 
 var isGameover = false
@@ -147,6 +149,8 @@ func on_getInShip():
 	$gun.playerInShip = true
 	$getInShipDelay.start()
 	animePlayerGetin()
+	if keyItem == 1:
+		add_child(win.instantiate())
 
 	get_tree().call_group("system","on_isPlayerGetout",false)
 	

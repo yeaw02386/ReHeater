@@ -6,6 +6,7 @@ func init(pos):
 	position = pos
 
 func _ready():
+	$Aniplayer.play("hover")
 	add_to_group("interact")
 	add_to_group("radar")
 	add_to_group("system")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d5a0xw5f6p3r"]
+[gd_scene load_steps=12 format=3 uid="uid://d5a0xw5f6p3r"]
 
 [ext_resource type="Script" path="res://scripts/miniMap.gd" id="1_wskbp"]
 [ext_resource type="Texture2D" uid="uid://8vcjxbiyb5sp" path="res://assets/UI/minimap/bg_sea.png" id="2_4yhr1"]
@@ -7,6 +7,43 @@
 [ext_resource type="Texture2D" uid="uid://dghrmm7bn7mgr" path="res://assets/UI/minimap/map 1.png" id="4_fof6x"]
 [ext_resource type="Texture2D" uid="uid://dgkphrbbbm6nh" path="res://assets/UI/minimap/map 3.png" id="4_gmekm"]
 [ext_resource type="Texture2D" uid="uid://siaksqknssjd" path="res://assets/UI/minimap/minimap.png" id="5_lkwx5"]
+
+[sub_resource type="Animation" id="Animation_1prq8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:transform")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Transform2D(1, 0, 0, 1, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bnvbo"]
+resource_name = "activate"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:transform")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.378929, 2.92816),
+"update": 0,
+"values": [Transform2D(1, 0, 0, 0, 0, 0), Transform2D(1, 0, 0, 1, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kw5t6"]
+_data = {
+"RESET": SubResource("Animation_1prq8"),
+"activate": SubResource("Animation_bnvbo")
+}
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcdc8"]
 bg_color = Color(0.941176, 0.94902, 0.956863, 1)
@@ -17,6 +54,11 @@ corner_radius_bottom_left = 10
 
 [node name="miniMap" type="CanvasLayer"]
 script = ExtResource("1_wskbp")
+
+[node name="Ani" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_kw5t6")
+}
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(973, 594)

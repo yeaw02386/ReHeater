@@ -1,11 +1,76 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5r6yaiiby30g"]
+[gd_scene load_steps=7 format=3 uid="uid://c5r6yaiiby30g"]
 
 [ext_resource type="Script" path="res://scripts/KeyItem.gd" id="1_qf7j0"]
+[ext_resource type="Texture2D" uid="uid://bi64u567yndyw" path="res://assets/Item/KeyItems.png" id="2_n07e1"]
+[ext_resource type="Texture2D" uid="uid://c6yeuelryk2jr" path="res://assets/Item/pin.png" id="3_tpuyl"]
+
+[sub_resource type="Animation" id="Animation_ujw3v"]
+resource_name = "hover"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pin:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-1, -0.25, 0, 0.25, 0, -1, -0.25, 0, 0.25, 0, -1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pin:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(-88, -0.25, 0, 0.25, 0, -104.55, -0.25, 0, 0.25, 0, -88, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+
+[sub_resource type="Animation" id="Animation_de01d"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pin:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pin:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-102.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_66qi4"]
+_data = {
+"RESET": SubResource("Animation_de01d"),
+"hover": SubResource("Animation_ujw3v")
+}
 
 [node name="KeyItem" type="Node2D"]
 script = ExtResource("1_qf7j0")
 
+[node name="Aniplayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_66qi4")
+}
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 z_index = 2
 color = Color(0.333333, 0.556863, 0.34902, 1)
 polygon = PackedVector2Array(-78, 9, 32, -45, 134, -8, 10, 66)
@@ -13,6 +78,13 @@ polygon = PackedVector2Array(-78, 9, 32, -45, 134, -8, 10, 66)
 [node name="hitBox" type="Area2D" parent="."]
 
 [node name="body" type="CollisionPolygon2D" parent="hitBox"]
-polygon = PackedVector2Array(-78, 9, 35, -46, 131, -7, 11, 65)
+polygon = PackedVector2Array(-38, 39, -36, 0, 42, 1, 41, 46)
+
+[node name="KeyItems" type="Sprite2D" parent="."]
+texture = ExtResource("2_n07e1")
+
+[node name="Pin" type="Sprite2D" parent="."]
+position = Vector2(-1, -102.05)
+texture = ExtResource("3_tpuyl")
 
 [connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

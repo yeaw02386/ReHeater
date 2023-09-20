@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhhpcxp2xayv5"]
+[gd_scene load_steps=5 format=3 uid="uid://dhhpcxp2xayv5"]
 
 [ext_resource type="Script" path="res://scripts/gameOver.gd" id="1_vp8la"]
+[ext_resource type="Texture2D" uid="uid://ty3wcdimwt0a" path="res://assets/cutscene/9.png" id="2_mss8x"]
 
 [sub_resource type="Gradient" id="Gradient_sihpe"]
 colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 0.45098)
@@ -43,11 +44,12 @@ anchor_left = 0.411
 anchor_top = 0.297
 anchor_right = 0.614
 anchor_bottom = 0.432
-offset_left = 115.278
-offset_top = 45.2401
-offset_right = -127.828
-offset_bottom = -74.5599
-text = "Reactor Over Heat"
+offset_left = -85.7221
+offset_top = 9.24005
+offset_right = 102.172
+offset_bottom = 3.44003
+theme_override_font_sizes/font_size = 100
+text = "GAME OVER"
 
 [node name="mainMenu" type="Button" parent="CanvasLayer"]
 anchors_preset = -1
@@ -60,6 +62,11 @@ offset_top = -5.40002
 offset_right = -33.9061
 offset_bottom = -4.52002
 text = "Main Menu"
+
+[node name="9" type="Sprite2D" parent="."]
+position = Vector2(289.844, 829.5)
+scale = Vector2(1.65938, 1.65938)
+texture = ExtResource("2_mss8x")
 
 [connection signal="pressed" from="CanvasLayer/restart" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/mainMenu" to="." method="_on_main_menu_pressed"]

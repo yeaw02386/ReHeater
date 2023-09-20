@@ -6,6 +6,7 @@ extends Node2D
 
 var mapIns
 
+var win = preload("res://sceen/win.tscn")
 var gameover = preload("res://sceen/gameOver.tscn")
 var miniMap = preload("res://sceen/miniMap.tscn")
 var panel = preload("res://sceen/panel.tscn")
@@ -20,6 +21,7 @@ func _ready():
 	add_to_group("system")
 	add_to_group("gun")
 	on_newGame()
+	$GUI/Hint/hintAni.play("hover")
 
 func _process(delta):
 	pass
@@ -93,6 +95,9 @@ func on_isPlayerGetout(out):
 	$GUI/minimap.visible = !out
 	
 func _on_watch_toggled(button_pressed):
+	if $GUI/Hint.rotation == 0 :
+		$GUI/Hint/hintAni.play("up")
+	else : $GUI/Hint/hintAni.play("down")
 	$panel.visible = button_pressed
 	get_tree().call_group("system","on_focus",!button_pressed)
 
