@@ -8,6 +8,8 @@ func _ready():
 	pass 
 
 func _process(delta):
+	if Input.is_action_just_pressed("swapBullet"):
+		$hint.visible = false
 	pass
 
 func _on_start_pressed():
