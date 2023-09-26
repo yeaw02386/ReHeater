@@ -11,9 +11,9 @@ func _physics_process(delta):
 		$CanvasLayer/bg.color = bgColor.gradient.sample(bgGrad)
 		bgGrad += delta
 
-#func _on_button_pressed():
-	#get_tree().call_group("system","on_newGame")
-	#queue_free()
+func _on_button_pressed():
+	get_tree().call_group("system","on_newGame")
+	queue_free()
 
 
 func _on_main_menu_pressed():
