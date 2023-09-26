@@ -153,6 +153,9 @@ func on_getInShip():
 	$getInShipDelay.start()
 	animePlayerGetin()
 	if keyItem == 2:
+		$fadeAni.play("fade in")
+		$camera/white.visible = true
+		await get_tree().create_timer(1).timeout
 		add_child(win.instantiate())
 
 	get_tree().call_group("system","on_isPlayerGetout",false)

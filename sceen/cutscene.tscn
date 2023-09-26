@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d2jf6jdaqxqfw"]
+[gd_scene load_steps=25 format=3 uid="uid://d2jf6jdaqxqfw"]
 
 [ext_resource type="Texture2D" uid="uid://dr6pgj74snymt" path="res://assets/cutscene/1.png" id="1_s5qc6"]
 [ext_resource type="Script" path="res://sceen/cutscene.gd" id="1_wf6se"]
@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://ds1rv2qwdk5s6" path="res://assets/cutscene/5.png" id="5_h4sq2"]
 [ext_resource type="Texture2D" uid="uid://bhcx6d5yfy35k" path="res://assets/cutscene/6.png" id="6_7ofq0"]
 [ext_resource type="Texture2D" uid="uid://bgrpp7teju8gr" path="res://assets/cutscene/7.png" id="7_oxjbv"]
+[ext_resource type="Texture2D" uid="uid://b5td0ync4bd2b" path="res://assets/cutscene/epilogue/cutscene.png" id="11_jjbj2"]
+[ext_resource type="Texture2D" uid="uid://bpt16p48irarq" path="res://assets/cutscene/epilogue/cutscene2.png" id="12_p5w6d"]
+[ext_resource type="Texture2D" uid="uid://deii23jrigln7" path="res://assets/cutscene/epilogue/cutscene 3.png" id="13_6jrt7"]
+[ext_resource type="Texture2D" uid="uid://byu1py841u5u6" path="res://assets/cutscene/epilogue/cutscene 4.png" id="14_o5fvw"]
+[ext_resource type="Texture2D" uid="uid://c6cg88y4g384j" path="res://assets/cutscene/epilogue/cutscene 5.png" id="15_ufm71"]
+[ext_resource type="Texture2D" uid="uid://06qx18jrwc24" path="res://assets/cutscene/epilogue/cutscene 6.png" id="16_2olad"]
 
 [sub_resource type="Animation" id="Animation_vp7mv"]
 length = 0.001
@@ -33,6 +39,50 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(3.305, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../fade:modulate:r")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../fade:modulate:g")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../fade:modulate:b")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../fade:modulate:a")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -111,10 +161,150 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1)
 }
 
+[sub_resource type="Animation" id="Animation_ni2ot"]
+resource_name = "fade in"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../fade:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../fade:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../fade:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../fade:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_j23c3"]
+resource_name = "fade out"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../fade:modulate:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../fade:modulate:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../fade:modulate:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../fade:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../fade:self_modulate:r")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../fade:self_modulate:g")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../fade:self_modulate:b")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../fade:self_modulate:a")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.5)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_chjju"]
 _data = {
 "RESET": SubResource("Animation_vp7mv"),
 "expand": SubResource("Animation_l6k7r"),
+"fade in": SubResource("Animation_ni2ot"),
+"fade out": SubResource("Animation_j23c3"),
 "shrink": SubResource("Animation_km2du"),
 "shrinkpand": SubResource("Animation_khjuh")
 }
@@ -152,6 +342,29 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_2olad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ufm71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_o5fvw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6jrt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_p5w6d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_jjbj2")
+}],
+"loop": true,
+"name": &"epilogue",
+"speed": 5.0
 }]
 
 [node name="cutscene" type="Node2D"]
@@ -161,6 +374,7 @@ script = ExtResource("1_wf6se")
 polygon = PackedVector2Array(-79, -65, 1977, -65, 1972, 1157, -82, 1134)
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_right = 296.0
 offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -178,7 +392,8 @@ libraries = {
 position = Vector2(959.5, 545.5)
 scale = Vector2(3.395, 3.305)
 sprite_frames = SubResource("SpriteFrames_41k4e")
-frame = 8
+animation = &"epilogue"
+frame = 5
 
 [node name="skip" type="Button" parent="."]
 offset_left = 1714.0
@@ -186,5 +401,9 @@ offset_top = 26.0
 offset_right = 1884.0
 offset_bottom = 91.0
 text = "Skip Cutscene"
+
+[node name="fade" type="Polygon2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-79, -65, 1977, -65, 1972, 1157, -82, 1134)
 
 [connection signal="pressed" from="skip" to="." method="_on_skip_pressed"]
