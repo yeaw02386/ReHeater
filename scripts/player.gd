@@ -21,9 +21,6 @@ func _physics_process(delta):
 	var h = Input.get_axis("ui_up","ui_down")
 	var dir = Vector2(v,h)
 	
-	if dir : 
-		get_tree().call_group("map","on_entityUpdate",position,self)
-	
 	if dir.x : 
 		$animate.flip_h = !(dir.x+1)
 	

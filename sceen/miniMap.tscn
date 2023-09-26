@@ -1,14 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://d5a0xw5f6p3r"]
+[gd_scene load_steps=14 format=3 uid="uid://d5a0xw5f6p3r"]
 
 [ext_resource type="Script" path="res://scripts/miniMap.gd" id="1_wskbp"]
 [ext_resource type="Texture2D" uid="uid://8vcjxbiyb5sp" path="res://assets/UI/minimap/bg_sea.png" id="2_4yhr1"]
 [ext_resource type="Texture2D" uid="uid://xbjqeuib142y" path="res://assets/UI/minimap/map 2.png" id="3_1rc1n"]
-[ext_resource type="Texture2D" uid="uid://gcn8qdlexbrm" path="res://assets/UI/minimap/map_4.png" id="3_kno1u"]
 [ext_resource type="Texture2D" uid="uid://bjs1imqod2wqv" path="res://assets/UI/frame0000.png" id="3_nbh30"]
 [ext_resource type="Texture2D" uid="uid://dghrmm7bn7mgr" path="res://assets/UI/minimap/map 1.png" id="4_fof6x"]
-[ext_resource type="Texture2D" uid="uid://dgkphrbbbm6nh" path="res://assets/UI/minimap/map 3.png" id="4_gmekm"]
 [ext_resource type="Texture2D" uid="uid://dqarestysg2n0" path="res://assets/UI/frame0001.png" id="4_pmrqh"]
 [ext_resource type="Texture2D" uid="uid://y7bjle8rml2k" path="res://assets/UI/frame0002.png" id="5_gahko"]
+[ext_resource type="Texture2D" uid="uid://bvjtl3klswsp5" path="res://assets/UI/minimap/map4.png" id="6_xddwh"]
 
 [sub_resource type="Animation" id="Animation_1prq8"]
 length = 0.001
@@ -85,22 +84,20 @@ begin_cap_mode = 1
 antialiased = true
 
 [node name="map4" type="Sprite2D" parent="."]
-position = Vector2(599, 384)
-texture = ExtResource("3_kno1u")
+position = Vector2(635, 358)
+rotation = 0.71733
+scale = Vector2(0.779022, 0.780488)
+texture = ExtResource("6_xddwh")
 
 [node name="hit" type="Area2D" parent="map4"]
-position = Vector2(-7, 22)
-collision_layer = 128
-collision_mask = 128
 
 [node name="body" type="CollisionPolygon2D" parent="map4/hit"]
-position = Vector2(-270, -188)
-polygon = PackedVector2Array(288, 73, 193, 115, 174, 173, 270, 233, 319, 219, 353, 186, 381, 149, 353, 59)
+polygon = PackedVector2Array(-158.291, 66.4162, -122.767, 132.399, -31.6526, 170.382, 66.3966, 93.5102, 141.395, 7.80502, 205.319, -102.264, 147.321, -158.879, -11.1152, -156.947, -123.922, -143.737, -208.675, 4.87044, -207.089, 74.9008)
 
 [node name="map3" type="Sprite2D" parent="."]
 position = Vector2(1339, 431)
 scale = Vector2(0.601695, 0.649083)
-texture = ExtResource("4_gmekm")
+texture = ExtResource("6_xddwh")
 
 [node name="hit" type="Area2D" parent="map3"]
 position = Vector2(-7, 22)
