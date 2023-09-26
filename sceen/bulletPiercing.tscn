@@ -1,14 +1,24 @@
-[gd_scene load_steps=13 format=3 uid="uid://omiu6u0hw5r3"]
+[gd_scene load_steps=17 format=3 uid="uid://omiu6u0hw5r3"]
 
 [ext_resource type="Script" path="res://scripts/bulletPiercing.gd" id="1_p2pix"]
 [ext_resource type="Texture2D" uid="uid://c21711rn4mvkq" path="res://assets/Bullet/Lightning/frame0000.png" id="2_f31ds"]
+[ext_resource type="Texture2D" uid="uid://d1onds8fuplag" path="res://assets/Smoke/Smoke1/frame0000.png" id="2_uenyf"]
 [ext_resource type="Texture2D" uid="uid://c1aigvjik8csi" path="res://assets/Bullet/Lightning/frame0001.png" id="3_6g2g4"]
+[ext_resource type="Texture2D" uid="uid://bko50r1scw5f0" path="res://assets/Smoke/Smoke1/frame0001.png" id="3_7axq2"]
 [ext_resource type="Texture2D" uid="uid://c1gvsti5pru7q" path="res://assets/Bullet/Lightning/frame0002.png" id="4_ifyql"]
+[ext_resource type="Texture2D" uid="uid://c8rc6cc4l2686" path="res://assets/Smoke/Smoke1/frame0002.png" id="4_trnb6"]
 [ext_resource type="Texture2D" uid="uid://c0idy1q2eak1h" path="res://assets/Bullet/Lightning/frame0003.png" id="5_pk8ln"]
 [ext_resource type="Texture2D" uid="uid://cvgetok8n68eo" path="res://assets/Bullet/Lightning/frame0004.png" id="6_vnjui"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_72mg1"]
 light_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_kdoqe"]
+offsets = PackedFloat32Array(0.417867, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n56r0"]
+gradient = SubResource("Gradient_kdoqe")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0kn80"]
 particle_flag_disable_z = true
@@ -28,27 +38,17 @@ radial_accel_max = 8.43
 tangential_accel_max = 42.11
 angle_min = -30.3
 angle_max = 151.6
-scale_min = 3.0
-scale_max = 10.0
-color = Color(0.988235, 0.94902, 0.898039, 1)
+scale_min = 0.05
+scale_max = 0.07
+color_ramp = SubResource("GradientTexture1D_n56r0")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wjq8q"]
-light_mode = 1
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vv0s1"]
-particle_flag_disable_z = true
-direction = Vector3(-200, -100, 0)
-spread = 1.42
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 38.0
-initial_velocity_max = 70.0
-angular_velocity_min = -136.42
-angular_velocity_max = 303.16
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_min = 3.0
-scale_max = 10.0
-color = Color(0.988235, 0.94902, 0.898039, 1)
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_k1cyt"]
+frames = 3
+frame_0/texture = ExtResource("2_uenyf")
+frame_1/texture = ExtResource("3_7axq2")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_trnb6")
+frame_2/duration = 1.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ycjcw"]
 light_mode = 1
@@ -84,21 +84,47 @@ heatGening = 3.0
 dmg = 100
 spread = 2
 
-[node name="par1" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_72mg1")
-position = Vector2(-7, 9)
-amount = 20
-process_material = SubResource("ParticleProcessMaterial_0kn80")
-lifetime = 0.5
-speed_scale = 1.22
+[node name="particle" type="Node2D" parent="."]
+position = Vector2(1, 1)
+rotation = 0.352352
 
-[node name="par2" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_wjq8q")
-position = Vector2(-8, -9)
-amount = 20
-process_material = SubResource("ParticleProcessMaterial_vv0s1")
+[node name="par3" type="GPUParticles2D" parent="particle"]
+material = SubResource("CanvasItemMaterial_72mg1")
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_0kn80")
+texture = SubResource("AnimatedTexture_k1cyt")
 lifetime = 0.5
-speed_scale = 1.22
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+
+[node name="par2" type="GPUParticles2D" parent="particle"]
+material = SubResource("CanvasItemMaterial_72mg1")
+position = Vector2(-1.28367, -0.593457)
+rotation = 0.402749
+scale = Vector2(1, 1)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_0kn80")
+texture = SubResource("AnimatedTexture_k1cyt")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+
+[node name="par1" type="GPUParticles2D" parent="particle"]
+material = SubResource("CanvasItemMaterial_72mg1")
+position = Vector2(-0.593457, 1.28367)
+rotation = -0.352352
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_0kn80")
+texture = SubResource("AnimatedTexture_k1cyt")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

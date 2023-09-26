@@ -2,7 +2,7 @@ extends Node2D
 const MIN_PRE_DAY = 1440
 const MIN_PRE_HOR = 60
 
-var win = preload("res://sceen/win.tscn")
+var win = preload("res://sceen/ending.tscn")
 
 @export var player:PackedScene
 
@@ -152,11 +152,12 @@ func on_getInShip():
 	$gun.playerInShip = true
 	$getInShipDelay.start()
 	animePlayerGetin()
-	if keyItem == 2:
+	
+	if keyItem == 4:
 		$fadeAni.play("fade in")
-		$camera/white.visible = true
-		await get_tree().create_timer(1).timeout
-		add_child(win.instantiate())
+		$white.visible = true
+		await get_tree().create_timer(1.5).timeout
+		get_tree().change_scene_to_packed(win)
 
 	get_tree().call_group("system","on_isPlayerGetout",false)
 	

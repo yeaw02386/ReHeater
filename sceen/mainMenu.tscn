@@ -203,6 +203,28 @@ tracks/5/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Logo:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.106, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Logo:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.106, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_eedef"]
 resource_name = "shipHover"
@@ -271,6 +293,28 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.223529, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Logo:scale:x")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1.04587, -0.25, 0, 0.25, 0, 1.106, -0.25, 0, 0.25, 0, 1.04587, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Logo:scale:y")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1.04587, -0.25, 0, 0.25, 0, 1.106, -0.25, 0, 0.25, 0, 1.04587, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5, 1)
 }
 
@@ -704,8 +748,8 @@ libraries = {
 
 [node name="Bg" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1488.75, 780.508)
-scale = Vector2(1.54492, 1.56047)
+position = Vector2(1558.28, 833.634)
+scale = Vector2(1.61735, 1.65885)
 texture = ExtResource("2_3hn1g")
 
 [node name="aniPlayer" type="AnimationPlayer" parent="."]
@@ -721,7 +765,7 @@ texture = ExtResource("1_h2dne")
 
 [node name="Logo" type="Sprite2D" parent="."]
 position = Vector2(1456.25, 255.977)
-scale = Vector2(1.04587, 1.04587)
+scale = Vector2(1.106, 1.106)
 texture = ExtResource("3_3tyl3")
 
 [node name="audioPlayer" parent="." instance=ExtResource("5_w7smo")]

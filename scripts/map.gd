@@ -44,7 +44,7 @@ func on_entityUpdate(pos,ent):
 	
 	var cell = $TileMap.get_cell_tile_data(1,coor)
 	if not cell : return
-	if $TileMap.map_to_local(coor).y < pos.y: 
+	if $TileMap.map_to_local(coor).y <  pos.y: 
 		cell.z_index = 0
 	else :
 		cell.z_index = 2

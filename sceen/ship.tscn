@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://butvwy5amfv8b"]
+[gd_scene load_steps=82 format=3 uid="uid://butvwy5amfv8b"]
 
 [ext_resource type="Script" path="res://scripts/ship.gd" id="1_cmr4t"]
 [ext_resource type="PackedScene" uid="uid://b0ve0eqogkr02" path="res://sceen/gun.tscn" id="1_rf6cg"]
@@ -104,7 +104,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../camera/white:self_modulate:r")
+tracks/4/path = NodePath("../white:self_modulate:r")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -115,7 +115,7 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../camera/white:self_modulate:g")
+tracks/5/path = NodePath("../white:self_modulate:g")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -126,7 +126,7 @@ tracks/5/keys = {
 tracks/6/type = "bezier"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../camera/white:self_modulate:b")
+tracks/6/path = NodePath("../white:self_modulate:b")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -137,7 +137,7 @@ tracks/6/keys = {
 tracks/7/type = "bezier"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("../camera/white:self_modulate:a")
+tracks/7/path = NodePath("../white:self_modulate:a")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -243,7 +243,7 @@ resource_name = "fade in"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../camera/white:self_modulate:r")
+tracks/0/path = NodePath("../white:self_modulate:r")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -254,7 +254,7 @@ tracks/0/keys = {
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../camera/white:self_modulate:g")
+tracks/1/path = NodePath("../white:self_modulate:g")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -265,7 +265,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../camera/white:self_modulate:b")
+tracks/2/path = NodePath("../white:self_modulate:b")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -276,7 +276,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../camera/white:self_modulate:a")
+tracks/3/path = NodePath("../white:self_modulate:a")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -923,6 +923,9 @@ frame_1/duration = 1.0
 frame_2/texture = ExtResource("18_ydkg1")
 frame_2/duration = 1.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_rn56u"]
+light_mode = 1
+
 [node name="ship" type="Node2D"]
 z_index = 2
 script = ExtResource("1_cmr4t")
@@ -1069,9 +1072,10 @@ ignore_rotation = false
 position_smoothing_speed = 1.0
 script = ExtResource("19_oaayh")
 
-[node name="white" type="Polygon2D" parent="camera"]
+[node name="white" type="Polygon2D" parent="."]
 visible = false
-z_index = 2
+z_index = 5
+material = SubResource("CanvasItemMaterial_rn56u")
 polygon = PackedVector2Array(-1517, -1030, 1441, -1039, 1386, 834, -1492, 847)
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

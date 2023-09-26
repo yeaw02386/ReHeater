@@ -27,6 +27,9 @@ func bloom():
 	if hit :return
 	hit = true
 	$Ani.play("blowup")
+	$particle/par1.emitting = false
+	$particle/par2.emitting = false
+	$particle/par3.emitting = false
 	$bloomOut.start()
 	$bloomBox.monitoring = true
 

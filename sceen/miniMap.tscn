@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://d5a0xw5f6p3r"]
+[gd_scene load_steps=16 format=3 uid="uid://d5a0xw5f6p3r"]
 
 [ext_resource type="Script" path="res://scripts/miniMap.gd" id="1_wskbp"]
 [ext_resource type="Texture2D" uid="uid://8vcjxbiyb5sp" path="res://assets/UI/minimap/bg_sea.png" id="2_4yhr1"]
 [ext_resource type="Texture2D" uid="uid://xbjqeuib142y" path="res://assets/UI/minimap/map 2.png" id="3_1rc1n"]
 [ext_resource type="Texture2D" uid="uid://bjs1imqod2wqv" path="res://assets/UI/frame0000.png" id="3_nbh30"]
 [ext_resource type="Texture2D" uid="uid://dghrmm7bn7mgr" path="res://assets/UI/minimap/map 1.png" id="4_fof6x"]
+[ext_resource type="Texture2D" uid="uid://dgkphrbbbm6nh" path="res://assets/UI/minimap/map 3.png" id="4_gmekm"]
 [ext_resource type="Texture2D" uid="uid://dqarestysg2n0" path="res://assets/UI/frame0001.png" id="4_pmrqh"]
 [ext_resource type="Texture2D" uid="uid://y7bjle8rml2k" path="res://assets/UI/frame0002.png" id="5_gahko"]
-[ext_resource type="Texture2D" uid="uid://bvjtl3klswsp5" path="res://assets/UI/minimap/map4.png" id="6_xddwh"]
+[ext_resource type="Texture2D" uid="uid://bvjtl3klswsp5" path="res://assets/UI/minimap/map 4.png" id="6_loqxg"]
+[ext_resource type="Texture2D" uid="uid://cnuex8m0qghy8" path="res://assets/UI/minimap/minimap player.png" id="10_dph55"]
 
 [sub_resource type="Animation" id="Animation_1prq8"]
 length = 0.001
@@ -84,20 +86,22 @@ begin_cap_mode = 1
 antialiased = true
 
 [node name="map4" type="Sprite2D" parent="."]
-position = Vector2(635, 358)
-rotation = 0.71733
-scale = Vector2(0.779022, 0.780488)
-texture = ExtResource("6_xddwh")
+position = Vector2(599, 384)
+texture = ExtResource("6_loqxg")
 
 [node name="hit" type="Area2D" parent="map4"]
+position = Vector2(-7, 22)
+collision_layer = 128
+collision_mask = 128
 
 [node name="body" type="CollisionPolygon2D" parent="map4/hit"]
-polygon = PackedVector2Array(-158.291, 66.4162, -122.767, 132.399, -31.6526, 170.382, 66.3966, 93.5102, 141.395, 7.80502, 205.319, -102.264, 147.321, -158.879, -11.1152, -156.947, -123.922, -143.737, -208.675, 4.87044, -207.089, 74.9008)
+position = Vector2(-270, -188)
+polygon = PackedVector2Array(244, 0, 166, 19, 125, 103, 58, 224, 205, 327, 304, 318, 365, 204, 425, 148, 502, 50, 359, -6)
 
 [node name="map3" type="Sprite2D" parent="."]
 position = Vector2(1339, 431)
 scale = Vector2(0.601695, 0.649083)
-texture = ExtResource("6_xddwh")
+texture = ExtResource("4_gmekm")
 
 [node name="hit" type="Area2D" parent="map3"]
 position = Vector2(-7, 22)
@@ -187,10 +191,17 @@ text = "Arrive in"
 layout_mode = 2
 text = "Heat using"
 
-[node name="ship" type="Polygon2D" parent="."]
-position = Vector2(345, 356)
-color = Color(0, 0.776471, 0.8, 1)
-polygon = PackedVector2Array(-1, -37, -43, 57, 53, 59)
+[node name="ship" type="Sprite2D" parent="."]
+position = Vector2(249.5, 451.5)
+scale = Vector2(0.363333, 0.363333)
+texture = ExtResource("10_dph55")
+
+[node name="ship" type="Sprite2D" parent="ship"]
+modulate = Color(0, 0, 0, 0.52549)
+show_behind_parent = true
+position = Vector2(-2.86102e-06, -2.75226)
+scale = Vector2(1.14679, 1.09174)
+texture = ExtResource("10_dph55")
 
 [node name="confirm" type="Panel" parent="."]
 visible = false

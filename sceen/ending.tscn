@@ -1,21 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://d2jf6jdaqxqfw"]
+[gd_scene load_steps=20 format=3 uid="uid://c8qa8xu736lix"]
 
-[ext_resource type="Texture2D" uid="uid://dr6pgj74snymt" path="res://assets/cutscene/1.png" id="1_s5qc6"]
-[ext_resource type="Script" path="res://sceen/cutscene.gd" id="1_wf6se"]
-[ext_resource type="Texture2D" uid="uid://bxfg0xmsotsn3" path="res://assets/cutscene/2.png" id="2_4ag4l"]
-[ext_resource type="Texture2D" uid="uid://bhtafntpfcmby" path="res://assets/cutscene/11.png" id="2_pgcvb"]
-[ext_resource type="Texture2D" uid="uid://bhjrd51utrppy" path="res://assets/cutscene/8.png" id="2_sdhwx"]
-[ext_resource type="Texture2D" uid="uid://dgf6ogssqvdge" path="res://assets/cutscene/3.png" id="3_g6erb"]
-[ext_resource type="Texture2D" uid="uid://cixdftfp83p2h" path="res://assets/cutscene/4.png" id="4_2tnml"]
-[ext_resource type="Texture2D" uid="uid://ds1rv2qwdk5s6" path="res://assets/cutscene/5.png" id="5_h4sq2"]
-[ext_resource type="Texture2D" uid="uid://bhcx6d5yfy35k" path="res://assets/cutscene/6.png" id="6_7ofq0"]
-[ext_resource type="Texture2D" uid="uid://bgrpp7teju8gr" path="res://assets/cutscene/7.png" id="7_oxjbv"]
-[ext_resource type="Texture2D" uid="uid://b5td0ync4bd2b" path="res://assets/cutscene/epilogue/cutscene.png" id="11_jjbj2"]
-[ext_resource type="Texture2D" uid="uid://bpt16p48irarq" path="res://assets/cutscene/epilogue/cutscene2.png" id="12_p5w6d"]
-[ext_resource type="Texture2D" uid="uid://deii23jrigln7" path="res://assets/cutscene/epilogue/cutscene 3.png" id="13_6jrt7"]
-[ext_resource type="Texture2D" uid="uid://byu1py841u5u6" path="res://assets/cutscene/epilogue/cutscene 4.png" id="14_o5fvw"]
-[ext_resource type="Texture2D" uid="uid://c6cg88y4g384j" path="res://assets/cutscene/epilogue/cutscene 5.png" id="15_ufm71"]
-[ext_resource type="Texture2D" uid="uid://06qx18jrwc24" path="res://assets/cutscene/epilogue/cutscene 6.png" id="16_2olad"]
+[ext_resource type="Script" path="res://sceen/ending.gd" id="1_s7d75"]
+[ext_resource type="Texture2D" uid="uid://cnc5itpxf78wx" path="res://assets/cutscene/ending/cutscene7.png" id="2_5urw2"]
+[ext_resource type="Texture2D" uid="uid://c2mc8xfg1ex85" path="res://assets/cutscene/ending/cutscene6.png" id="3_vqnuy"]
+[ext_resource type="Texture2D" uid="uid://blyty0rb4gs8e" path="res://assets/cutscene/ending/cutscene5.png" id="4_u4xgy"]
+[ext_resource type="Texture2D" uid="uid://cgq1msplvqvc3" path="res://assets/cutscene/ending/cutscene4.png" id="5_kwsjm"]
+[ext_resource type="Texture2D" uid="uid://dn30qoerry0j4" path="res://assets/cutscene/ending/cutscene3.png" id="6_71h21"]
+[ext_resource type="Texture2D" uid="uid://dsvy2xju5ypg3" path="res://assets/cutscene/ending/cutscene2.png" id="7_yqp75"]
+[ext_resource type="Texture2D" uid="uid://rf08q3cns1tv" path="res://assets/cutscene/ending/cutscene1.png" id="8_7bxqv"]
+[ext_resource type="Texture2D" uid="uid://gwh1ra2qcbyc" path="res://assets/cutscene/ending/cutscene.png" id="9_1g5wq"]
+[ext_resource type="Texture2D" uid="uid://b3cg27ntkeclk" path="res://assets/logo.png" id="10_o7i7w"]
 
 [sub_resource type="Animation" id="Animation_vp7mv"]
 length = 0.001
@@ -469,78 +463,43 @@ _data = {
 "shrinkpand": SubResource("Animation_khjuh")
 }
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_41k4e"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_1chwe"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_pgcvb")
+"texture": ExtResource("2_5urw2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_sdhwx")
+"texture": ExtResource("3_vqnuy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("1_s5qc6")
+"texture": ExtResource("4_u4xgy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_4ag4l")
+"texture": ExtResource("5_kwsjm")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_g6erb")
+"texture": ExtResource("6_71h21")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_2tnml")
+"texture": ExtResource("7_yqp75")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_h4sq2")
+"texture": ExtResource("8_7bxqv")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_7ofq0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_oxjbv")
+"texture": ExtResource("9_1g5wq")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("16_2olad")
-}, {
-"duration": 1.0,
-"texture": ExtResource("15_ufm71")
-}, {
-"duration": 1.0,
-"texture": ExtResource("14_o5fvw")
-}, {
-"duration": 1.0,
-"texture": ExtResource("13_6jrt7")
-}, {
-"duration": 1.0,
-"texture": ExtResource("12_p5w6d")
-}, {
-"duration": 1.0,
-"texture": ExtResource("11_jjbj2")
-}],
-"loop": true,
-"name": &"epilogue",
-"speed": 5.0
 }]
 
 [node name="cutscene" type="Node2D"]
-script = ExtResource("1_wf6se")
+script = ExtResource("1_s7d75")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 polygon = PackedVector2Array(-79, -65, 1977, -65, 1972, 1157, -82, 1134)
-
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_right = 296.0
-offset_bottom = 31.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "Panels and most aspects of the games aren't final and are WIP
-ภาพวาดและอีกหลายอย่างยังไม่เสร็จ มีบางส่วนของเกมที่เอามุขมาใส่แทนเพราะมันยังไม่เสร็จแต่ก็ตลกดี 555 ยังไม่ได้นอน สุดยอด ฝากลบตอนเมาด้วย"
 
 [node name="AniPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../frame")
@@ -551,11 +510,11 @@ libraries = {
 [node name="frame" type="AnimatedSprite2D" parent="."]
 position = Vector2(959.5, 545.5)
 scale = Vector2(3.395, 3.305)
-sprite_frames = SubResource("SpriteFrames_41k4e")
-animation = &"epilogue"
-frame = 5
+sprite_frames = SubResource("SpriteFrames_1chwe")
+frame = 7
 
 [node name="skip" type="Button" parent="."]
+visible = false
 offset_left = 1714.0
 offset_top = 26.0
 offset_right = 1884.0
@@ -566,4 +525,53 @@ text = "Skip Cutscene"
 modulate = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(-79, -65, 1977, -65, 1972, 1157, -82, 1134)
 
-[connection signal="pressed" from="skip" to="." method="_on_skip_pressed"]
+[node name="credit" type="Node2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+
+[node name="Logo" type="Sprite2D" parent="credit"]
+position = Vector2(967.306, 255.331)
+scale = Vector2(0.905338, 0.905338)
+texture = ExtResource("10_o7i7w")
+
+[node name="buttonQuit2" type="Label" parent="credit"]
+offset_left = -16.0
+offset_top = 632.0
+offset_right = 1960.0
+offset_bottom = 840.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 40
+text = "Credits
+นาย ศุภชาญ เกาวนันทน์ (653380026-4) Artist , Animation , Front end
+นาย เอกะรัตตะฆัต สืบเหล่างิ้ว (653380030-3) Back end , Game Design , Debugging
+นาย เจษฎาภรณ์ บอกประโคน	 (653380014-1) Map Design , Sound Picker , Advicer"
+horizontal_alignment = 1
+
+[node name="buttonQuit2" type="Label" parent="credit/buttonQuit2"]
+offset_left = -678.0
+offset_top = 292.0
+offset_right = 1298.0
+offset_bottom = 527.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 40
+text = "Click anywhere to continue"
+horizontal_alignment = 1
+
+[node name="buttonQuit" type="Label" parent="credit"]
+offset_left = 445.0
+offset_top = 481.0
+offset_right = 1516.0
+offset_bottom = 689.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 37
+theme_override_font_sizes/font_size = 100
+text = "Thank you for playing!"
+
+[connection signal="pressed" from="skip" to="." method="_on_skip_pressed" flags=18]

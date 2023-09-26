@@ -1,10 +1,13 @@
-[gd_scene load_steps=27 format=3 uid="uid://vw8fopbauf5q"]
+[gd_scene load_steps=31 format=3 uid="uid://vw8fopbauf5q"]
 
 [ext_resource type="Script" path="res://scripts/bulletAOE.gd" id="1_52ygf"]
+[ext_resource type="Texture2D" uid="uid://d1onds8fuplag" path="res://assets/Smoke/Smoke1/frame0000.png" id="2_kgdha"]
 [ext_resource type="Texture2D" uid="uid://dgu42g0pup3l4" path="res://assets/Bullet/Atom/frame0000.png" id="2_n6lhf"]
 [ext_resource type="Texture2D" uid="uid://ddm73sgakhovo" path="res://assets/Bullet/Atom/Atom Blowup/frame0002.png" id="2_ue7u8"]
 [ext_resource type="Texture2D" uid="uid://bmh71glvmpxic" path="res://assets/Bullet/Atom/frame0001.png" id="3_j4oro"]
+[ext_resource type="Texture2D" uid="uid://bko50r1scw5f0" path="res://assets/Smoke/Smoke1/frame0001.png" id="3_royev"]
 [ext_resource type="Texture2D" uid="uid://crfr0na0lir2n" path="res://assets/Bullet/Atom/Atom Blowup/frame0003.png" id="3_uf2y4"]
+[ext_resource type="Texture2D" uid="uid://c8rc6cc4l2686" path="res://assets/Smoke/Smoke1/frame0002.png" id="4_31axx"]
 [ext_resource type="Texture2D" uid="uid://cm4qw1k53wlwl" path="res://assets/Bullet/Atom/Atom Blowup/frame0004.png" id="4_c1kh4"]
 [ext_resource type="Texture2D" uid="uid://byrinimmfhe7k" path="res://assets/Bullet/Atom/frame0002.png" id="4_dvh6m"]
 [ext_resource type="Texture2D" uid="uid://00pf45nf5iq7" path="res://assets/Bullet/Atom/Atom Blowup/frame0005.png" id="5_2wo6h"]
@@ -21,10 +24,17 @@
 [ext_resource type="Texture2D" uid="uid://dmctlosh5rfig" path="res://assets/Bullet/Atom/Atom Blowup/frame0016.png" id="16_mlfhv"]
 [ext_resource type="Texture2D" uid="uid://cd0c2evxr3fil" path="res://assets/Bullet/Atom/Atom Blowup/frame0017.png" id="17_msosq"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_11ufs"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q2r1f"]
 light_mode = 1
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_edqjj"]
+[sub_resource type="Gradient" id="Gradient_bk1dh"]
+offsets = PackedFloat32Array(0.481268, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_i78ei"]
+gradient = SubResource("Gradient_bk1dh")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v1s0q"]
 particle_flag_disable_z = true
 direction = Vector3(-200, 100, 0)
 spread = 5.21
@@ -42,27 +52,17 @@ radial_accel_max = 8.43
 tangential_accel_max = 42.11
 angle_min = -30.3
 angle_max = 151.6
-scale_min = 3.0
-scale_max = 10.0
-color = Color(0.988235, 0.94902, 0.898039, 1)
+scale_min = 0.05
+scale_max = 0.07
+color_ramp = SubResource("GradientTexture1D_i78ei")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u4xxk"]
-light_mode = 1
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7e3e7"]
-particle_flag_disable_z = true
-direction = Vector3(-200, -100, 0)
-spread = 1.42
-gravity = Vector3(0, 0, 0)
-initial_velocity_min = 38.0
-initial_velocity_max = 70.0
-angular_velocity_min = -136.42
-angular_velocity_max = 303.16
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
-scale_min = 3.0
-scale_max = 10.0
-color = Color(0.988235, 0.94902, 0.898039, 1)
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_a7hr1"]
+frames = 3
+frame_0/texture = ExtResource("2_kgdha")
+frame_1/texture = ExtResource("3_royev")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_31axx")
+frame_2/duration = 1.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ettyu"]
 light_mode = 1
@@ -144,21 +144,41 @@ speed = 7.0
 heatGening = 5.0
 dmg = 100
 
-[node name="par1" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_11ufs")
-position = Vector2(-7, 9)
-amount = 20
-process_material = SubResource("ParticleProcessMaterial_edqjj")
-lifetime = 0.5
-speed_scale = 1.22
+[node name="particle" type="Node2D" parent="."]
+position = Vector2(1, 1)
+rotation = 0.352352
 
-[node name="par2" type="GPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_u4xxk")
-position = Vector2(-8, -9)
+[node name="par3" type="GPUParticles2D" parent="particle"]
+material = SubResource("CanvasItemMaterial_q2r1f")
 amount = 20
-process_material = SubResource("ParticleProcessMaterial_7e3e7")
+process_material = SubResource("ParticleProcessMaterial_v1s0q")
+texture = SubResource("AnimatedTexture_a7hr1")
 lifetime = 0.5
 speed_scale = 1.22
+fixed_fps = 60
+
+[node name="par2" type="GPUParticles2D" parent="particle"]
+material = SubResource("CanvasItemMaterial_q2r1f")
+position = Vector2(-1.28367, -0.593457)
+rotation = 0.402749
+scale = Vector2(1, 1)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_v1s0q")
+texture = SubResource("AnimatedTexture_a7hr1")
+lifetime = 0.5
+speed_scale = 1.22
+fixed_fps = 60
+
+[node name="par1" type="GPUParticles2D" parent="particle"]
+material = SubResource("CanvasItemMaterial_q2r1f")
+position = Vector2(-0.593457, 1.28367)
+rotation = -0.352352
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_v1s0q")
+texture = SubResource("AnimatedTexture_a7hr1")
+lifetime = 0.5
+speed_scale = 1.22
+fixed_fps = 60
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_ettyu")
