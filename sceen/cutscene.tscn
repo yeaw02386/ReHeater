@@ -11,31 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bhcx6d5yfy35k" path="res://assets/cutscene/6.png" id="6_7ofq0"]
 [ext_resource type="Texture2D" uid="uid://bgrpp7teju8gr" path="res://assets/cutscene/7.png" id="7_oxjbv"]
 
-[sub_resource type="Animation" id="Animation_l6k7r"]
-resource_name = "expand"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 3.395, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 3.305, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-
 [sub_resource type="Animation" id="Animation_vp7mv"]
 length = 0.001
 tracks/0/type = "bezier"
@@ -61,8 +36,8 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_khjuh"]
-resource_name = "shrinkpand"
+[sub_resource type="Animation" id="Animation_l6k7r"]
+resource_name = "expand"
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,9 +45,9 @@ tracks/0/path = NodePath(".:scale:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(3, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 3.395, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -81,9 +56,9 @@ tracks/1/path = NodePath(".:scale:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(3, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 1)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 3.305, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
 }
 
 [sub_resource type="Animation" id="Animation_km2du"]
@@ -109,6 +84,31 @@ tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(3, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_khjuh"]
+resource_name = "shrinkpand"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(3, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(3, -0.25, 0, 0.25, 0, 1e-05, -0.25, 0, 0.25, 0, 3, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_chjju"]
@@ -157,8 +157,10 @@ animations = [{
 [node name="cutscene" type="Node2D"]
 script = ExtResource("1_wf6se")
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-79, -65, 1977, -65, 1972, 1157, -82, 1134)
+
 [node name="Label" type="Label" parent="."]
-z_index = 2
 offset_right = 296.0
 offset_bottom = 31.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -172,11 +174,17 @@ libraries = {
 "": SubResource("AnimationLibrary_chjju")
 }
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PackedVector2Array(-79, -65, 1977, -65, 1972, 1157, -82, 1134)
-
 [node name="frame" type="AnimatedSprite2D" parent="."]
 position = Vector2(959.5, 545.5)
 scale = Vector2(3.395, 3.305)
 sprite_frames = SubResource("SpriteFrames_41k4e")
 frame = 8
+
+[node name="skip" type="Button" parent="."]
+offset_left = 1714.0
+offset_top = 26.0
+offset_right = 1884.0
+offset_bottom = 91.0
+text = "Skip Cutscene"
+
+[connection signal="pressed" from="skip" to="." method="_on_skip_pressed"]

@@ -11,7 +11,7 @@ var delayMetaData = {0:0.2,
 					 1:1.3,
 					 2:0.7}
 var nowBulletType = -1
-var canShoot = true
+var canShoot = false
 var playerInShip = false
 var isFocus = true
 
@@ -19,6 +19,7 @@ func _ready():
 	$particleAni.play("default")
 	add_to_group("gun")
 	add_to_group("system")
+	add_to_group("audio")
 	allBullet = [bulletLight,bulletAOE,bulletPiercing]
 	swapBullet() 
 
@@ -28,11 +29,13 @@ func _process(delta):
 								playerInShip and 
 								isFocus): 
 		$particleAni.play("shoot")
-		shoot()
 		canShoot = false
+		$shootDelay.start()
+		shoot()
 
 func shoot() :
 	get_tree().call_group("gun","on_playShoot")
+	get_tree().call_group("audio","on_play","shoot")
 	var ins = bullet.instantiate()
 	var pos = global_position
 	ins.init(pos)

@@ -26,6 +26,7 @@ func init(pos,req):
 	keyItemRequest = req
 
 func playerGetOut():
+	get_tree().call_group("audio","on_play","playerGetInOut")
 	animePlayerGetout()
 	await get_tree().create_timer(0.3).timeout
 	$gun.playerInShip = false
@@ -49,6 +50,7 @@ func _ready():
 	add_to_group("system")
 	add_to_group("camera")
 	add_to_group("dayNight")
+	add_to_group("audio")
 	
 	on_heating(0)
 	on_coolerDamage(0)
@@ -143,6 +145,7 @@ func _on_interact_body_exited(body):
 func on_getInShip():
 	if isGameover:
 		return
+	get_tree().call_group("audio","on_play","playerGetInOut")
 	playerIns.remove_child(camera)
 	add_child(camera)
 	get_parent().remove_child(playerIns)

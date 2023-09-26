@@ -101,3 +101,8 @@ getInOutShip={
 2d_physics/layer_3="shipLayer"
 2d_physics/layer_4="enemyLayer"
 2d_physics/layer_5="playerAndShip"
+
+[rendering]
+
+textures/canvas_textures/default_texture_repeat=1
+environment/defaults/default_clear_color=Color(0.0117647, 0.0117647, 0.0117647, 1)

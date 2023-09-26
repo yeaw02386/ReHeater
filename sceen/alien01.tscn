@@ -125,9 +125,9 @@ wait_time = 1.004
 autostart = true
 
 [node name="pathFinding" type="NavigationAgent2D" parent="."]
-path_desired_distance = 159.17
-target_desired_distance = 167.52
+target_desired_distance = 20.0
 avoidance_enabled = true
+neighbor_distance = 100.0
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ivg84")

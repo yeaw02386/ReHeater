@@ -20,4 +20,6 @@ func _process(delta):
 			await get_tree().create_timer(0.5).timeout
 			$frame.frame = frame
 		
-		
+
+func _on_skip_pressed():
+	get_tree().change_scene_to_packed(mainIns)

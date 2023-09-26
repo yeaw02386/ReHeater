@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/dayNight.gd" id="5_nk8kq"]
 [ext_resource type="Texture2D" uid="uid://c33qyvdtrlhc2" path="res://assets/UI/User Interface/clock/clock reworked.png" id="6_aydvm"]
 [ext_resource type="Texture2D" uid="uid://bxah7hspo51hi" path="res://assets/UI/clock/hint'.png" id="6_jsupi"]
+[ext_resource type="PackedScene" uid="uid://wwqtagugtmh" path="res://sceen/audioPlayer.tscn" id="8_2cwyr"]
 
 [sub_resource type="Gradient" id="Gradient_p4w8d"]
 offsets = PackedFloat32Array(0.311688, 0.454545)
@@ -148,13 +149,6 @@ _data = {
 "up": SubResource("Animation_puxrq")
 }
 
-[sub_resource type="Curve2D" id="Curve2D_8flc4"]
-bake_interval = 26.61
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 427, -17, 0, 0, 0, 0, 748.54, -179.857, 0, 0, 0, 0, 924.401, -205.56, 0, 0, 0, 0, 1520, -16, 0, 0, 0, 0, 1682, 157, 0, 0, 0, 0, 1744, 456, 0, 0, 0, 0, 1648, 1024, 0, 0, 0, 0, 1108.62, 1257.47, 0, 0, 0, 0, 512, 1168, 0, 0, 0, 0, 144, 864, 0, 0, 0, 0, 120, 528, 0, 0, 0, 0, 160, 288, 0, 0, 0, 0, 173, 169, 0, 0, 0, 0, 273, 46, 0, 0, 0, 0, 427, -17)
-}
-point_count = 15
-
 [node name="main" type="Node2D" groups=["bullet", "dayNight", "enemyAttack", "heat", "system"]]
 script = ExtResource("1_lv2ov")
 enemy = ExtResource("3_w3m33")
@@ -168,7 +162,6 @@ position = Vector2(-16, 8)
 script = ExtResource("5_nk8kq")
 gradientDayNight = SubResource("GradientTexture1D_by2ru")
 timeSpeed = 6.0
-timeInit = 16
 dayStart = 4
 nightStart = 20
 
@@ -235,19 +228,11 @@ theme_override_font_sizes/font_size = 40
 text = "00 : 00"
 horizontal_alignment = 1
 
-[node name="enemyPath" type="Path2D" parent="."]
-position = Vector2(155.888, 51.936)
-scale = Vector2(0.921182, 0.97264)
-curve = SubResource("Curve2D_8flc4")
-
-[node name="sapwnPath" type="PathFollow2D" parent="enemyPath"]
-position = Vector2(427, -17)
-rotation = -0.468827
+[node name="audioPlayer" parent="." instance=ExtResource("8_2cwyr")]
 
 [node name="enemySpawnTime" type="Timer" parent="."]
 wait_time = 1.3
 
 [connection signal="toggled" from="GUI/minimap" to="." method="_on_minimap_toggled"]
-[connection signal="mouse_entered" from="GUI/watch" to="." method="_on_watch_mouse_entered"]
 [connection signal="toggled" from="GUI/watch" to="." method="_on_watch_toggled"]
 [connection signal="timeout" from="enemySpawnTime" to="." method="_on_enemy_spawn_time_timeout"]

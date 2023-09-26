@@ -41,9 +41,8 @@ func _on_enemy_spawn_time_timeout():
 	spawnEnemy()
 
 func spawnEnemy():
-	var spawnPoint = $enemyPath/sapwnPath
-	spawnPoint.progress_ratio = randf()
-	var pos = spawnPoint.position
+	var spawnPoint = mapIns.spawnPoint
+	var pos = spawnPoint.pick_random()
 	var speed = randi_range(60,100)
 	var ship = get_node("ship")
 	
@@ -69,7 +68,6 @@ func on_newGame():
 	
 	shipIns = ship.instantiate()
 	shipIns.init(shipPos,keyItemRequest)
-	$enemyPath/sapwnPath.position = shipPos
 	add_child(shipIns)
 	
 func on_toMainMenu():
@@ -100,7 +98,6 @@ func _on_watch_toggled(button_pressed):
 		$GUI/Hint/hintAni.play("up")
 	else : $GUI/Hint/hintAni.play("down")
 	$panel.visible = button_pressed
-	get_tree().call_group("system","on_focus",!button_pressed)
 
 func on_dayNightUpdate(day,hour,min):
 	$GUI/time.text = str(hour) + " : " + str(min)

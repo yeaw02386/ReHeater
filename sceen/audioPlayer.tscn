@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://wwqtagugtmh"]
+
+[ext_resource type="Script" path="res://scripts/audioPlayer.gd" id="1_n2itu"]
+[ext_resource type="AudioStream" uid="uid://blnpahxmn7jwq" path="res://assets/sound/inship.mp3" id="2_etadq"]
+[ext_resource type="AudioStream" uid="uid://4atxp80bqw2o" path="res://assets/sound/shoot.mp3" id="3_wvog5"]
+
+[node name="audioPlayer" type="Node2D"]
+script = ExtResource("1_n2itu")
+
+[node name="playerGetInOut" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_etadq")
+
+[node name="shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_wvog5")
+bus = &"gun"

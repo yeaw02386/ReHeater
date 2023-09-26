@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://t6d2bmhou7xn"]
+[gd_scene load_steps=25 format=3 uid="uid://t6d2bmhou7xn"]
 
 [ext_resource type="Script" path="res://scripts/bullet1.gd" id="1_gtkhk"]
 [ext_resource type="Texture2D" uid="uid://d3k2tgwv1t0kw" path="res://assets/Bullet/Normal/frame0008.png" id="2_ogxij"]
@@ -17,8 +17,53 @@
 [ext_resource type="Texture2D" uid="uid://j5f4txjedqt7" path="res://assets/Bullet/Normal/frame0005.png" id="16_yqaab"]
 [ext_resource type="Texture2D" uid="uid://e2ylbos4itmt" path="res://assets/Bullet/Normal/frame0006.png" id="17_flyq6"]
 [ext_resource type="Texture2D" uid="uid://koc2eskvsxsk" path="res://assets/Bullet/Normal/frame0007.png" id="18_invfb"]
-[ext_resource type="Texture2D" uid="uid://b3fwjrho7hwhm" path="res://assets/Bullet/Normal/light/noraml_light.png" id="19_7t8lt"]
 [ext_resource type="Texture2D" uid="uid://dfu3dtyvb4w6v" path="res://assets/Bullet/Normal/frame0000.png" id="19_epxlh"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d1u6b"]
+light_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vpi1o"]
+particle_flag_disable_z = true
+direction = Vector3(-200, 100, 0)
+spread = 5.21
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 129.0
+angular_velocity_min = 45.47
+angular_velocity_max = 227.37
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 18.95
+linear_accel_max = 18.95
+radial_accel_min = -10.53
+radial_accel_max = 8.43
+tangential_accel_max = 42.11
+angle_min = -30.3
+angle_max = 151.6
+scale_min = 3.0
+scale_max = 10.0
+color = Color(0.988235, 0.94902, 0.898039, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a5cyt"]
+light_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lodyk"]
+particle_flag_disable_z = true
+direction = Vector3(-200, -100, 0)
+spread = 1.42
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 120.0
+angular_velocity_min = -136.42
+angular_velocity_max = 303.16
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 10.0
+color = Color(0.988235, 0.94902, 0.898039, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_idpx1"]
+light_mode = 1
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qk04p"]
 animations = [{
@@ -88,11 +133,21 @@ animations = [{
 z_index = 2
 script = ExtResource("1_gtkhk")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-visible = false
-position = Vector2(-41, 2)
-scale = Vector2(1.52432, 1)
-polygon = PackedVector2Array(-53, -62, 101, -53, 105, 47, -31, 103, -80, -55)
+[node name="par1" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_d1u6b")
+position = Vector2(-4, -1)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_vpi1o")
+lifetime = 0.5
+speed_scale = 1.22
+
+[node name="par2" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_a5cyt")
+position = Vector2(-4, -2)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_lodyk")
+lifetime = 0.5
+speed_scale = 1.22
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
@@ -104,20 +159,11 @@ collision_mask = 8
 polygon = PackedVector2Array(-18, -8, 36, -1, -18, 10)
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_idpx1")
 position = Vector2(-1, 1)
 scale = Vector2(0.735, 0.735)
 sprite_frames = SubResource("SpriteFrames_qk04p")
 speed_scale = 2.0
-
-[node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(-37.3246, 1)
-scale = Vector2(-2.50796, 0.714493)
-blend_mode = 2
-shadow_enabled = true
-shadow_color = Color(0.992157, 0.705882, 0.717647, 0.890196)
-texture = ExtResource("19_7t8lt")
-texture_scale = 0.56
-height = 30.0
 
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

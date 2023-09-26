@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://omiu6u0hw5r3"]
+[gd_scene load_steps=13 format=3 uid="uid://omiu6u0hw5r3"]
 
 [ext_resource type="Script" path="res://scripts/bulletPiercing.gd" id="1_p2pix"]
 [ext_resource type="Texture2D" uid="uid://c21711rn4mvkq" path="res://assets/Bullet/Lightning/frame0000.png" id="2_f31ds"]
@@ -6,6 +6,49 @@
 [ext_resource type="Texture2D" uid="uid://c1gvsti5pru7q" path="res://assets/Bullet/Lightning/frame0002.png" id="4_ifyql"]
 [ext_resource type="Texture2D" uid="uid://c0idy1q2eak1h" path="res://assets/Bullet/Lightning/frame0003.png" id="5_pk8ln"]
 [ext_resource type="Texture2D" uid="uid://cvgetok8n68eo" path="res://assets/Bullet/Lightning/frame0004.png" id="6_vnjui"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_72mg1"]
+light_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0kn80"]
+particle_flag_disable_z = true
+direction = Vector3(-200, 100, 0)
+spread = 5.21
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 38.0
+initial_velocity_max = 70.0
+angular_velocity_min = 45.47
+angular_velocity_max = 227.37
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 18.95
+linear_accel_max = 18.95
+radial_accel_min = -10.53
+radial_accel_max = 8.43
+tangential_accel_max = 42.11
+angle_min = -30.3
+angle_max = 151.6
+scale_min = 3.0
+scale_max = 10.0
+color = Color(0.988235, 0.94902, 0.898039, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_wjq8q"]
+light_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vv0s1"]
+particle_flag_disable_z = true
+direction = Vector3(-200, -100, 0)
+spread = 1.42
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 38.0
+initial_velocity_max = 70.0
+angular_velocity_min = -136.42
+angular_velocity_max = 303.16
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 3.0
+scale_max = 10.0
+color = Color(0.988235, 0.94902, 0.898039, 1)
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ycjcw"]
 light_mode = 1
@@ -40,6 +83,22 @@ speed = 30.0
 heatGening = 3.0
 dmg = 100
 spread = 2
+
+[node name="par1" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_72mg1")
+position = Vector2(-7, 9)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_0kn80")
+lifetime = 0.5
+speed_scale = 1.22
+
+[node name="par2" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_wjq8q")
+position = Vector2(-8, -9)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_vv0s1")
+lifetime = 0.5
+speed_scale = 1.22
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

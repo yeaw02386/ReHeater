@@ -17,7 +17,6 @@ func _ready():
 	look_at(get_global_mouse_position())
 	rotation_degrees += randi_range(-spread,spread)
 	newPos = Vector2(cos(rotation),sin(rotation))*speed
-	print(rotation_degrees)
 
 func _physics_process(delta):
 	if not hit :position += newPos

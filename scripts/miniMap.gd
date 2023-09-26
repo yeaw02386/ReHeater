@@ -21,7 +21,7 @@ var coolerDmg = 0
 
 func _ready():
 	ship = $ship
-	currentNode = get_node("map1")
+	currentNode = get_node("map2")
 	add_to_group("system")
 	add_to_group("dayNight")
 	add_to_group("heat")
@@ -90,7 +90,7 @@ func dataShow(show):
 	if timeArrive > 23 :
 		$data/time.text = "Will Arrive : tomorrow "+str(timeArrive%24)+" : "+str(time[2])
 	else :
-		$data/time.text = "Will Arrive : tomorrow "+str(timeArrive)+" : "+str(time[2])
+		$data/time.text = "Will Arrive : "+str(timeArrive)+" : "+str(time[2])
 	
 	$data/hour.text = "Time use : "+str(timeUse) + " hour"
 	$to.value = heat+heatUse
@@ -117,7 +117,7 @@ func _input(event):
 		$confirm.visible = true
 
 func isCanTravel():
-	if timeArrive > 17 or time[1] < 6:
+	if timeArrive > 20 or time[1] < 4:
 		$cant.text = "!! Traveling not Allow !!\n Only travel in day time"
 		$cant.visible = true
 		canTravel = false

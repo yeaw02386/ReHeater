@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ck24xt1r8jwa5"]
+[gd_scene load_steps=52 format=3 uid="uid://ck24xt1r8jwa5"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu.gd" id="1_6g5q4"]
 [ext_resource type="Texture2D" uid="uid://bqbfrlhuftin" path="res://assets/CGArt/aposter_line_art_no_sketch.png" id="1_h2dne"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b0ve0eqogkr02" path="res://sceen/gun.tscn" id="4_r44ah"]
 [ext_resource type="Texture2D" uid="uid://cs1eqbdi2muva" path="res://assets/Spaceship reworked/Spaceship reworked still.png" id="4_ye1yi"]
 [ext_resource type="Texture2D" uid="uid://ptgwxmudm8e2" path="res://assets/Spaceship reworked/GetOn/frame0000.png" id="5_pgkvk"]
+[ext_resource type="PackedScene" uid="uid://wwqtagugtmh" path="res://sceen/audioPlayer.tscn" id="5_w7smo"]
 [ext_resource type="Texture2D" uid="uid://di6s7pfhket1m" path="res://assets/Spaceship reworked/GetOn/frame0001.png" id="6_71l4c"]
 [ext_resource type="Texture2D" uid="uid://dus6v61h3ibr3" path="res://assets/Spaceship reworked/GetOn/frame0002.png" id="7_f7wqw"]
 [ext_resource type="Texture2D" uid="uid://cg0nh5vwpia47" path="res://assets/Spaceship reworked/GetOn/frame0003.png" id="8_dl4ih"]
@@ -722,6 +723,8 @@ texture = ExtResource("1_h2dne")
 position = Vector2(1456.25, 255.977)
 scale = Vector2(1.04587, 1.04587)
 texture = ExtResource("3_3tyl3")
+
+[node name="audioPlayer" parent="." instance=ExtResource("5_w7smo")]
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

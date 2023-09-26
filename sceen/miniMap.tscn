@@ -1,12 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://d5a0xw5f6p3r"]
+[gd_scene load_steps=15 format=3 uid="uid://d5a0xw5f6p3r"]
 
 [ext_resource type="Script" path="res://scripts/miniMap.gd" id="1_wskbp"]
 [ext_resource type="Texture2D" uid="uid://8vcjxbiyb5sp" path="res://assets/UI/minimap/bg_sea.png" id="2_4yhr1"]
 [ext_resource type="Texture2D" uid="uid://xbjqeuib142y" path="res://assets/UI/minimap/map 2.png" id="3_1rc1n"]
 [ext_resource type="Texture2D" uid="uid://gcn8qdlexbrm" path="res://assets/UI/minimap/map_4.png" id="3_kno1u"]
+[ext_resource type="Texture2D" uid="uid://bjs1imqod2wqv" path="res://assets/UI/frame0000.png" id="3_nbh30"]
 [ext_resource type="Texture2D" uid="uid://dghrmm7bn7mgr" path="res://assets/UI/minimap/map 1.png" id="4_fof6x"]
 [ext_resource type="Texture2D" uid="uid://dgkphrbbbm6nh" path="res://assets/UI/minimap/map 3.png" id="4_gmekm"]
-[ext_resource type="Texture2D" uid="uid://siaksqknssjd" path="res://assets/UI/minimap/minimap.png" id="5_lkwx5"]
+[ext_resource type="Texture2D" uid="uid://dqarestysg2n0" path="res://assets/UI/frame0001.png" id="4_pmrqh"]
+[ext_resource type="Texture2D" uid="uid://y7bjle8rml2k" path="res://assets/UI/frame0002.png" id="5_gahko"]
 
 [sub_resource type="Animation" id="Animation_1prq8"]
 length = 0.001
@@ -45,6 +47,15 @@ _data = {
 "activate": SubResource("Animation_bnvbo")
 }
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_m2m6q"]
+frames = 3
+frame_0/texture = ExtResource("3_nbh30")
+frame_0/duration = 0.3
+frame_1/texture = ExtResource("4_pmrqh")
+frame_1/duration = 0.3
+frame_2/texture = ExtResource("5_gahko")
+frame_2/duration = 0.3
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kcdc8"]
 bg_color = Color(0.941176, 0.94902, 0.956863, 1)
 corner_radius_top_left = 10
@@ -66,11 +77,10 @@ scale = Vector2(1.178, 0.9)
 texture = ExtResource("2_4yhr1")
 
 [node name="dis" type="Line2D" parent="."]
-scale = Vector2(1, 1e-05)
-points = PackedVector2Array(1057, 6.59e+07, 507, 7.89e+07)
-width = 50.0
-default_color = Color(0, 0, 0, 1)
-texture_mode = 2
+points = PackedVector2Array(98, 35, 390, 195)
+width = 48.295
+texture = SubResource("AnimatedTexture_m2m6q")
+texture_mode = 1
 begin_cap_mode = 1
 antialiased = true
 
@@ -155,7 +165,7 @@ anchor_bottom = 0.186
 offset_left = 1488.0
 offset_top = 166.0
 offset_right = 1649.51
-offset_bottom = 105.12
+offset_bottom = 142.12
 
 [node name="data" type="VBoxContainer" parent="."]
 anchors_preset = -1
@@ -250,10 +260,6 @@ theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 30
 text = "!! Traveling not Allow !!"
 horizontal_alignment = 1
-
-[node name="Minimap" type="Sprite2D" parent="."]
-position = Vector2(2558, -459)
-texture = ExtResource("5_lkwx5")
 
 [connection signal="mouse_entered" from="map4/hit" to="." method="_on_hit_mouse_entered" binds= ["map4"]]
 [connection signal="mouse_exited" from="map4/hit" to="." method="_on_hit_mouse_exited"]
