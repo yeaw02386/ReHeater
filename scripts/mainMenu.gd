@@ -1,8 +1,6 @@
 extends Node2D
 
 func _ready():
-	add_to_group("audio")
-	get_tree().call_group("audio","on_play","bgmMainMenu")
 	$buttonPlay.self_modulate = "#ffffff"
 	$Ani.play("OnShip")
 	$aniPlayer.play("shipHover")

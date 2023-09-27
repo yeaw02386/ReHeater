@@ -15,7 +15,6 @@ func _ready():
 	add_to_group("camera")
 	add_to_group("radar")
 	add_to_group("map")
-	add_to_group("audio")
 
 func _physics_process(delta):
 	var v = Input.get_axis("ui_left","ui_right")

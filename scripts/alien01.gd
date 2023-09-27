@@ -23,7 +23,6 @@ func _ready():
 	add_to_group("enemyAttack")
 	add_to_group("dayNight")
 	add_to_group("heat")
-	add_to_group("audio")
 	
 	nav.target_position = ship.global_position
 
@@ -45,7 +44,6 @@ func on_getAttacked(dmg):
 
 func on_dead():
 	$Ani.play("Dying")
-	get_tree().call_group("audio","on_play","enemyDie")
 	await get_tree().create_timer(0.3).timeout
 	
 	var ins = liquid.instantiate()

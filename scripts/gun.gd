@@ -35,6 +35,7 @@ func _process(delta):
 
 func shoot() :
 	get_tree().call_group("gun","on_playShoot")
+	get_tree().call_group("audio","on_play","shoot")
 	var ins = bullet.instantiate()
 	var pos = global_position
 	ins.init(pos)

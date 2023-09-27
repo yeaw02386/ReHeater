@@ -9,6 +9,3 @@ func _process(delta):
 
 func on_play(name):
 	get_node(name).play()
-
-func on_stop(name):
-	get_node(name).stop()

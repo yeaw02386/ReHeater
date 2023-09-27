@@ -13,9 +13,7 @@ func init(pos) :
 	position = pos
 	
 func _ready():
-	add_to_group("audio")
 	look_at(get_global_mouse_position())
-	get_tree().call_group("audio","on_play","shootAOE")
 	rotation_degrees += randi_range(-spread,spread)
 	newPos = Vector2(cos(rotation),sin(rotation))*speed
 	$Ani.play("default")
@@ -29,7 +27,6 @@ func bloom():
 	if hit :return
 	hit = true
 	$Ani.play("blowup")
-	get_tree().call_group("audio","on_play","bloom")
 	$particle/par1.emitting = false
 	$particle/par2.emitting = false
 	$particle/par3.emitting = false
