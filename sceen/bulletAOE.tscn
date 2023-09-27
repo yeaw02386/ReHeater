@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://vw8fopbauf5q"]
+[gd_scene load_steps=57 format=3 uid="uid://vw8fopbauf5q"]
 
 [ext_resource type="Script" path="res://scripts/bulletAOE.gd" id="1_52ygf"]
 [ext_resource type="Texture2D" uid="uid://d1onds8fuplag" path="res://assets/Smoke/Smoke1/frame0000.png" id="2_kgdha"]
@@ -23,6 +23,25 @@
 [ext_resource type="Texture2D" uid="uid://bwpxm6kmsv1it" path="res://assets/Bullet/Atom/Atom Blowup/frame0015.png" id="15_77iha"]
 [ext_resource type="Texture2D" uid="uid://dmctlosh5rfig" path="res://assets/Bullet/Atom/Atom Blowup/frame0016.png" id="16_mlfhv"]
 [ext_resource type="Texture2D" uid="uid://cd0c2evxr3fil" path="res://assets/Bullet/Atom/Atom Blowup/frame0017.png" id="17_msosq"]
+[ext_resource type="Texture2D" uid="uid://s1ym6um2vg14" path="res://assets/Bullet/Atom/glow/frame0000.png" id="24_fbunj"]
+[ext_resource type="Texture2D" uid="uid://l41oa35tyj1y" path="res://assets/Bullet/Atom/glow/frame0001.png" id="25_5jnde"]
+[ext_resource type="Texture2D" uid="uid://bbhaiutqj18g2" path="res://assets/Bullet/Atom/glow/frame0002.png" id="26_u6urq"]
+[ext_resource type="Texture2D" uid="uid://bkrk7co15ppr0" path="res://assets/Bullet/Atom/glow/frame0003.png" id="27_c0i8b"]
+[ext_resource type="Texture2D" uid="uid://k027fwwdin5s" path="res://assets/Bullet/Atom/glow/frame0004.png" id="28_83cw3"]
+[ext_resource type="Texture2D" uid="uid://dypbwlao1u3w8" path="res://assets/Bullet/Atom/glow/frame0005.png" id="29_4eqyd"]
+[ext_resource type="Texture2D" uid="uid://bl0ojqpnlb8gq" path="res://assets/Bullet/Atom/glow/frame0006.png" id="30_bddev"]
+[ext_resource type="Texture2D" uid="uid://dyj2n736ipru2" path="res://assets/Bullet/Atom/glow/frame0007.png" id="31_scxwm"]
+[ext_resource type="Texture2D" uid="uid://cnju4slmqfius" path="res://assets/Bullet/Atom/glow/frame0008.png" id="32_3q86y"]
+[ext_resource type="Texture2D" uid="uid://camqbr8i5lbjw" path="res://assets/Bullet/Atom/glow/frame0009.png" id="33_5ppwj"]
+[ext_resource type="Texture2D" uid="uid://1hiknjnwn8d0" path="res://assets/Bullet/Atom/glow/frame0010.png" id="34_fs3o3"]
+[ext_resource type="Texture2D" uid="uid://c4dba001yh4yx" path="res://assets/Bullet/Atom/glow/frame0011.png" id="35_lg734"]
+[ext_resource type="Texture2D" uid="uid://xy3dih41qoij" path="res://assets/Bullet/Atom/glow/frame0012.png" id="36_ma88r"]
+[ext_resource type="Texture2D" uid="uid://cemfd2ca801dr" path="res://assets/Bullet/Atom/glow/frame0013.png" id="37_nhu2r"]
+[ext_resource type="Texture2D" uid="uid://3nudmnc7f6g5" path="res://assets/Bullet/Atom/glow/frame0014.png" id="38_nxil2"]
+[ext_resource type="Texture2D" uid="uid://b7lwcqw3hp65a" path="res://assets/Bullet/Atom/glow/frame0015.png" id="39_7qhba"]
+[ext_resource type="Texture2D" uid="uid://wjjtbskmi5ok" path="res://assets/Bullet/Atom/glow/frame0016.png" id="40_ryomp"]
+[ext_resource type="Texture2D" uid="uid://dmhte6ujavh0s" path="res://assets/Bullet/Atom/glow/frame0017.png" id="41_pngnw"]
+[ext_resource type="Texture2D" uid="uid://brcq42br0dhc4" path="res://assets/Bullet/Atom/glow/frame0018.png" id="42_tjgfg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_q2r1f"]
 light_mode = 1
@@ -58,6 +77,47 @@ color_ramp = SubResource("GradientTexture1D_i78ei")
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_a7hr1"]
 frames = 3
+frame_0/texture = ExtResource("2_kgdha")
+frame_1/texture = ExtResource("3_royev")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_31axx")
+frame_2/duration = 1.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_6ior2"]
+
+[sub_resource type="Gradient" id="Gradient_y4nlw"]
+offsets = PackedFloat32Array(0.822222, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_12f21"]
+gradient = SubResource("Gradient_y4nlw")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_mnw0f"]
+lifetime_randomness = 0.7
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 9.95
+initial_velocity_max = 10.0
+angular_velocity_min = -236.37
+angular_velocity_max = 127.42
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+radial_accel_max = 18.95
+damping_max = 52.919
+angle_max = 237.0
+scale_min = 0.2
+scale_max = 0.3
+color_ramp = SubResource("GradientTexture1D_12f21")
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.5
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_65uiu"]
+frames = 3
+speed_scale = 8.1
 frame_0/texture = ExtResource("2_kgdha")
 frame_1/texture = ExtResource("3_royev")
 frame_1/duration = 1.0
@@ -117,6 +177,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("17_msosq")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"blowup",
@@ -135,6 +204,82 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 9.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a7upb"]
+light_mode = 1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1kgsq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_fbunj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_5jnde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_u6urq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_c0i8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_83cw3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_4eqyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_bddev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_scxwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_3q86y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_5ppwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_fs3o3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_lg734")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_ma88r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_nhu2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_nxil2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_7qhba")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_ryomp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_pngnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_tjgfg")
+}],
+"loop": false,
+"name": &"glow",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [node name="bulletAOE" type="Node2D"]
@@ -161,7 +306,6 @@ fixed_fps = 60
 material = SubResource("CanvasItemMaterial_q2r1f")
 position = Vector2(-1.28367, -0.593457)
 rotation = 0.402749
-scale = Vector2(1, 1)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_v1s0q")
 texture = SubResource("AnimatedTexture_a7hr1")
@@ -180,10 +324,32 @@ lifetime = 0.5
 speed_scale = 1.22
 fixed_fps = 60
 
+[node name="particleExplosion" type="GPUParticles2D" parent="particle"]
+material = SubResource("CanvasItemMaterial_6ior2")
+scale = Vector2(9.355, 9.355)
+emitting = false
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_mnw0f")
+texture = SubResource("AnimatedTexture_65uiu")
+lifetime = 2.0
+one_shot = true
+speed_scale = 2.94
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+collision_base_size = 0.1
+
 [node name="Ani" type="AnimatedSprite2D" parent="."]
+z_index = 1
 material = SubResource("CanvasItemMaterial_ettyu")
 sprite_frames = SubResource("SpriteFrames_th78m")
 animation = &"blowup"
+
+[node name="Glow" type="AnimatedSprite2D" parent="Ani"]
+modulate = Color(1, 1, 1, 0.619608)
+material = SubResource("CanvasItemMaterial_a7upb")
+sprite_frames = SubResource("SpriteFrames_1kgsq")
+animation = &"new_animation"
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
