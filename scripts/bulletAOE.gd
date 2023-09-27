@@ -27,6 +27,8 @@ func bloom():
 	if hit :return
 	hit = true
 	$Ani.play("blowup")
+	$Ani/Glow.play("glow")
+	$particle/particleExplosion.emitting = true
 	$particle/par1.emitting = false
 	$particle/par2.emitting = false
 	$particle/par3.emitting = false

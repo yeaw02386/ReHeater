@@ -10,6 +10,7 @@ var NODE_TYPE = "enemy"
 var ship
 var walkSpeed
 var canAttack = false
+var dead = false
 
 @onready var nav = $pathFinding
 
@@ -19,10 +20,12 @@ func init(shipIns,pos,speed):
 	walkSpeed = speed
 
 func _ready():
-	$Ani.play("Running")
+	$Ani.play("Spawning")
+	await get_tree().create_timer(0.3).timeout
 	add_to_group("enemyAttack")
 	add_to_group("dayNight")
 	add_to_group("heat")
+	$Ani.play("Running")
 	
 	nav.target_position = ship.global_position
 
@@ -34,22 +37,26 @@ func _physics_process(delta):
 	move_and_slide()
 
 func on_getAttacked(dmg):
-	hp -= dmg
-	$Ani.play("Damaged")
 	if hp <= 0: 
 		on_dead()
 	else:
+		hp -= dmg
+		$Ani.play("Damaged")
 		await get_tree().create_timer(0.15).timeout
 		$Ani.play("Running")
+	
+	
 
 func on_dead():
-	$Ani.play("Dying")
-	await get_tree().create_timer(0.3).timeout
+	if dead == false:
+		dead = true
+		$Ani.play("Dying")
+		await get_tree().create_timer(0.4).timeout
 	
-	var ins = liquid.instantiate()
-	ins.init(liquidAilen,global_position)
-	get_parent().add_child(ins)
-	queue_free()
+		var ins = liquid.instantiate()
+		ins.init(liquidAilen,global_position)
+		get_parent().add_child(ins)
+		queue_free()
 
 func _on_attack_delay_timeout():
 	if not canAttack : 
@@ -59,7 +66,7 @@ func _on_attack_delay_timeout():
 
 func on_dayStarted():
 	$Ani.play("Dying")
-	await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.4).timeout
 	
 	on_dead()
 	

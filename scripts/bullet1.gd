@@ -13,6 +13,9 @@ func init(pos) :
 	position = pos
 	
 func _ready():
+	$particle/par1.emitting = true
+	$particle/par2.emitting = true
+	$particle/par3.emitting = true
 	$Ani.play("default")
 	look_at(get_global_mouse_position())
 	rotation_degrees += randi_range(-spread,spread)
@@ -28,5 +31,6 @@ func _on_hit_box_body_entered(body):
 	hit = true
 	body.on_getAttacked(dmg)
 	$Ani.play("Hit")
+	$particle/particleExplosion.emitting = true
 	await get_tree().create_timer(0.3).timeout
 	queue_free()

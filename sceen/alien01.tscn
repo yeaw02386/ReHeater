@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://seaohxkux1m3"]
+[gd_scene load_steps=26 format=3 uid="uid://seaohxkux1m3"]
 
 [ext_resource type="Script" path="res://scripts/alien01.gd" id="1_h0w5d"]
 [ext_resource type="PackedScene" uid="uid://ddnhjiirpyjtr" path="res://sceen/liquid.tscn" id="2_dsk0b"]
@@ -18,6 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://c25l4w3wceadb" path="res://assets/Alien/Running/frame0048.png" id="16_oie7f"]
 [ext_resource type="Texture2D" uid="uid://bt0fifdfvedl0" path="res://assets/Alien/Running/frame0049.png" id="17_npejo"]
 [ext_resource type="Texture2D" uid="uid://dktky7gqm1xj" path="res://assets/Alien/Running/frame0050.png" id="18_gssvm"]
+[ext_resource type="Texture2D" uid="uid://bwy85a0trnjn8" path="res://assets/Alien/spawning/frame0035.png" id="19_oo4cx"]
+[ext_resource type="Texture2D" uid="uid://bv4bx3irj4t5g" path="res://assets/Alien/spawning/frame0036.png" id="20_khoj1"]
+[ext_resource type="Texture2D" uid="uid://b3t2xrvlu87kj" path="res://assets/Alien/spawning/frame0037.png" id="21_1dn8f"]
+[ext_resource type="Texture2D" uid="uid://clbah07tv46oc" path="res://assets/Alien/spawning/frame0038.png" id="22_2l0jk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwek7"]
 size = Vector2(62, 92)
@@ -97,6 +101,26 @@ animations = [{
 "loop": true,
 "name": &"Running",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_oo4cx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_khoj1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_1dn8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_2l0jk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ws5uq")
+}],
+"loop": false,
+"name": &"Spawning",
+"speed": 13.0
 }]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8gptv"]
@@ -131,7 +155,7 @@ neighbor_distance = 100.0
 
 [node name="Ani" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ivg84")
-animation = &"Running"
+animation = &"Damaged"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_8gptv")

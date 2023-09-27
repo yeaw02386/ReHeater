@@ -162,6 +162,7 @@ position = Vector2(-16, 8)
 script = ExtResource("5_nk8kq")
 gradientDayNight = SubResource("GradientTexture1D_by2ru")
 timeSpeed = 6.0
+timeInit = 20
 dayStart = 4
 nightStart = 20
 
