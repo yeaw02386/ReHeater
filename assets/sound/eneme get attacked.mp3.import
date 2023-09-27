@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b8riryibsqgqu"
+path="res://.godot/imported/eneme get attacked.mp3-6c542d7bb40c58cdf6710c6cf6702683.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/eneme get attacked.mp3"
+dest_files=["res://.godot/imported/eneme get attacked.mp3-6c542d7bb40c58cdf6710c6cf6702683.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

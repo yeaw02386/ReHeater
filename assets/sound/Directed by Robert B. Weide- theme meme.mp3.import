@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bp28u2mnfkp01"
+path="res://.godot/imported/Directed by Robert B. Weide- theme meme.mp3-3c5fd9a01e9872ca5e15dcfc67de9adc.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/Directed by Robert B. Weide- theme meme.mp3"
+dest_files=["res://.godot/imported/Directed by Robert B. Weide- theme meme.mp3-3c5fd9a01e9872ca5e15dcfc67de9adc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

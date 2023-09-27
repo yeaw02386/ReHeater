@@ -1,9 +1,7 @@
 extends Node2D
 var frame = 7
-#var mainIns = preload("res://sceen/mainMenu.tscn")
 var cutend = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	frame = 7
 	$frame.frame = 7

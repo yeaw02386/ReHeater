@@ -113,6 +113,7 @@ func on_coolerDamage(dmg) :
 	if coolerDMG >= 1000:
 		return
 	$damageLayer.frame = int(abs(coolerDMG-1)/2)
+	get_tree().call_group("audio","on_play","shipGetAttack")
 	
 func on_coolerRepair(repair):
 	coolerDMG = max(1,abs(repair-coolerDMG))

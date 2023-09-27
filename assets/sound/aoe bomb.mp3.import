@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1seq6fvk58b6"
+path="res://.godot/imported/aoe bomb.mp3-e47236e1df8cbb25967ed79f993459e0.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/aoe bomb.mp3"
+dest_files=["res://.godot/imported/aoe bomb.mp3-e47236e1df8cbb25967ed79f993459e0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -151,7 +151,6 @@ fixed_fps = 60
 material = SubResource("CanvasItemMaterial_c1tkb")
 position = Vector2(-1.28367, -0.593457)
 rotation = 0.402749
-scale = Vector2(1, 1)
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_dekd7")
 texture = SubResource("AnimatedTexture_ivnss")

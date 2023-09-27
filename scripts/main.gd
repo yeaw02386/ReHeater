@@ -20,6 +20,7 @@ func _ready():
 	add_to_group("enemyAttack")
 	add_to_group("system")
 	add_to_group("gun")
+	add_to_group("audio")
 	on_newGame()
 	$GUI/Hint/hintAni.play("hover")
 
@@ -76,6 +77,7 @@ func on_toMainMenu():
 func on_mapChange(m):
 	$GUI/minimap.button_pressed = false
 	$GUI/watch.button_pressed = false
+	get_tree().call_group("audio","on_play","teleport")
 	add_child(m)
 	if mapIns : remove_child(mapIns)
 	mapIns = m
