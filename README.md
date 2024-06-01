@@ -1,4 +1,4 @@
-This project is part of the CP352203(Coputer Game Development)
+This project is part of the CP352203(Computer Game Development) Course
 
 This project is powered by Godot Engine and will require the specific version to be able to compile and run the game smoothly.
 
